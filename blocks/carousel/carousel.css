@@ -1,3 +1,4 @@
+/* Luxury Boutique — Carousel */
 .carousel .carousel-slides-container {
   position: relative;
 }
@@ -54,11 +55,12 @@
 .carousel .carousel-slide .carousel-slide-content {
   z-index: 1;
   margin: 68px;
-  padding: 16px;
-  color: white;
-  background-color: rgb(19 19 19 / 75%);
+  padding: 24px;
+  color: var(--background-color);
+  background-color: rgba(44, 36, 32, 0.7);
   position: relative;
   width: var(--slide-content-width, auto);
+  font-family: var(--body-font-family);
 }
 
 .carousel .carousel-slide-indicators {
@@ -72,19 +74,19 @@
 }
 
 .carousel .carousel-slide-indicator button {
-  width: 24px;
-  height: 24px;
+  width: 8px;
+  height: 8px;
   margin: 0;
   padding: 0;
-  border-radius: 50%;
-  background-color: #8F8F8F;
-  transition: background-color 0.2s;
+  border-radius: 0;
+  background-color: rgba(139, 111, 71, 0.3);
+  transition: background-color 0.4s ease;
 }
 
 .carousel .carousel-slide-indicator button:disabled,
 .carousel .carousel-slide-indicator button:hover,
 .carousel .carousel-slide-indicator button:focus-visible {
-  background-color: var(--text-color);
+  background-color: var(--accent-primary);
 }
 
 .carousel .carousel-navigation-buttons {
@@ -105,21 +107,24 @@
   width: 44px;
   height: 44px;
   margin: 0;
-  border-radius: 50%;
+  border-radius: 0;
   padding: 0;
-  background-color: rgb(19 19 19 / 25%);
-  transition: background-color 0.2s;
+  background-color: rgba(253, 252, 250, 0.8);
+  border: 1px solid rgba(139, 111, 71, 0.2);
+  transition: all 0.4s ease;
 }
 
 .carousel .carousel-navigation-buttons button:hover,
 .carousel .carousel-navigation-buttons button:focus-visible {
-  background-color: rgb(19 19 19 / 75%);
+  background-color: var(--accent-primary);
+  border-color: var(--accent-primary);
+  color: var(--background-color);
 }
 
 .carousel .carousel-navigation-buttons button::after {
   display: block;
   content: '';
-  border: 2px solid;
+  border: 1px solid;
   border-bottom: 0;
   border-left: 0;
   height: 12px;

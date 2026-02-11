@@ -10,18 +10,21 @@
  * governing permissions and limitations under the License.
  */
 
+/* Luxury Boutique — Design Tokens */
 :root {
   /* colors */
-  --background-color: white;
-  --light-color: #f8f8f8;
-  --dark-color: #505050;
-  --text-color: #131313;
-  --link-color: #3b63fb;
-  --link-hover-color: #1d3ecf;
+  --background-color: #fdfcfa;
+  --light-color: #f5f1eb;
+  --dark-color: #2c2420;
+  --text-color: #1a1613;
+  --link-color: #8b6f47;
+  --link-hover-color: #6b5637;
+  --accent-primary: #8b6f47;
+  --accent-secondary: #c4a265;
 
   /* fonts */
-  --body-font-family: roboto, roboto-fallback, sans-serif;
-  --heading-font-family: roboto-condensed, roboto-condensed-fallback, sans-serif;
+  --body-font-family: 'Crimson Text', 'crimson-text', 'Georgia', serif;
+  --heading-font-family: 'Cormorant', 'cormorant', 'Georgia', serif;
 
   /* body sizes */
   --body-font-size-m: 22px;
@@ -42,15 +45,15 @@
 
 /* fallback fonts */
 @font-face {
-  font-family: roboto-condensed-fallback;
-  size-adjust: 88.82%;
-  src: local('Arial');
+  font-family: cormorant-fallback;
+  size-adjust: 110%;
+  src: local('Georgia');
 }
 
 @font-face {
-  font-family: roboto-fallback;
-  size-adjust: 99.529%;
-  src: local('Arial');
+  font-family: crimson-text-fallback;
+  size-adjust: 105%;
+  src: local('Georgia');
 }
 
 @media (width >= 900px) {
@@ -61,10 +64,10 @@
     --body-font-size-xs: 14px;
 
     /* heading sizes */
-    --heading-font-size-xxl: 45px;
-    --heading-font-size-xl: 36px;
-    --heading-font-size-l: 28px;
-    --heading-font-size-m: 22px;
+    --heading-font-size-xxl: 52px;
+    --heading-font-size-xl: 40px;
+    --heading-font-size-l: 32px;
+    --heading-font-size-m: 24px;
     --heading-font-size-s: 20px;
     --heading-font-size-xs: 18px;
   }
@@ -77,7 +80,7 @@ body {
   color: var(--text-color);
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-m);
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 body.appear {
@@ -108,8 +111,9 @@ h6 {
   margin-bottom: 0.25em;
   font-family: var(--heading-font-family);
   font-weight: 600;
-  line-height: 1.25;
+  line-height: 1.15;
   scroll-margin: 40px;
+  letter-spacing: 0.02em;
 }
 
 h1 { font-size: var(--heading-font-size-xxl); }
@@ -117,7 +121,12 @@ h2 { font-size: var(--heading-font-size-xl); }
 h3 { font-size: var(--heading-font-size-l); }
 h4 { font-size: var(--heading-font-size-m); }
 h5 { font-size: var(--heading-font-size-s); }
-h6 { font-size: var(--heading-font-size-xs); }
+
+h6 {
+  font-size: var(--heading-font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
 
 p,
 dl,
@@ -136,7 +145,7 @@ pre {
 
 pre {
   padding: 16px;
-  border-radius: 8px;
+  border-radius: 0;
   background-color: var(--light-color);
   overflow-x: auto;
   white-space: pre;
@@ -158,11 +167,12 @@ a:any-link {
   color: var(--link-color);
   text-decoration: none;
   overflow-wrap: break-word;
+  transition: color 0.4s ease;
 }
 
 a:hover {
   color: var(--link-hover-color);
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 /* buttons */
@@ -172,42 +182,55 @@ button {
   display: inline-block;
   max-width: 100%;
   margin: 12px 0;
-  border: 2px solid transparent;
-  border-radius: 2.4em;
-  padding: 0.5em 1.2em;
-  font-family: var(--body-font-family);
+  border: 1px solid var(--accent-primary);
+  border-radius: 0;
+  padding: 0.6em 1.8em;
+  font-family: var(--heading-font-family);
   font-style: normal;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.25;
   text-align: center;
   text-decoration: none;
-  background-color: var(--link-color);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  background-color: var(--accent-primary);
   color: var(--background-color);
   cursor: pointer;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  transition: all 0.4s ease;
 }
 
 a.button:hover,
 a.button:focus,
 button:hover,
 button:focus {
-  background-color: var(--link-hover-color);
+  background-color: var(--dark-color);
+  border-color: var(--dark-color);
+  color: var(--background-color);
   cursor: pointer;
 }
 
 button:disabled,
 button:disabled:hover {
   background-color: var(--light-color);
+  border-color: var(--light-color);
+  color: var(--dark-color);
   cursor: unset;
 }
 
 a.button.secondary,
 button.secondary {
-  background-color: unset;
-  border: 2px solid currentcolor;
-  color: var(--text-color);
+  background-color: transparent;
+  border: 1px solid var(--accent-primary);
+  color: var(--accent-primary);
+}
+
+a.button.secondary:hover,
+button.secondary:hover {
+  background-color: var(--accent-primary);
+  color: var(--background-color);
 }
 
 main img {
@@ -254,4 +277,18 @@ main .section.highlight {
   background-color: var(--light-color);
   margin: 0;
   padding: 40px 0;
+}
+
+/* dark mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #1a1613;
+    --text-color: #f5f1eb;
+    --light-color: #2c2420;
+    --dark-color: #0f0d0b;
+    --link-color: #c4a265;
+    --link-hover-color: #d4b87a;
+    --accent-primary: #c4a265;
+    --accent-secondary: #8b6f47;
+  }
 }

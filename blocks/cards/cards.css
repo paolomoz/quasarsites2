@@ -1,19 +1,31 @@
+/* Luxury Boutique — Cards */
 .cards > ul {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
-  gap: 24px;
+  gap: 32px;
 }
 
 .cards > ul > li {
-  border: 1px solid #dadada;
+  border: 1px solid rgba(139, 111, 71, 0.15);
   background-color: var(--background-color);
+  transition: box-shadow 0.4s ease;
+}
+
+.cards > ul > li:hover {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
 }
 
 .cards .cards-card-body {
-  margin: 16px;
+  margin: 20px;
+}
+
+.cards .cards-card-body h3,
+.cards .cards-card-body h4 {
+  font-family: var(--heading-font-family);
+  letter-spacing: 0.02em;
 }
 
 .cards .cards-card-image {

@@ -1,3 +1,4 @@
+/* Luxury Boutique — Hero */
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -5,8 +6,18 @@
 
 .hero {
   position: relative;
-  padding: 40px 24px;
-  min-height: 300px;
+  padding: 64px 24px;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(44, 36, 32, 0.25) 0%, rgba(44, 36, 32, 0.5) 100%);
+  z-index: 0;
 }
 
 .hero h1 {
@@ -14,6 +25,30 @@
   margin-left: auto;
   margin-right: auto;
   color: var(--background-color);
+  position: relative;
+  z-index: 1;
+  letter-spacing: 0.03em;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.hero p {
+  position: relative;
+  z-index: 1;
+  color: var(--background-color);
+  max-width: 600px;
+}
+
+.hero a.button {
+  position: relative;
+  z-index: 1;
+  border-color: var(--background-color);
+  background-color: transparent;
+  color: var(--background-color);
+}
+
+.hero a.button:hover {
+  background-color: var(--background-color);
+  color: var(--dark-color);
 }
 
 .hero picture {
@@ -30,8 +65,16 @@
   height: 100%;
 }
 
+@media (width >= 600px) {
+  .hero {
+    padding: 80px 32px;
+    min-height: 500px;
+  }
+}
+
 @media (width >= 900px) {
   .hero {
-    padding: 40px 32px;
+    padding: 96px 32px;
+    min-height: 560px;
   }
 }
