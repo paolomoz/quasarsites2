@@ -1,9 +1,11 @@
+/* Vibrant Street — Tabs */
 .tabs .tabs-list {
   display: flex;
-  gap: 0.5ch;
+  gap: 4px;
   max-width: 100%;
   font-size: var(--body-font-size-xs);
   overflow-x: auto;
+  border-bottom: 2px solid var(--dark-color);
 }
 
 @media (width >= 600px) {
@@ -21,34 +23,45 @@
 .tabs .tabs-list button {
   flex: 0 0 max-content;
   margin: 0;
-  border: 1px solid var(--dark-color);
-  border-radius: 0;
-  padding: 0.5em;
-  background-color: #949494;
-  color: initial;
-  font-weight: bold;
+  border: 2px solid var(--dark-color);
+  border-bottom: 0;
+  border-radius: 8px 8px 0 0;
+  padding: 0.5em 1em;
+  background-color: var(--light-color);
+  color: var(--dark-color);
+  font-family: var(--heading-font-family);
+  font-weight: 700;
   line-height: unset;
   text-align: initial;
   text-overflow: unset;
   overflow: unset;
   white-space: unset;
-  transition: background-color 0.2s;
+  transition: all 0.2s ease;
+  box-shadow: none;
 }
 
 .tabs .tabs-list button p {
   margin: 0;
 }
 
+.tabs .tabs-list button:hover {
+  background-color: var(--accent-secondary);
+  color: var(--dark-color);
+}
+
 .tabs .tabs-list button[aria-selected='true'] {
-  border-bottom: 1px solid var(--background-color);
   background-color: var(--background-color);
+  border-bottom: 2px solid var(--background-color);
+  margin-bottom: -2px;
   cursor: initial;
 }
 
 .tabs .tabs-panel {
-  margin-top: -1px;
+  margin-top: 0;
   padding: 24px;
-  border: 1px solid var(--dark-color);
+  border: 2px solid var(--dark-color);
+  border-top: 0;
+  border-radius: 0 0 8px 8px;
   overflow: auto;
 }
 

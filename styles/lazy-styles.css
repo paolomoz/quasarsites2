@@ -1,1 +1,6 @@
-/* add global styles that can be loaded post LCP here */
+/* Vibrant Street — Post-LCP styles */
+
+/* Punchy hover transitions */
+a:any-link {
+  transition: color 0.2s ease;
+}

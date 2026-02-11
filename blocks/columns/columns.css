@@ -1,3 +1,4 @@
+/* Vibrant Street — Columns */
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -5,6 +6,7 @@
 
 .columns img {
   width: 100%;
+  border-radius: 12px;
 }
 
 .columns > div > div {
