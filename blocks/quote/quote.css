@@ -1,0 +1,83 @@
+main .quote {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem 1.5rem;
+  background-color: var(--light-color);
+  border-inline-start: 4px solid var(--accent-primary);
+}
+
+main .quote .quote-text {
+  font-family: var(--body-font-family);
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: var(--text-color);
+  font-style: italic;
+  margin: 0;
+}
+
+main .quote .quote-attribution {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+main .quote .quote-author {
+  font-family: var(--heading-font-family);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin: 0;
+}
+
+main .quote .quote-source {
+  font-family: var(--body-font-family);
+  font-size: 0.875rem;
+  color: var(--accent-primary);
+  margin: 0;
+  font-style: normal;
+}
+
+main .quote a:any-link {
+  color: var(--link-color);
+  text-decoration: none;
+  transition: color var(--transition-speed);
+}
+
+main .quote a:hover {
+  color: var(--link-hover-color);
+}
+
+@media (width >= 600px) {
+  main .quote {
+    padding: 2.5rem 2rem;
+    gap: 1.75rem;
+  }
+
+  main .quote .quote-text {
+    font-size: 1.5rem;
+  }
+
+  main .quote .quote-attribution {
+    flex-direction: row;
+    align-items: baseline;
+    gap: 1rem;
+  }
+}
+
+@media (width >= 900px) {
+  main .quote {
+    padding: 3rem 2.5rem;
+    gap: 2rem;
+    max-width: 800px;
+  }
+
+  main .quote .quote-text {
+    font-size: 1.75rem;
+    line-height: 1.7;
+  }
+
+  main .quote .quote-author {
+    font-size: 1.125rem;
+  }
+}

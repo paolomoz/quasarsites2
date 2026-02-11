@@ -1,20 +1,71 @@
-import { getMetadata } from '../../scripts/aem.js';
-import { loadFragment } from '../fragment/fragment.js';
-
 /**
- * loads and decorates the footer
- * @param {Element} block The footer block element
+ * decorate the footer block
+ * @param {Element} block the block
  */
 export default async function decorate(block) {
-  // load footer as fragment
-  const footerMeta = getMetadata('footer');
-  const footerPath = footerMeta ? new URL(footerMeta, window.location).pathname : '/footer';
-  const fragment = await loadFragment(footerPath);
+  const rows = block.querySelectorAll(':scope > div');
 
-  // decorate footer DOM
-  block.textContent = '';
-  const footer = document.createElement('div');
-  while (fragment.firstElementChild) footer.append(fragment.firstElementChild);
+  // Structure: rows contain sections like branding, links, social, copyright
+  rows.forEach((row, index) => {
+    const cells = row.querySelectorAll(':scope > div');
 
-  block.append(footer);
+    // First row typically contains branding/logo
+    if (index === 0) {
+      row.classList.add('footer-brand');
+      cells.forEach((cell) => {
+        cell.classList.add('footer-brand-cell');
+      });
+    }
+
+    // Middle rows typically contain link columns
+    if (index > 0 && index < rows.length - 1) {
+      row.classList.add('footer-links');
+      cells.forEach((cell) => {
+        cell.classList.add('footer-links-column');
+
+        // Convert direct text to proper list structure if needed
+        const headings = cell.querySelectorAll(':scope > h3, :scope > h4, :scope > h5');
+        headings.forEach((heading) => {
+          heading.classList.add('footer-column-title');
+        });
+
+        const lists = cell.querySelectorAll(':scope > ul');
+        lists.forEach((list) => {
+          list.classList.add('footer-link-list');
+          list.querySelectorAll('li').forEach((item) => {
+            item.classList.add('footer-link-item');
+          });
+        });
+      });
+    }
+
+    // Last row typically contains social/copyright
+    if (index === rows.length - 1) {
+      row.classList.add('footer-bottom');
+      cells.forEach((cell) => {
+        const content = cell.textContent.toLowerCase();
+
+        if (content.includes('copyright') || content.includes('©') || content.includes('legal')) {
+          cell.classList.add('footer-copyright');
+        } else if (content.includes('social') || cell.querySelector('a[href*="facebook"], a[href*="twitter"], a[href*="linkedin"], a[href*="instagram"]')) {
+          cell.classList.add('footer-social');
+          const links = cell.querySelectorAll('a');
+          links.forEach((link) => {
+            link.classList.add('social-link');
+          });
+        } else {
+          cell.classList.add('footer-bottom-cell');
+        }
+      });
+    }
+  });
+
+  // Decorate all links
+  const links = block.querySelectorAll('a');
+  links.forEach((link) => {
+    link.classList.add('footer-link');
+  });
+
+  // Add footer class for styling hooks
+  block.classList.add('footer-decorated');
 }

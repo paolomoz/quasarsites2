@@ -1,37 +1,144 @@
-.hero-container .hero-wrapper {
-  max-width: unset;
-  padding: 0;
-}
-
-.hero {
+main .hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 500px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding-block: 3rem;
+  padding-inline: 1rem;
+  text-align: center;
   position: relative;
-  padding: 40px 24px;
-  min-height: 300px;
+  overflow: hidden;
 }
 
-.hero h1 {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  color: var(--background-color);
-}
-
-.hero picture {
+main .hero::before {
+  content: '';
   position: absolute;
-  z-index: -1;
   inset: 0;
-  object-fit: cover;
-  box-sizing: border-box;
+  background-color: rgb(0 0 0 / 30%);
+  pointer-events: none;
 }
 
-.hero img {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
+main .hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+main .hero h1 {
+  font-family: var(--heading-font-family);
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 1rem 0;
+  color: var(--clr-white, #FFFFFF);
+  max-width: 100%;
+}
+
+main .hero p {
+  font-family: var(--body-font-family);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0 0 2rem 0;
+  color: var(--clr-white, #FFFFFF);
+  max-width: 600px;
+}
+
+main .hero .button-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+main .hero a.button {
+  display: inline-block;
+  padding: 1rem 2rem;
+  border-radius: var(--border-radius);
+  font-family: var(--body-font-family);
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all var(--transition-speed);
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+main .hero a.button.primary {
+  background-color: var(--accent-primary);
+  color: var(--dark-color);
+}
+
+main .hero a.button.primary:hover {
+  background-color: var(--accent-secondary);
+  transform: translateY(-2px);
+}
+
+main .hero a.button.secondary {
+  background-color: transparent;
+  color: var(--clr-white, #FFFFFF);
+  border-color: var(--clr-white, #FFFFFF);
+}
+
+main .hero a.button.secondary:hover {
+  background-color: var(--clr-white, #FFFFFF);
+  color: var(--dark-color);
+  transform: translateY(-2px);
+}
+
+@media (width >= 600px) {
+  main .hero {
+    min-height: 600px;
+    padding-block: 4rem;
+    padding-inline: 2rem;
+  }
+
+  main .hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  main .hero p {
+    font-size: 1.125rem;
+    margin-bottom: 2.5rem;
+  }
+
+  main .hero .button-container {
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+
+  main .hero a.button {
+    padding: 1rem 2.5rem;
+    font-size: 1.0625rem;
+  }
 }
 
 @media (width >= 900px) {
-  .hero {
-    padding: 40px 32px;
+  main .hero {
+    min-height: 700px;
+    padding-block: 5rem;
+    padding-inline: 3rem;
+  }
+
+  main .hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    max-width: 900px;
+  }
+
+  main .hero p {
+    font-size: 1.25rem;
+    margin-bottom: 3rem;
+    max-width: 700px;
+  }
+
+  main .hero a.button {
+    padding: 1.25rem 3rem;
+    font-size: 1.0625rem;
   }
 }

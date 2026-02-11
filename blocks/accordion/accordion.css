@@ -1,0 +1,124 @@
+main .accordion {
+  max-width: var(--max-content-width);
+  margin-inline: auto;
+  padding-inline: var(--inline-section-padding);
+}
+
+main .accordion .accordion-item {
+  border-bottom: 1px solid var(--light-color);
+}
+
+main .accordion .accordion-item:first-child {
+  border-top: 1px solid var(--light-color);
+}
+
+main .accordion .accordion-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 1rem;
+  background-color: var(--background-color);
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-s);
+  font-weight: 600;
+  color: var(--text-color);
+  transition: background-color var(--transition-speed);
+}
+
+main .accordion .accordion-header:hover {
+  background-color: var(--light-color);
+}
+
+main .accordion .accordion-header:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: -2px;
+}
+
+main .accordion .accordion-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  transition: transform var(--transition-speed);
+}
+
+main .accordion .accordion-item.expanded .accordion-icon {
+  transform: rotate(180deg);
+}
+
+main .accordion .accordion-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--transition-speed);
+}
+
+main .accordion .accordion-item.expanded .accordion-body {
+  max-height: 2000px;
+}
+
+main .accordion .accordion-content {
+  padding-block: 1rem;
+  padding-inline: 0;
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+main .accordion .accordion-content p {
+  margin: 0 0 1rem 0;
+}
+
+main .accordion .accordion-content p:last-child {
+  margin-bottom: 0;
+}
+
+main .accordion .accordion-content a:any-link {
+  color: var(--link-color);
+  text-decoration: none;
+  transition: color var(--transition-speed);
+}
+
+main .accordion .accordion-content a:hover {
+  color: var(--link-hover-color);
+  text-decoration: underline;
+}
+
+main .accordion .accordion-content ul,
+main .accordion .accordion-content ol {
+  margin: 0 0 1rem 0;
+  padding-inline-start: 1.5rem;
+}
+
+main .accordion .accordion-content li {
+  margin-bottom: 0.5rem;
+}
+
+@media (width >= 600px) {
+  main .accordion .accordion-header {
+    font-size: var(--heading-font-size-m);
+    padding-block: 1.25rem;
+  }
+
+  main .accordion .accordion-content {
+    padding-block: 1.25rem;
+    font-size: var(--body-font-size-m);
+  }
+}
+
+@media (width >= 900px) {
+  main .accordion .accordion-header {
+    font-size: var(--heading-font-size-m);
+    padding-block: 1.5rem;
+  }
+
+  main .accordion .accordion-content {
+    padding-block: 1.5rem;
+  }
+}
