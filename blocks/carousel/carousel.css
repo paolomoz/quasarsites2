@@ -1,3 +1,4 @@
+/* Natural Organic — Carousel */
 .carousel .carousel-slides-container {
   position: relative;
 }
@@ -53,12 +54,15 @@
 
 .carousel .carousel-slide .carousel-slide-content {
   z-index: 1;
-  margin: 68px;
-  padding: 16px;
-  color: white;
-  background-color: rgb(19 19 19 / 75%);
+  margin: 56px;
+  padding: 20px;
+  color: var(--background-color);
+  background-color: rgba(61, 90, 76, 0.75);
+  backdrop-filter: blur(4px);
+  border-radius: 8px;
   position: relative;
   width: var(--slide-content-width, auto);
+  font-family: var(--body-font-family);
 }
 
 .carousel .carousel-slide-indicators {
@@ -72,19 +76,19 @@
 }
 
 .carousel .carousel-slide-indicator button {
-  width: 24px;
-  height: 24px;
+  width: 10px;
+  height: 10px;
   margin: 0;
   padding: 0;
   border-radius: 50%;
-  background-color: #8F8F8F;
-  transition: background-color 0.2s;
+  background-color: rgba(107, 142, 124, 0.3);
+  transition: background-color 0.3s ease;
 }
 
 .carousel .carousel-slide-indicator button:disabled,
 .carousel .carousel-slide-indicator button:hover,
 .carousel .carousel-slide-indicator button:focus-visible {
-  background-color: var(--text-color);
+  background-color: var(--accent-primary);
 }
 
 .carousel .carousel-navigation-buttons {
@@ -107,13 +111,16 @@
   margin: 0;
   border-radius: 50%;
   padding: 0;
-  background-color: rgb(19 19 19 / 25%);
-  transition: background-color 0.2s;
+  background-color: rgba(254, 253, 251, 0.85);
+  backdrop-filter: blur(4px);
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(60, 90, 76, 0.12);
 }
 
 .carousel .carousel-navigation-buttons button:hover,
 .carousel .carousel-navigation-buttons button:focus-visible {
-  background-color: rgb(19 19 19 / 75%);
+  background-color: var(--accent-primary);
+  color: var(--background-color);
 }
 
 .carousel .carousel-navigation-buttons button::after {
@@ -144,7 +151,7 @@
   .carousel .carousel-slide .carousel-slide-content {
     --slide-content-width: calc((100% - 184px) / 2);
 
-    margin: 92px;
+    margin: 72px;
   }
 
   .carousel .carousel-slide .carousel-slide-content[data-align='justify'] {

@@ -1,1 +1,6 @@
-/* add global styles that can be loaded post LCP here */
+/* Natural Organic — Post-LCP styles */
+
+/* Gentle hover transitions */
+a:any-link {
+  transition: color 0.3s ease;
+}

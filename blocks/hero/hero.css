@@ -1,3 +1,4 @@
+/* Natural Organic — Hero */
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -5,8 +6,18 @@
 
 .hero {
   position: relative;
-  padding: 40px 24px;
-  min-height: 300px;
+  padding: 48px 24px;
+  min-height: 340px;
+  display: flex;
+  align-items: center;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(61, 90, 76, 0.4) 0%, rgba(44, 62, 47, 0.55) 100%);
+  z-index: 0;
 }
 
 .hero h1 {
@@ -14,6 +25,21 @@
   margin-left: auto;
   margin-right: auto;
   color: var(--background-color);
+  position: relative;
+  z-index: 1;
+  font-weight: 500;
+}
+
+.hero p {
+  position: relative;
+  z-index: 1;
+  color: var(--background-color);
+  max-width: 600px;
+}
+
+.hero a.button {
+  position: relative;
+  z-index: 1;
 }
 
 .hero picture {
@@ -30,8 +56,16 @@
   height: 100%;
 }
 
+@media (width >= 600px) {
+  .hero {
+    padding: 64px 32px;
+    min-height: 420px;
+  }
+}
+
 @media (width >= 900px) {
   .hero {
-    padding: 40px 32px;
+    padding: 80px 32px;
+    min-height: 500px;
   }
 }

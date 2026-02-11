@@ -1,20 +1,49 @@
+/* Natural Organic — Footer */
 footer {
-  background-color: var(--light-color);
+  background-color: var(--dark-color);
+  color: var(--light-color);
   font-size: var(--body-font-size-xs);
 }
 
 footer .footer > div {
   margin: auto;
   max-width: 1200px;
-  padding: 40px 24px 24px;
+  padding: 48px 24px 32px;
 }
 
 footer .footer p {
   margin: 0;
 }
 
+footer .footer a:any-link {
+  color: var(--accent-secondary);
+  transition: color 0.3s ease;
+}
+
+footer .footer a:hover {
+  color: var(--background-color);
+}
+
+footer .footer h2,
+footer .footer h3,
+footer .footer h4 {
+  color: var(--accent-secondary);
+  font-family: var(--heading-font-family);
+  font-weight: 500;
+  font-size: var(--body-font-size-s);
+}
+
+footer .footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+footer .footer ul li {
+  padding: 4px 0;
+}
+
 @media (width >= 900px) {
   footer .footer > div {
-    padding: 40px 32px 24px;
+    padding: 56px 32px 32px;
   }
 }
