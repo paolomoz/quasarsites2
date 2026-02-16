@@ -1,0 +1,157 @@
+/* Engineering Story — Dark technical grid, specs as visual content */
+
+.engineering-container {
+  background-color: var(--color-dark-slate);
+}
+
+.engineering-container .engineering-wrapper {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-section) var(--space-m);
+}
+
+.engineering {
+  color: var(--color-white);
+}
+
+/* Section label */
+.engineering .engineering-label {
+  font-family: var(--font-mono);
+  font-size: var(--data-font-size);
+  color: var(--color-gray);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-l);
+}
+
+.engineering .engineering-label::before {
+  content: '';
+  display: inline-block;
+  width: 48px;
+  height: 2px;
+  background-color: var(--color-red);
+  margin-right: var(--space-s);
+  vertical-align: middle;
+}
+
+/* Heading */
+.engineering h2 {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 4vw, 50px);
+  font-weight: 700;
+  color: var(--color-white);
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+  max-width: 20ch;
+  margin-bottom: var(--space-xl);
+}
+
+/* Spec grid — the heart of the engineering section */
+.engineering .spec-grid {
+  display: grid;
+  gap: 1px;
+  background-color: rgb(255 255 255 / 0.06);
+}
+
+.engineering .spec-grid > div {
+  background-color: var(--color-dark-slate);
+  padding: var(--space-l);
+}
+
+@media (width >= 600px) {
+  .engineering .spec-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width >= 900px) {
+  .engineering .spec-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Individual spec panels */
+.engineering .spec-panel {
+  padding: var(--space-l);
+  border: 1px solid rgb(255 255 255 / 0.06);
+  transition: border-color var(--duration-fast) var(--ease-default);
+}
+
+.engineering .spec-panel:hover {
+  border-color: rgb(255 255 255 / 0.15);
+}
+
+.engineering .spec-panel .spec-number {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 4vw, 56px);
+  font-weight: 700;
+  color: var(--color-white);
+  letter-spacing: -1px;
+  line-height: 1;
+  margin-bottom: var(--space-xs);
+}
+
+.engineering .spec-panel .spec-unit {
+  font-family: var(--font-mono);
+  font-size: var(--data-font-size);
+  color: var(--color-red);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-s);
+}
+
+.engineering .spec-panel .spec-description {
+  font-family: var(--font-body);
+  font-size: var(--body-font-size-s);
+  color: var(--color-gray);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* Blueprint line draws — SVG-style technical lines */
+.engineering .blueprint-line {
+  position: relative;
+  overflow: hidden;
+}
+
+.engineering .blueprint-line::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--color-red) 20%,
+    rgb(255 255 255 / 0.15) 50%,
+    transparent 100%
+  );
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 1.5s var(--ease-out);
+}
+
+.engineering .blueprint-line.revealed::after {
+  transform: scaleX(1);
+}
+
+/* Specs as inline poetry */
+.engineering .spec-inline {
+  display: flex;
+  align-items: center;
+  gap: var(--space-m);
+  flex-wrap: wrap;
+  font-family: var(--font-display);
+  font-size: clamp(18px, 2vw, 28px);
+  font-weight: 700;
+  color: var(--color-white);
+  letter-spacing: -0.3px;
+  padding: var(--space-l) 0;
+}
+
+.engineering .spec-inline .separator {
+  color: var(--color-red);
+  font-weight: 400;
+}

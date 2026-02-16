@@ -1,11 +1,6 @@
 export default function decorate(block) {
-  const children = [...block.children];
-  if (children.length === 0) return;
+  block.classList.add('reveal-stagger');
 
-  // Add reveal animation class
-  block.classList.add('reveal');
-
-  // Set up intersection observer for reveal
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {

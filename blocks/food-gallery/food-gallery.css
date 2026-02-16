@@ -1,0 +1,93 @@
+/* Food Gallery — Full-bleed photography, taste first */
+
+.food-gallery-container {
+  background-color: var(--color-white);
+}
+
+.food-gallery-container .food-gallery-wrapper {
+  max-width: none;
+  padding: 0;
+}
+
+.food-gallery {
+  display: grid;
+  gap: 2px;
+}
+
+@media (width >= 600px) {
+  .food-gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width >= 900px) {
+  .food-gallery {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto;
+  }
+
+  /* First item spans 2 rows for editorial asymmetry */
+  .food-gallery > div:first-child {
+    grid-row: span 2;
+  }
+}
+
+/* Gallery items */
+.food-gallery > div {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+}
+
+.food-gallery > div:first-child {
+  aspect-ratio: auto;
+}
+
+.food-gallery > div picture,
+.food-gallery > div img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 8s var(--ease-out);
+}
+
+.food-gallery > div:hover picture,
+.food-gallery > div:hover img {
+  transform: scale(1.03);
+}
+
+/* Recipe name overlay */
+.food-gallery > div > div:last-child {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--space-xl) var(--space-m) var(--space-m);
+  background: linear-gradient(
+    to top,
+    rgb(26 26 26 / 0.7) 0%,
+    transparent 100%
+  );
+}
+
+.food-gallery > div > div:last-child p {
+  font-family: var(--font-serif);
+  font-size: clamp(20px, 2vw, 28px);
+  color: var(--color-white);
+  margin: 0;
+  max-width: none;
+}
+
+.food-gallery > div > div:last-child .recipe-tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: rgb(255 255 255 / 0.7);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: var(--space-xs);
+}
+
+/* Parallax effect on food images — controlled via JS */
+.food-gallery.parallax-active > div img {
+  will-change: transform;
+}

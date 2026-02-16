@@ -1,3 +1,9 @@
+/* Vitamix Hero — Dark slate, precision instrument feel */
+
+.hero-container {
+  background-color: var(--color-dark-slate);
+}
+
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -5,33 +11,139 @@
 
 .hero {
   position: relative;
-  padding: 40px 24px;
-  min-height: 300px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background-color: var(--color-dark-slate);
 }
 
-.hero h1 {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  color: var(--background-color);
-}
-
-.hero picture {
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  object-fit: cover;
-  box-sizing: border-box;
-}
-
-.hero img {
-  object-fit: cover;
+.hero > div {
+  position: relative;
+  z-index: 2;
   width: 100%;
-  height: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: calc(var(--nav-height) + var(--space-xl)) var(--space-m) var(--space-xl);
+  display: grid;
+  gap: var(--space-xl);
 }
 
 @media (width >= 900px) {
-  .hero {
-    padding: 40px 32px;
+  .hero > div {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: calc(var(--nav-height) + var(--space-xxl)) 32px var(--space-xxl);
+    min-height: 85vh;
+  }
+}
+
+/* Hero content */
+.hero h1 {
+  color: var(--color-white);
+  font-family: var(--font-display);
+  font-size: clamp(36px, 5vw, 67px);
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  line-height: 1.05;
+  margin: 0 0 var(--space-m);
+}
+
+.hero p {
+  color: var(--color-gray-light);
+  font-family: var(--font-body);
+  font-size: var(--body-font-size-l);
+  line-height: 1.65;
+  max-width: 48ch;
+  margin: 0 0 var(--space-l);
+}
+
+/* Hero image area */
+.hero picture {
+  position: relative;
+  display: block;
+  aspect-ratio: 1;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Spec callouts — floating data points */
+.hero .spec-callout {
+  font-family: var(--font-mono);
+  font-size: var(--data-font-size);
+  color: var(--color-gray);
+  letter-spacing: 0.03em;
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.hero .spec-callout::before {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background-color: var(--color-red);
+}
+
+.hero .spec-callout .value {
+  color: var(--color-white);
+  font-weight: 400;
+}
+
+/* CTA buttons in hero */
+.hero a.button:any-link {
+  margin-top: var(--space-s);
+}
+
+.hero a.button.secondary:any-link {
+  border-color: var(--color-white);
+  color: var(--color-white);
+}
+
+.hero a.button.secondary:hover {
+  background-color: var(--color-white);
+  color: var(--color-dark-slate);
+}
+
+/* Spec grid below hero content */
+.hero-specs {
+  display: flex;
+  gap: var(--space-l);
+  margin-top: var(--space-xl);
+  padding-top: var(--space-l);
+  border-top: 1px solid rgb(255 255 255 / 0.1);
+}
+
+.hero-specs .spec-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hero-specs .spec-value {
+  font-family: var(--font-display);
+  font-size: var(--heading-font-size-m);
+  font-weight: 700;
+  color: var(--color-white);
+  letter-spacing: -0.5px;
+}
+
+.hero-specs .spec-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--color-gray);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+@media (width >= 900px) {
+  .hero-specs {
+    gap: var(--space-xl);
   }
 }

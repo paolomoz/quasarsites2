@@ -1,0 +1,79 @@
+/* Authority Bar — One horizontal strip, no embellishment */
+
+.authority-bar-container {
+  background-color: var(--color-surface);
+  border-top: 1px solid rgb(162 170 173 / 0.2);
+  border-bottom: 1px solid rgb(162 170 173 / 0.2);
+}
+
+.authority-bar-container .authority-bar-wrapper {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-l) var(--space-m);
+}
+
+.authority-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-l);
+  flex-wrap: wrap;
+}
+
+.authority-bar > div {
+  display: flex;
+  align-items: center;
+  gap: var(--space-l);
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.authority-bar > div > div {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+}
+
+.authority-bar p {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: var(--data-font-size);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-gray);
+  white-space: nowrap;
+}
+
+.authority-bar img {
+  height: 28px;
+  width: auto;
+  opacity: 0.5;
+  filter: grayscale(100%);
+  transition: opacity var(--duration-fast) var(--ease-default);
+}
+
+.authority-bar img:hover {
+  opacity: 0.8;
+}
+
+/* Separator dots between items */
+.authority-bar > div > div + div::before {
+  content: '';
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: var(--color-gray-light);
+  margin-right: var(--space-s);
+}
+
+@media (width >= 900px) {
+  .authority-bar-container .authority-bar-wrapper {
+    padding: var(--space-m) var(--space-m);
+  }
+
+  .authority-bar > div {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+}

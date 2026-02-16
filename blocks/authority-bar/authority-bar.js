@@ -1,11 +1,7 @@
 export default function decorate(block) {
-  const children = [...block.children];
-  if (children.length === 0) return;
-
-  // Add reveal animation class
+  // Authority bar is purely presentational — minimal JS needed
   block.classList.add('reveal');
 
-  // Set up intersection observer for reveal
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -15,7 +11,7 @@ export default function decorate(block) {
         }
       });
     },
-    { threshold: 0.1 },
+    { threshold: 0.3 },
   );
 
   observer.observe(block);

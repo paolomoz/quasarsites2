@@ -1,0 +1,155 @@
+/* The Proof — Warranty as design statement, data as conviction */
+
+.proof-container {
+  background-color: var(--color-white);
+}
+
+.proof-container .proof-wrapper {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-section) var(--space-m);
+}
+
+.proof {
+  text-align: center;
+}
+
+/* The hero number — "10" year warranty as typographic monument */
+.proof .proof-number {
+  font-family: var(--font-display);
+  font-size: clamp(120px, 18vw, 240px);
+  font-weight: 700;
+  color: var(--color-dark-slate);
+  letter-spacing: -6px;
+  line-height: 0.85;
+  margin: 0 0 var(--space-xs);
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 1.8s var(--ease-out),
+    transform 1.8s var(--ease-out);
+}
+
+.proof.revealed .proof-number {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.proof .proof-unit {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 3vw, 38px);
+  font-weight: 700;
+  color: var(--color-dark-slate);
+  letter-spacing: -0.5px;
+  text-transform: uppercase;
+  margin: 0 0 var(--space-l);
+}
+
+.proof .proof-statement {
+  font-family: var(--font-body);
+  font-size: var(--body-font-size-l);
+  color: var(--color-gray);
+  line-height: 1.65;
+  max-width: 52ch;
+  margin: 0 auto var(--space-xxl);
+}
+
+/* Data visualization row */
+.proof .data-row {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-xl);
+  flex-wrap: wrap;
+  padding-top: var(--space-xl);
+  border-top: 1px solid var(--color-surface);
+}
+
+.proof .data-point {
+  text-align: center;
+  min-width: 180px;
+}
+
+.proof .data-value {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 4vw, 50px);
+  font-weight: 700;
+  color: var(--color-dark-slate);
+  letter-spacing: -1px;
+  line-height: 1;
+  margin-bottom: var(--space-xs);
+}
+
+.proof .data-value .highlight {
+  color: var(--color-red);
+}
+
+.proof .data-label {
+  font-family: var(--font-mono);
+  font-size: var(--data-font-size);
+  color: var(--color-gray);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* Comparison bar */
+.proof .comparison-bar {
+  max-width: 480px;
+  margin: var(--space-xl) auto 0;
+}
+
+.proof .bar-label {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--space-xs);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.proof .bar-label .brand {
+  color: var(--color-dark-slate);
+}
+
+.proof .bar-label .industry {
+  color: var(--color-gray);
+}
+
+.proof .bar-track {
+  height: 6px;
+  background-color: var(--color-surface);
+  position: relative;
+  overflow: hidden;
+}
+
+.proof .bar-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: var(--color-red);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 2s var(--ease-out);
+}
+
+.proof.revealed .bar-fill {
+  transform: scaleX(1);
+}
+
+.proof .bar-fill.industry-avg {
+  background-color: var(--color-gray-light);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .proof .proof-number {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .proof .bar-fill {
+    transform: scaleX(1);
+    transition: none;
+  }
+}
