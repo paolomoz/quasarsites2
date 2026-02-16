@@ -10,7 +10,7 @@
  * governing permissions and limitations under the License.
  */
 
-/* Natural Organic Ã¢ Design Tokens */
+/* Natural Organic ÃÂ¢ Design Tokens */
 :root {
   /* colors */
   --background-color: #fefdfb;
@@ -23,9 +23,9 @@
   --accent-secondary: #d4a574;
 
   /* button colors */
-  --button-primary: #fbbf24;
-  --button-primary-hover: #f59e0b;
-  --button-text: #000000;
+  --button-primary: #1f2937;
+  --button-primary-hover: #374151;
+  --button-text: #ffffff;
 
   /* fonts */
   --body-font-family: 'Lora', 'lora', 'Georgia', serif;
@@ -212,7 +212,7 @@ button:focus {
   background: var(--button-primary-hover);
   color: var(--button-text);
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(251, 191, 36, 0.4);
+  box-shadow: 0 4px 12px rgba(31, 41, 55, 0.3);
 }
 
 button:disabled,
@@ -293,8 +293,8 @@ main .section.highlight {
     --link-hover-color: #a8c8b6;
     --accent-primary: #8bb09e;
     --accent-secondary: #d4a574;
-    --button-primary: #fbbf24;
-    --button-primary-hover: #f59e0b;
-    --button-text: #000000;
+    --button-primary: #1f2937;
+    --button-primary-hover: #374151;
+    --button-text: #ffffff;
   }
 }
