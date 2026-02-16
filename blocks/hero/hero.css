@@ -113,6 +113,7 @@
 
 /* Spec grid below hero content */
 .hero-specs {
+  grid-column: 1 / -1;
   display: flex;
   gap: var(--space-l);
   margin-top: var(--space-xl);
