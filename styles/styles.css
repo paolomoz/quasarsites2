@@ -10,7 +10,7 @@
  * governing permissions and limitations under the License.
  */
 
-/* Natural Organic â Design Tokens */
+/* Natural Organic Ã¢ Design Tokens */
 :root {
   /* colors */
   --background-color: #fefdfb;
@@ -23,8 +23,9 @@
   --accent-secondary: #d4a574;
 
   /* button colors */
-  --button-primary: #dc2626;
-  --button-primary-hover: #b91c1c;
+  --button-primary: #fbbf24;
+  --button-primary-hover: #f59e0b;
+  --button-text: #000000;
 
   /* fonts */
   --body-font-family: 'Lora', 'lora', 'Georgia', serif;
@@ -196,7 +197,7 @@ button {
   text-align: center;
   text-decoration: none;
   background: var(--button-primary);
-  color: var(--background-color);
+  color: var(--button-text);
   cursor: pointer;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -209,9 +210,9 @@ a.button:focus,
 button:hover,
 button:focus {
   background: var(--button-primary-hover);
-  color: var(--background-color);
+  color: var(--button-text);
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+  box-shadow: 0 4px 12px rgba(251, 191, 36, 0.4);
 }
 
 button:disabled,
@@ -232,7 +233,7 @@ button.secondary {
 a.button.secondary:hover,
 button.secondary:hover {
   background: var(--button-primary);
-  color: var(--background-color);
+  color: var(--button-text);
 }
 
 main img {
@@ -292,7 +293,8 @@ main .section.highlight {
     --link-hover-color: #a8c8b6;
     --accent-primary: #8bb09e;
     --accent-secondary: #d4a574;
-    --button-primary: #ef4444;
-    --button-primary-hover: #dc2626;
+    --button-primary: #fbbf24;
+    --button-primary-hover: #f59e0b;
+    --button-text: #000000;
   }
 }
