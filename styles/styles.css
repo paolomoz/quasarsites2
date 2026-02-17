@@ -167,7 +167,7 @@ a:hover {
   text-decoration: none;
 }
 
-/* buttons — pill shaped, thin border, minimal */
+/* buttons â pill shaped, thin border, minimal */
 a.button:any-link,
 button {
   box-sizing: border-box;
@@ -278,4 +278,24 @@ main .section.highlight {
   background-color: var(--light-color);
   margin: 0;
   padding: 48px 0;
+}
+
+
+/* ═══════════════════════════════════════════
+   Brand Overrides — Nike
+   ═══════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap');
+
+/* Brand overrides: Nike */
+:root {
+  --background-color: #FFFFFF;
+  --text-color: #111111;
+  --muted-color: #666666;
+  --link-color: #FA5400;
+  --accent-color: #FA5400;
+  --border-color: #DDDDDD;
+  --heading-font-family: 'Oswald', 'Arial Black', sans-serif;
+  --body-font-family: 'Roboto', 'Arial', sans-serif;
+  --border-radius: 4px;
 }
