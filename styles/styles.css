@@ -277,3 +277,23 @@ main .section.highlight {
   margin: 0;
   padding: 40px 0;
 }
+
+
+/* ═══════════════════════════════════════════
+   Brand Overrides — Vitamix
+   ═══════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Brand overrides: Vitamix */
+:root {
+  --background-color: #F5F5F0;
+  --text-color: #1D1D1B;
+  --accent-color: #C8102E;
+  --accent-secondary: #4A7C2E;
+  --link-color: #C8102E;
+  --border-color: #D4A84B;
+  --heading-font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --body-font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --border-radius: 4px;
+}
