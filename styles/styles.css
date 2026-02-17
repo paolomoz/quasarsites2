@@ -290,3 +290,23 @@ main .section.highlight {
   border-top: 2px solid var(--border-color);
   border-bottom: 2px solid var(--border-color);
 }
+
+
+/* ═══════════════════════════════════════════
+   Brand Overrides — Nike
+   ═══════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Open+Sans:wght@400;600;700&display=swap');
+
+/* Brand overrides: Nike */
+:root {
+  --background-color: #111111;
+  --text-color: #FFFFFF;
+  --accent-color: #FA5400;
+  --accent-secondary: #C41230;
+  --link-color: #FA5400;
+  --border-color: #7BAA2E;
+  --heading-font-family: 'Oswald', 'Arial Black', sans-serif;
+  --body-font-family: 'Open Sans', 'Arial', sans-serif;
+  --border-radius: 2px;
+}
