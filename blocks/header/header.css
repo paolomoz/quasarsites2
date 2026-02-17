@@ -4,6 +4,7 @@ header .nav-wrapper {
   width: 100%;
   z-index: 2;
   position: fixed;
+  border-bottom: 1px solid var(--border-color);
 }
 
 header nav {
@@ -55,7 +56,14 @@ header nav p {
 }
 
 header nav a:any-link {
-  color: currentcolor;
+  color: var(--text-color);
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+header nav a:hover {
+  color: var(--accent-secondary);
+  text-decoration: none;
 }
 
 /* hamburger */
@@ -143,9 +151,12 @@ header nav[aria-expanded='true'] .nav-hamburger-icon::after {
 header .nav-brand {
   grid-area: brand;
   flex-basis: 128px;
+  font-family: var(--heading-font-family);
   font-size: var(--heading-font-size-s);
   font-weight: 700;
   line-height: 1;
+  color: var(--text-color);
+  letter-spacing: -0.01em;
 }
 
 header nav .nav-brand img {
@@ -174,7 +185,7 @@ header nav .nav-sections ul {
 }
 
 header nav .nav-sections ul > li {
-  font-weight: 500;
+  font-weight: 600;
 }
 
 header nav .nav-sections ul > li > ul {
@@ -247,6 +258,9 @@ header nav .nav-sections ul > li > ul > li {
     padding: 16px;
     background-color: var(--light-color);
     white-space: initial;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-color);
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li > ul::before {

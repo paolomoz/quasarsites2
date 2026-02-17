@@ -1,41 +1,70 @@
 .quote blockquote {
-  margin: 0 auto;
+  margin: 2em auto;
   padding: 0 24px;
   max-width: 900px;
+  position: relative;
 }
 
 @media (width >= 900px) {
   .quote blockquote {
-    padding: 0 32px;
+    padding: 0 32px 0 64px;
+  }
+}
+
+.quote blockquote::before {
+  content: '\201C';
+  position: absolute;
+  top: -0.15em;
+  left: 0;
+  font-family: var(--heading-font-family);
+  font-size: 5em;
+  line-height: 1;
+  color: var(--accent-secondary);
+  opacity: 0.5;
+}
+
+@media (width >= 900px) {
+  .quote blockquote::before {
+    left: 0;
+    font-size: 6em;
   }
 }
 
 .quote blockquote .quote-quotation {
-  font-size: 120%;
+  font-size: 130%;
+  font-family: var(--heading-font-family);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--text-color);
+  line-height: 1.8;
+  border-left: 3px solid var(--accent-secondary);
+  padding-left: 24px;
+  margin-left: 0;
 }
 
 .quote blockquote .quote-quotation > :first-child {
-  text-indent: -0.5ch;
-}
-
-.quote blockquote .quote-quotation > :first-child::before,
-.quote blockquote .quote-quotation > :last-child::after {
-  line-height: 0;
+  text-indent: 0;
 }
 
 .quote blockquote .quote-quotation > :first-child::before {
-  content: "“";
+  content: '';
 }
 
 .quote blockquote .quote-quotation > :last-child::after {
-  content: "”";
+  content: '';
 }
 
 .quote blockquote .quote-attribution {
   text-align: right;
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-s);
+  color: var(--muted-color);
+  font-style: normal;
+  font-weight: 600;
+  margin-top: 1em;
 }
 
 .quote blockquote .quote-attribution > :first-child::before {
-  content: "—";
+  content: "\2014";
   padding-right: 0.5ch;
 }

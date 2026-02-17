@@ -5,8 +5,25 @@
 
 .hero {
   position: relative;
-  padding: 40px 24px;
-  min-height: 300px;
+  padding: 60px 24px;
+  min-height: 360px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(45, 41, 38, 0.7) 0%,
+    rgba(45, 41, 38, 0.35) 40%,
+    rgba(139, 115, 85, 0.15) 100%
+  );
+  z-index: 0;
 }
 
 .hero h1 {
@@ -14,6 +31,26 @@
   margin-left: auto;
   margin-right: auto;
   color: var(--background-color);
+  font-family: var(--heading-font-family);
+  font-weight: 700;
+  font-size: var(--heading-font-size-xxl);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 2px 12px rgba(45, 41, 38, 0.3);
+}
+
+.hero p {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--background-color);
+  font-family: var(--body-font-family);
+  line-height: 1.8;
+  position: relative;
+  z-index: 1;
+  opacity: 0.92;
 }
 
 .hero picture {
@@ -28,10 +65,26 @@
   object-fit: cover;
   width: 100%;
   height: 100%;
+  border-radius: 0;
+}
+
+.hero a.button:any-link {
+  background-color: var(--accent-secondary);
+  color: var(--background-color);
+  border-radius: var(--border-radius);
+  position: relative;
+  z-index: 1;
+  box-shadow: var(--shadow-sm);
+}
+
+.hero a.button:hover {
+  background-color: var(--accent-color);
+  box-shadow: var(--shadow-md);
 }
 
 @media (width >= 900px) {
   .hero {
-    padding: 40px 32px;
+    padding: 80px 32px;
+    min-height: 420px;
   }
 }
