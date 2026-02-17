@@ -3,21 +3,59 @@
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 32px;
 }
 
 .cards > ul > li {
-  border: 1px solid #dadada;
-  background-color: var(--background-color);
+  background-color: var(--light-color);
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
+  overflow: hidden;
+}
+
+.cards > ul > li:hover {
+  border-color: var(--accent-color);
+  box-shadow: var(--shadow-md);
+  transform: translate(-4px, -4px);
 }
 
 .cards .cards-card-body {
-  margin: 16px;
+  margin: 0;
+  padding: 20px 24px;
+}
+
+.cards .cards-card-body h2,
+.cards .cards-card-body h3,
+.cards .cards-card-body h4 {
+  font-family: var(--heading-font-family);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--text-color);
+  margin-top: 0;
+}
+
+.cards .cards-card-body p {
+  color: var(--muted-color);
+  line-height: 1.6;
+}
+
+.cards .cards-card-body a:any-link {
+  color: var(--accent-color);
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.cards .cards-card-body a:hover {
+  color: var(--accent-secondary);
 }
 
 .cards .cards-card-image {
   line-height: 0;
+  border-bottom: 3px solid var(--accent-color);
 }
 
 .cards > ul > li img {

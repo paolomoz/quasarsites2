@@ -5,15 +5,71 @@
 
 .hero {
   position: relative;
-  padding: 40px 24px;
-  min-height: 300px;
+  padding: 80px 24px;
+  min-height: 480px;
+  display: flex;
+  align-items: flex-end;
+  background-color: var(--background-color);
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    var(--background-color) 0%,
+    rgba(10, 10, 10, 0.85) 40%,
+    rgba(10, 10, 10, 0.4) 100%
+  );
+  z-index: 0;
 }
 
 .hero h1 {
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
+  color: var(--text-color);
+  font-family: var(--heading-font-family);
+  font-weight: 700;
+  font-size: var(--heading-font-size-xxl);
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  position: relative;
+  z-index: 1;
+  text-shadow: 2px 2px 0 var(--accent-color);
+}
+
+.hero p {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--muted-color);
+  font-size: var(--body-font-size-m);
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+}
+
+.hero a.button:any-link {
+  background-color: var(--accent-color);
   color: var(--background-color);
+  border-radius: var(--border-radius);
+  padding: 0.8em 2em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  z-index: 1;
+  transition: all 0.15s ease;
+}
+
+.hero a.button:hover {
+  background-color: var(--accent-secondary);
+  color: var(--background-color);
+  box-shadow: var(--shadow-md);
+  transform: translate(-2px, -2px);
 }
 
 .hero picture {
@@ -32,6 +88,11 @@
 
 @media (width >= 900px) {
   .hero {
-    padding: 40px 32px;
+    padding: 100px 32px;
+    min-height: 560px;
+  }
+
+  .hero h1 {
+    font-size: 80px;
   }
 }
