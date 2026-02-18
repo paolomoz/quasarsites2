@@ -1,10 +1,12 @@
 .columns > div {
   display: flex;
   flex-direction: column;
+  gap: 32px;
 }
 
 .columns img {
   width: 100%;
+  border-radius: 8px;
 }
 
 .columns > div > div {
@@ -19,15 +21,129 @@
   display: block;
 }
 
+.columns h1,
+.columns h2,
+.columns h3,
+.columns h4 {
+  font-family: "Söhne Breit", "Arial Black", system-ui, sans-serif;
+  font-weight: 600;
+  text-transform: lowercase;
+  letter-spacing: 0.02em;
+  color: #1A1A1A;
+  margin: 0 0 24px 0;
+  line-height: 1.2;
+}
+
+.columns h1 {
+  font-size: 32px;
+}
+
+.columns h2 {
+  font-size: 24px;
+}
+
+.columns h3 {
+  font-size: 20px;
+}
+
+.columns h4 {
+  font-size: 18px;
+}
+
+.columns p {
+  font-family: "Plantin MT Pro", "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.6;
+  color: #4A4A4A;
+  margin: 0 0 20px 0;
+}
+
+.columns p:last-child {
+  margin-bottom: 0;
+}
+
+.columns a {
+  color: #E31837;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.columns a:hover {
+  color: #1A1A1A;
+}
+
+.columns .button-container {
+  margin-top: 32px;
+}
+
+.columns .button {
+  display: inline-block;
+  padding: 16px 32px;
+  background-color: #E31837;
+  color: #FFFFFF;
+  font-family: "Söhne Breit", "Arial Black", system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  text-transform: lowercase;
+  letter-spacing: 0.02em;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.columns .button:hover {
+  background-color: #1A1A1A;
+  transform: translateY(-1px);
+}
+
+@media (width >= 600px) {
+  .columns > div {
+    gap: 40px;
+  }
+
+  .columns h1 {
+    font-size: 44px;
+  }
+
+  .columns h2 {
+    font-size: 32px;
+  }
+
+  .columns h3 {
+    font-size: 24px;
+  }
+
+  .columns p {
+    font-size: 18px;
+  }
+}
+
 @media (width >= 900px) {
   .columns > div {
     align-items: center;
     flex-direction: unset;
-    gap: 24px;
+    gap: 64px;
   }
 
   .columns > div > div {
     flex: 1;
     order: unset;
+  }
+
+  .columns h1 {
+    font-size: 56px;
+  }
+
+  .columns h2 {
+    font-size: 36px;
+  }
+
+  .columns h3 {
+    font-size: 28px;
+  }
+
+  .columns p {
+    font-size: 19px;
+    line-height: 1.65;
   }
 }

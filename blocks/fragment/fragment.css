@@ -1,1 +1,178 @@
-/* stylelint-disable no-empty-source */
+main .fragment {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+
+main .fragment > * {
+  margin-bottom: var(--spacing-m, 24px);
+}
+
+main .fragment > *:last-child {
+  margin-bottom: 0;
+}
+
+main .fragment h1,
+main .fragment h2,
+main .fragment h3,
+main .fragment h4,
+main .fragment h5,
+main .fragment h6 {
+  font-family: 'Söhne Breit', -apple-system, BlinkMacSystemFont, 'Segoe UI', roboto, helvetica, arial, sans-serif;
+  font-weight: 600;
+  text-transform: lowercase;
+  letter-spacing: 0.025em;
+  color: var(--text-color, #1A1A1A);
+  margin: 0 0 var(--spacing-s, 16px) 0;
+  line-height: 1.2;
+}
+
+main .fragment h1 {
+  font-size: var(--heading-font-size-xxl, 56px);
+}
+
+main .fragment h2 {
+  font-size: var(--heading-font-size-xl, 36px);
+}
+
+main .fragment h3 {
+  font-size: var(--heading-font-size-l, 28px);
+}
+
+main .fragment h4 {
+  font-size: var(--heading-font-size-m, 24px);
+}
+
+main .fragment h5 {
+  font-size: var(--heading-font-size-s, 20px);
+}
+
+main .fragment h6 {
+  font-size: var(--heading-font-size-xs, 18px);
+}
+
+main .fragment p,
+main .fragment ul,
+main .fragment ol,
+main .fragment dl,
+main .fragment pre,
+main .fragment blockquote {
+  font-family: 'Plantin MT Pro', georgia, 'Times New Roman', times, serif;
+  font-size: var(--body-font-size-m, 17px);
+  line-height: 1.6;
+  color: var(--text-color, #1A1A1A);
+  margin: 0 0 var(--spacing-s, 16px) 0;
+}
+
+main .fragment blockquote {
+  font-style: italic;
+  font-size: var(--body-font-size-l, 22px);
+  color: var(--text-color-secondary, #4A4A4A);
+  padding-left: var(--spacing-m, 24px);
+  border-left: 2px solid var(--color-accent, #E31837);
+}
+
+main .fragment code {
+  font-family: 'Söhne Mono', 'SF Mono', consolas, 'Liberation Mono', menlo, courier, monospace;
+  font-size: 14px;
+  color: var(--text-color-secondary, #4A4A4A);
+  background-color: var(--background-color-secondary, #F5F5F3);
+  padding: 2px 6px;
+  border-radius: var(--border-radius-s, 3px);
+}
+
+main .fragment pre {
+  font-family: 'Söhne Mono', 'SF Mono', consolas, 'Liberation Mono', menlo, courier, monospace;
+  font-size: 13px;
+  color: var(--text-color-secondary, #4A4A4A);
+  background-color: var(--background-color-secondary, #F5F5F3);
+  padding: var(--spacing-s, 16px);
+  border-radius: var(--border-radius-m, 6px);
+  overflow-x: auto;
+}
+
+main .fragment a {
+  color: var(--link-color, #1A1A1A);
+  text-decoration: underline;
+  text-decoration-color: var(--color-accent, #E31837);
+  text-underline-offset: 3px;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+main .fragment a:hover {
+  color: var(--color-accent, #E31837);
+  text-decoration-color: var(--color-accent, #E31837);
+}
+
+main .fragment img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--border-radius-m, 6px);
+}
+
+main .fragment hr {
+  border: none;
+  height: 1px;
+  background-color: var(--color-border, #E0E0E0);
+  margin: var(--spacing-l, 32px) 0;
+}
+
+@media (width >= 600px) {
+  main .fragment > * {
+    margin-bottom: var(--spacing-l, 32px);
+  }
+
+  main .fragment h1 {
+    font-size: var(--heading-font-size-xxl, 64px);
+  }
+
+  main .fragment h2 {
+    font-size: var(--heading-font-size-xl, 42px);
+  }
+
+  main .fragment h3 {
+    font-size: var(--heading-font-size-l, 32px);
+  }
+
+  main .fragment p,
+  main .fragment ul,
+  main .fragment ol,
+  main .fragment dl,
+  main .fragment pre,
+  main .fragment blockquote {
+    font-size: var(--body-font-size-m, 18px);
+  }
+
+  main .fragment blockquote {
+    font-size: var(--body-font-size-l, 26px);
+    padding-left: var(--spacing-l, 32px);
+  }
+}
+
+@media (width >= 900px) {
+  main .fragment h1 {
+    font-size: var(--heading-font-size-xxl, 72px);
+  }
+
+  main .fragment h2 {
+    font-size: var(--heading-font-size-xl, 48px);
+  }
+
+  main .fragment h3 {
+    font-size: var(--heading-font-size-l, 36px);
+  }
+
+  main .fragment p,
+  main .fragment ul,
+  main .fragment ol,
+  main .fragment dl,
+  main .fragment pre,
+  main .fragment blockquote {
+    font-size: var(--body-font-size-m, 19px);
+  }
+
+  main .fragment blockquote {
+    font-size: var(--body-font-size-l, 28px);
+  }
+}

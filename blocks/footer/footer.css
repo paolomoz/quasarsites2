@@ -1,20 +1,114 @@
 footer {
-  background-color: var(--light-color);
-  font-size: var(--body-font-size-xs);
+  background-color: var(--color-primary);
+  font-size: var(--body-font-size-s);
+  color: var(--color-white);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 footer .footer > div {
   margin: auto;
   max-width: 1200px;
-  padding: 40px 24px 24px;
+  padding: 64px 24px 32px;
 }
 
 footer .footer p {
   margin: 0;
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-s);
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+footer .footer a {
+  color: var(--color-white);
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  transition: all 0.2s ease;
+}
+
+footer .footer a:hover {
+  color: var(--color-white);
+  text-decoration-color: rgba(255, 255, 255, 0.5);
+}
+
+footer .footer .brand-link {
+  font-family: var(--heading-font-family);
+  font-weight: 600;
+  font-size: var(--heading-font-size-s);
+  color: var(--color-white);
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 24px;
+  letter-spacing: -0.01em;
+}
+
+footer .footer .brand-link:hover {
+  opacity: 0.85;
+  text-decoration: none;
+}
+
+footer .footer nav {
+  margin-bottom: 32px;
+}
+
+footer .footer nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px 32px;
+}
+
+footer .footer nav li {
+  margin: 0;
+}
+
+footer .footer nav a {
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-s);
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+footer .footer nav a:hover {
+  color: var(--color-white);
+}
+
+footer .footer .copyright {
+  font-size: var(--body-font-size-xs);
+  color: rgba(255, 255, 255, 0.65);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 24px;
+  margin-top: 32px;
+}
+
+@media (width >= 600px) {
+  footer .footer > div {
+    padding: 72px 32px 40px;
+  }
+
+  footer .footer nav ul {
+    gap: 32px 48px;
+  }
 }
 
 @media (width >= 900px) {
   footer .footer > div {
-    padding: 40px 32px 24px;
+    padding: 80px 32px 48px;
+  }
+
+  footer .footer {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  footer .footer nav ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px 48px;
   }
 }

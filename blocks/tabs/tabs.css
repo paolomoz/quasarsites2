@@ -1,6 +1,6 @@
 .tabs .tabs-list {
   display: flex;
-  gap: 0.5ch;
+  gap: 1px;
   max-width: 100%;
   font-size: var(--body-font-size-xs);
   overflow-x: auto;
@@ -21,18 +21,29 @@
 .tabs .tabs-list button {
   flex: 0 0 max-content;
   margin: 0;
-  border: 1px solid var(--dark-color);
+  border: 2px solid #E8E6E0;
+  border-bottom: 2px solid #1A1A1A;
   border-radius: 0;
-  padding: 0.5em;
-  background-color: #949494;
-  color: initial;
-  font-weight: bold;
-  line-height: unset;
-  text-align: initial;
+  padding: 16px 24px;
+  background-color: #F5F5F3;
+  color: #4A4A4A;
+  font-family: var(--body-font-family);
+  font-weight: 400;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  line-height: 1.4;
+  text-align: center;
+  text-transform: lowercase;
   text-overflow: unset;
   overflow: unset;
-  white-space: unset;
-  transition: background-color 0.2s;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.tabs .tabs-list button:hover {
+  background-color: #FFFFFF;
+  color: #1A1A1A;
 }
 
 .tabs .tabs-list button p {
@@ -40,16 +51,33 @@
 }
 
 .tabs .tabs-list button[aria-selected='true'] {
-  border-bottom: 1px solid var(--background-color);
-  background-color: var(--background-color);
-  cursor: initial;
+  border: 2px solid #1A1A1A;
+  border-bottom: 2px solid #FFFFFF;
+  background-color: #FFFFFF;
+  color: #1A1A1A;
+  font-weight: 500;
+  cursor: default;
 }
 
 .tabs .tabs-panel {
-  margin-top: -1px;
-  padding: 24px;
-  border: 1px solid var(--dark-color);
+  margin-top: -2px;
+  padding: 32px;
+  border: 2px solid #1A1A1A;
+  border-top: none;
+  background-color: #FFFFFF;
   overflow: auto;
+}
+
+@media (width >= 600px) {
+  .tabs .tabs-panel {
+    padding: 40px;
+  }
+}
+
+@media (width >= 900px) {
+  .tabs .tabs-panel {
+    padding: 48px;
+  }
 }
 
 .tabs .tabs-panel[aria-hidden='true'] {

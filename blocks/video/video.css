@@ -1,27 +1,34 @@
 .video {
   text-align: center;
-  max-width: 900px;
-  margin: 24px auto;
+  max-width: 1200px;
+  margin: 48px auto;
+  padding: 0 24px;
 }
 
 .video[data-embed-loaded='false']:not(.placeholder) {
-  /* reserve an approximate space to avoid extensive layout shifts */
   aspect-ratio: 16 / 9;
 }
 
 .video > div {
   display: flex;
   justify-content: center;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
 }
 
 .video video {
   max-width: 100%;
+  border-radius: 12px;
 }
 
 .video .video-placeholder {
   width: 100%;
   aspect-ratio: 16 / 9;
   position: relative;
+  background-color: #F5F5F3;
+  border-radius: 12px;
+  overflow: hidden;
 }
 
 .video .video-placeholder > * {
@@ -48,11 +55,16 @@
 .video .video-placeholder-play button {
   position: relative;
   display: block;
-  width: 44px;
-  height: 44px;
+  width: 72px;
+  height: 72px;
   border-radius: 50%;
-  outline: 2px solid;
+  outline: none;
+  border: 3px solid #FFFFFF;
   padding: 0;
+  background-color: rgba(26, 26, 26, 0.8);
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .video .video-placeholder-play button::before {
@@ -64,15 +76,60 @@
   height: 24px;
   border-top: 12px solid transparent;
   border-bottom: 12px solid transparent;
-  border-left: 18px solid;
+  border-left: 18px solid #FFFFFF;
   top: 50%;
   left: calc(50% + 2px);
   transform: translate(-50%, -50%);
 }
 
+.video .video-placeholder-play button:hover {
+  background-color: #E31837;
+  border-color: #E31837;
+  transform: scale(1.1);
+}
+
 .video .video-placeholder-play button:focus,
 .video .video-placeholder-play button:focus-visible {
-  outline: 2px solid black;
-  outline-offset: 2px;
-  background-color: black;
+  outline: 3px solid #E31837;
+  outline-offset: 4px;
+  background-color: #1A1A1A;
+  border-color: #FFFFFF;
+}
+
+@media (width >= 600px) {
+  .video {
+    margin: 64px auto;
+    padding: 0 32px;
+  }
+
+  .video .video-placeholder-play button {
+    width: 88px;
+    height: 88px;
+  }
+
+  .video .video-placeholder-play button::before {
+    height: 30px;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-left: 22px solid #FFFFFF;
+  }
+}
+
+@media (width >= 900px) {
+  .video {
+    margin: 80px auto;
+    padding: 0 40px;
+  }
+
+  .video .video-placeholder-play button {
+    width: 96px;
+    height: 96px;
+  }
+
+  .video .video-placeholder-play button::before {
+    height: 32px;
+    border-top: 16px solid transparent;
+    border-bottom: 16px solid transparent;
+    border-left: 24px solid #FFFFFF;
+  }
 }

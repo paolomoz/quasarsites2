@@ -2,23 +2,34 @@
   width: unset;
   text-align: center;
   max-width: 800px;
-  margin: 32px auto;
+  margin: 48px auto;
+  padding: 0 24px;
+  box-sizing: border-box;
 }
 
 .embed > div {
   display: flex;
   justify-content: center;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(26, 26, 26, 0.08);
+  background: #FFFFFF;
 }
 
 .embed.embed-twitter .twitter-tweet-rendered {
   margin-left: auto;
   margin-right: auto;
+  border-radius: 8px;
+  font-family: 'Plantin MT Pro', 'Lyon Text', Georgia, serif;
 }
 
 .embed .embed-placeholder {
   width: 100%;
   aspect-ratio: 16 / 9;
   position: relative;
+  background: #F5F5F3;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .embed .embed-placeholder > * {
@@ -27,12 +38,14 @@
   justify-content: center;
   position: absolute;
   inset: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .embed .embed-placeholder picture img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 8px;
 }
 
 .embed .embed-placeholder-play button {
@@ -42,9 +55,25 @@
   transform: scale(3);
   width: 22px;
   height: 22px;
-  border: 2px solid;
-  border-radius: 20px;
+  border: 2px solid #FFFFFF;
+  border-radius: 50%;
   padding: 0;
+  background: rgba(26, 26, 26, 0.8);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.embed .embed-placeholder-play button:hover {
+  background: rgba(227, 24, 55, 0.9);
+  border-color: #FFFFFF;
+  transform: scale(3.2);
+}
+
+.embed .embed-placeholder-play button:focus {
+  outline: 2px solid #E31837;
+  outline-offset: 4px;
 }
 
 .embed .embed-placeholder-play button::before {
@@ -56,7 +85,30 @@
   height: 10px;
   border-top: 5px solid transparent;
   border-bottom: 5px solid transparent;
-  border-left: 6px solid;
+  border-left: 6px solid #FFFFFF;
   top: 4px;
   left: 7px;
+  transition: border-left-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (width >= 600px) {
+  .embed {
+    margin: 64px auto;
+    padding: 0 32px;
+  }
+}
+
+@media (width >= 900px) {
+  .embed {
+    margin: 80px auto;
+    padding: 0;
+  }
+  
+  .embed .embed-placeholder-play button {
+    transform: scale(4);
+  }
+  
+  .embed .embed-placeholder-play button:hover {
+    transform: scale(4.4);
+  }
 }

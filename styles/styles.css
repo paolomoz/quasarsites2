@@ -1,59 +1,47 @@
-/*
- * Copyright 2020 Adobe. All rights reserved.
- * This file is licensed to you under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License. You may obtain a copy
- * of the License at http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software distributed under
- * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
- * OF ANY KIND, either express or implied. See the License for the specific language
- * governing permissions and limitations under the License.
- */
-
 :root {
   /* colors */
-  --background-color: white;
-  --light-color: #f8f8f8;
-  --dark-color: #505050;
-  --text-color: #131313;
-  --link-color: #3b63fb;
-  --link-hover-color: #1d3ecf;
+  --background-color: #FFFFFF;
+  --light-color: #F5F5F3;
+  --dark-color: #1A1A1A;
+  --text-color: #1A1A1A;
+  --link-color: #E31837;
+  --link-hover-color: #B71427;
 
   /* fonts */
-  --body-font-family: roboto, roboto-fallback, sans-serif;
-  --heading-font-family: roboto-condensed, roboto-condensed-fallback, sans-serif;
+  --body-font-family: 'Plantin MT Pro', 'Lyon Text', Georgia, serif;
+  --heading-font-family: 'Söhne Breit', 'Söhne Halbfett', -apple-system, BlinkMacSystemFont, sans-serif;
 
   /* body sizes */
-  --body-font-size-m: 22px;
-  --body-font-size-s: 19px;
-  --body-font-size-xs: 17px;
+  --body-font-size-m: 19px;
+  --body-font-size-s: 17px;
+  --body-font-size-xs: 15px;
 
   /* heading sizes */
-  --heading-font-size-xxl: 55px;
-  --heading-font-size-xl: 44px;
-  --heading-font-size-l: 34px;
-  --heading-font-size-m: 27px;
-  --heading-font-size-s: 24px;
-  --heading-font-size-xs: 22px;
+  --heading-font-size-xxl: 44px;
+  --heading-font-size-xl: 36px;
+  --heading-font-size-l: 28px;
+  --heading-font-size-m: 24px;
+  --heading-font-size-s: 20px;
+  --heading-font-size-xs: 18px;
 
   /* nav height */
-  --nav-height: 64px;
+  --nav-height: 72px;
 }
 
 /* fallback fonts */
 @font-face {
-  font-family: roboto-condensed-fallback;
-  size-adjust: 88.82%;
-  src: local('Arial');
+  font-family: 'Söhne Breit-fallback';
+  size-adjust: 95%;
+  src: local('Helvetica Neue'), local('Arial');
 }
 
 @font-face {
-  font-family: roboto-fallback;
-  size-adjust: 99.529%;
-  src: local('Arial');
+  font-family: 'Plantin MT Pro-fallback';
+  size-adjust: 102%;
+  src: local('Georgia'), local('Times');
 }
 
-@media (width >= 900px) {
+@media (width >= 600px) {
   :root {
     /* body sizes */
     --body-font-size-m: 18px;
@@ -61,12 +49,29 @@
     --body-font-size-xs: 14px;
 
     /* heading sizes */
-    --heading-font-size-xxl: 45px;
-    --heading-font-size-xl: 36px;
-    --heading-font-size-l: 28px;
-    --heading-font-size-m: 22px;
-    --heading-font-size-s: 20px;
-    --heading-font-size-xs: 18px;
+    --heading-font-size-xxl: 56px;
+    --heading-font-size-xl: 44px;
+    --heading-font-size-l: 32px;
+    --heading-font-size-m: 28px;
+    --heading-font-size-s: 24px;
+    --heading-font-size-xs: 20px;
+  }
+}
+
+@media (width >= 900px) {
+  :root {
+    /* body sizes */
+    --body-font-size-m: 17px;
+    --body-font-size-s: 15px;
+    --body-font-size-xs: 13px;
+
+    /* heading sizes */
+    --heading-font-size-xxl: 72px;
+    --heading-font-size-xl: 56px;
+    --heading-font-size-l: 40px;
+    --heading-font-size-m: 32px;
+    --heading-font-size-s: 28px;
+    --heading-font-size-xs: 24px;
   }
 }
 
@@ -78,6 +83,7 @@ body {
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-m);
   line-height: 1.6;
+  font-weight: 400;
 }
 
 body.appear {
@@ -104,20 +110,41 @@ h3,
 h4,
 h5,
 h6 {
-  margin-top: 0.8em;
-  margin-bottom: 0.25em;
+  margin-top: 1.2em;
+  margin-bottom: 0.4em;
   font-family: var(--heading-font-family);
   font-weight: 600;
-  line-height: 1.25;
+  line-height: 1.15;
   scroll-margin: 40px;
+  text-transform: lowercase;
+  letter-spacing: 0.02em;
+  color: var(--dark-color);
 }
 
-h1 { font-size: var(--heading-font-size-xxl); }
-h2 { font-size: var(--heading-font-size-xl); }
-h3 { font-size: var(--heading-font-size-l); }
-h4 { font-size: var(--heading-font-size-m); }
-h5 { font-size: var(--heading-font-size-s); }
-h6 { font-size: var(--heading-font-size-xs); }
+h1 { 
+  font-size: var(--heading-font-size-xxl);
+  letter-spacing: 0.025em;
+  margin-bottom: 0.6em;
+}
+h2 { 
+  font-size: var(--heading-font-size-xl);
+  letter-spacing: 0.02em;
+}
+h3 { 
+  font-size: var(--heading-font-size-l);
+  letter-spacing: 0.015em;
+}
+h4 { 
+  font-size: var(--heading-font-size-m);
+  letter-spacing: 0.01em;
+}
+h5 { 
+  font-size: var(--heading-font-size-s);
+  letter-spacing: 0.005em;
+}
+h6 { 
+  font-size: var(--heading-font-size-xs);
+}
 
 p,
 dl,
@@ -125,25 +152,28 @@ ol,
 ul,
 pre,
 blockquote {
-  margin-top: 0.8em;
-  margin-bottom: 0.25em;
+  margin-top: 1em;
+  margin-bottom: 0.75em;
+  line-height: 1.65;
 }
 
 code,
 pre {
+  font-family: 'Söhne Mono', 'SF Mono', Consolas, monospace;
   font-size: var(--body-font-size-s);
 }
 
 pre {
-  padding: 16px;
-  border-radius: 8px;
+  padding: 24px;
+  border-radius: 4px;
   background-color: var(--light-color);
   overflow-x: auto;
   white-space: pre;
+  border: 1px solid #E8E8E6;
 }
 
 main > div {
-  margin: 40px 16px;
+  margin: 48px 20px;
 }
 
 input,
@@ -158,6 +188,7 @@ a:any-link {
   color: var(--link-color);
   text-decoration: none;
   overflow-wrap: break-word;
+  transition: color 0.2s ease;
 }
 
 a:hover {
@@ -171,22 +202,26 @@ button {
   box-sizing: border-box;
   display: inline-block;
   max-width: 100%;
-  margin: 12px 0;
+  margin: 16px 0;
   border: 2px solid transparent;
-  border-radius: 2.4em;
-  padding: 0.5em 1.2em;
-  font-family: var(--body-font-family);
+  border-radius: 4px;
+  padding: 0.75em 2em;
+  font-family: var(--heading-font-family);
   font-style: normal;
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 16px;
   line-height: 1.25;
   text-align: center;
   text-decoration: none;
+  text-transform: lowercase;
+  letter-spacing: 0.02em;
   background-color: var(--link-color);
   color: var(--background-color);
   cursor: pointer;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  transition: all 0.2s ease;
 }
 
 a.button:hover,
@@ -195,19 +230,27 @@ button:hover,
 button:focus {
   background-color: var(--link-hover-color);
   cursor: pointer;
+  transform: translateY(-1px);
 }
 
 button:disabled,
 button:disabled:hover {
   background-color: var(--light-color);
   cursor: unset;
+  transform: none;
 }
 
 a.button.secondary,
 button.secondary {
-  background-color: unset;
-  border: 2px solid currentcolor;
+  background-color: transparent;
+  border: 2px solid var(--text-color);
   color: var(--text-color);
+}
+
+a.button.secondary:hover,
+button.secondary:hover {
+  background-color: var(--text-color);
+  color: var(--background-color);
 }
 
 main img {
@@ -229,22 +272,28 @@ main img {
 
 /* sections */
 main > .section {
-  margin: 40px 0;
+  margin: 64px 0;
 }
 
 main > .section > div {
   max-width: 1200px;
   margin: auto;
-  padding: 0 24px;
+  padding: 0 20px;
 }
 
 main > .section:first-of-type {
   margin-top: 0;
 }
 
-@media (width >= 900px) {
+@media (width >= 600px) {
   main > .section > div {
     padding: 0 32px;
+  }
+}
+
+@media (width >= 900px) {
+  main > .section > div {
+    padding: 0 40px;
   }
 }
 
@@ -253,5 +302,5 @@ main .section.light,
 main .section.highlight {
   background-color: var(--light-color);
   margin: 0;
-  padding: 40px 0;
+  padding: 64px 0;
 }
