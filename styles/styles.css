@@ -1,5 +1,5 @@
 /*
- * Refined Minimal — Swiss-inspired design system
+ * Refined Minimal â Swiss-inspired design system
  * DM Sans + Inter, generous whitespace, pill CTAs, glass-morphism accents
  */
 
@@ -150,7 +150,7 @@ a:hover {
   text-decoration: none;
 }
 
-/* buttons — pill-shaped, elegant hover fill */
+/* buttons â pill-shaped, elegant hover fill */
 a.button:any-link,
 button {
   box-sizing: border-box;
@@ -230,7 +230,7 @@ main img {
   width: 100%;
 }
 
-/* sections — generous vertical rhythm */
+/* sections â generous vertical rhythm */
 main > .section {
   margin: 80px 0;
 }
@@ -268,4 +268,24 @@ main .section.highlight {
   main .section.highlight {
     padding: 120px 0;
   }
+}
+
+/* ═══════════════════════════════════════════
+   Brand Overrides — Vitamix
+   ═══════════════════════════════════════════ */
+
+/* Brand overrides: Vitamix */
+
+@import url('https://fonts.googleapis.com/css2?family=Proxima+Nova:wght@400;500;600;700&display=swap');
+
+:root {
+  --background-color: #FFFFFF;
+  --text-color: #1A1A1A;
+  --muted-color: #4A4A4A;
+  --link-color: #E31837;
+  --accent-color: #2B5C3F;
+  --border-color: #F5F5F3;
+  --heading-font-family: 'Proxima Nova', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --body-font-family: 'Proxima Nova', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --border-radius: 4px;
 }
