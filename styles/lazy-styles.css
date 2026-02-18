@@ -55,14 +55,6 @@ img {
   transition: opacity 0.3s ease-out;
 }
 
-img[loading="lazy"] {
-  opacity: 0;
-}
-
-img[loading="lazy"].loaded {
-  opacity: 1;
-}
-
 /* Enhanced form elements */
 input, textarea, select {
   transition: border-color 0.2s ease-out, box-shadow 0.2s ease-out;
