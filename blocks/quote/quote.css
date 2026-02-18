@@ -1,82 +1,72 @@
 .quote blockquote {
-  margin: 0 auto;
-  padding: 0 24px;
+  margin: clamp(48px, 6vw, 80px) auto;
+  padding: 0 clamp(24px, 4vw, 48px);
   max-width: 900px;
-  background-color: #F5F5F3;
-  border-radius: 16px;
-  padding: 48px 32px;
-  margin: 64px auto;
+  border-left: 3px solid #E31837;
+  padding-left: clamp(32px, 5vw, 56px);
+  background: linear-gradient(135deg, rgba(245, 245, 243, 0.6) 0%, rgba(255, 255, 255, 0.9) 100%);
+  border-radius: 2px;
 }
 
 @media (width >= 900px) {
   .quote blockquote {
-    padding: 64px 80px;
-    margin: 96px auto;
+    padding: 0 clamp(40px, 5vw, 64px);
+    padding-left: clamp(48px, 6vw, 72px);
   }
 }
 
 .quote blockquote .quote-quotation {
-  font-size: 24px;
-  font-family: 'Plantin MT Pro', 'Lyon Text', Georgia, serif;
+  font-family: "Plantin MT Pro", "Lyon Text", "Times New Roman", serif;
+  font-size: clamp(22px, 3.2vw, 28px);
   font-style: italic;
-  font-weight: 400;
-  line-height: 1.6;
+  line-height: 1.45;
   color: #1A1A1A;
-  margin-bottom: 32px;
-}
-
-@media (width >= 600px) {
-  .quote blockquote .quote-quotation {
-    font-size: 28px;
-    line-height: 1.55;
-  }
-}
-
-@media (width >= 900px) {
-  .quote blockquote .quote-quotation {
-    font-size: 32px;
-    line-height: 1.5;
-  }
+  margin-bottom: clamp(20px, 3vw, 32px);
+  letter-spacing: -0.01em;
 }
 
 .quote blockquote .quote-quotation > :first-child {
-  text-indent: -0.5ch;
+  text-indent: -0.6ch;
+  margin-top: 0;
 }
 
 .quote blockquote .quote-quotation > :first-child::before,
 .quote blockquote .quote-quotation > :last-child::after {
   line-height: 0;
-  font-size: 1.5em;
-  color: #8B7355;
-  font-weight: 400;
+  font-size: 1.3em;
+  color: #E31837;
+  font-weight: 600;
+  vertical-align: -0.1em;
 }
 
 .quote blockquote .quote-quotation > :first-child::before {
   content: """;
+  margin-right: 0.15ch;
 }
 
 .quote blockquote .quote-quotation > :last-child::after {
   content: """;
+  margin-left: 0.05ch;
 }
 
 .quote blockquote .quote-attribution {
   text-align: right;
-  font-family: 'Söhne Halbfett', 'Inter', Arial, sans-serif;
-  font-size: 14px;
-  font-weight: 600;
+  font-family: "Söhne", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 500;
+  font-size: clamp(14px, 2.1vw, 16px);
   color: #4A4A4A;
   text-transform: lowercase;
   letter-spacing: 0.02em;
-}
-
-@media (width >= 600px) {
-  .quote blockquote .quote-attribution {
-    font-size: 15px;
-  }
+  margin-top: clamp(16px, 2.5vw, 24px);
 }
 
 .quote blockquote .quote-attribution > :first-child::before {
-  content: "—";
-  padding-right: 0.75ch;
-  color: #8B7355;
+  content: "— ";
+  padding-right: 0.4ch;
+  color: #E31837;
+  font-weight: 600;
+}
+
+.quote blockquote .quote-attribution > :first-child {
+  margin: 0;
 }

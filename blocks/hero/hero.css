@@ -5,71 +5,106 @@
 
 .hero {
   position: relative;
-  padding: 64px 24px;
-  min-height: 60vh;
+  padding: clamp(80px, 12vw, 160px) 24px clamp(100px, 15vw, 200px);
+  min-height: clamp(600px, 80vh, 800px);
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
 }
 
-.hero h1 {
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-  color: #FFFFFF;
-  font-family: 'Söhne Breit', 'Arial Black', sans-serif;
-  font-weight: 700;
-  font-size: 44px;
-  line-height: 1.2;
-  letter-spacing: 0.02em;
-  text-transform: lowercase;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
-  margin-bottom: 0;
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(26, 26, 26, 0.15) 0%,
+    rgba(26, 26, 26, 0.4) 100%
+  );
+  z-index: 1;
 }
 
-.hero .hero-content {
+.hero > * {
   position: relative;
   z-index: 2;
-  max-width: 800px;
-  margin: 0 auto;
 }
 
-.hero .hero-subtitle {
-  font-family: 'Plantin MT Pro', 'Times New Roman', serif;
-  font-size: 22px;
-  line-height: 1.6;
+.hero h1 {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: clamp(24px, 4vw, 48px);
   color: #FFFFFF;
-  margin: 32px 0 48px 0;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  font-family: -apple-system, BlinkMacSystemFont, 'Söhne Breit', 'Inter', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: clamp(40px, 7vw, 72px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-transform: lowercase;
+  text-shadow: 0 2px 12px rgba(26, 26, 26, 0.3);
+}
+
+.hero p {
+  max-width: 600px;
+  margin: 0 auto clamp(32px, 5vw, 48px);
+  color: #F5F5F3;
+  font-family: Georgia, 'Plantin MT Pro', 'Times New Roman', serif;
+  font-size: clamp(18px, 2.5vw, 22px);
+  line-height: 1.6;
+  opacity: 0.95;
 }
 
 .hero .button-container {
-  margin-top: 48px;
+  display: flex;
+  gap: clamp(16px, 3vw, 24px);
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: clamp(24px, 4vw, 40px);
 }
 
-.hero .button-container .button {
-  display: inline-block;
+.hero .button {
+  padding: clamp(14px, 2vw, 18px) clamp(28px, 4vw, 40px);
+  font-family: -apple-system, BlinkMacSystemFont, 'Söhne Breit', 'Inter', system-ui, sans-serif;
+  font-weight: 600;
+  font-size: clamp(16px, 2vw, 18px);
+  text-decoration: none;
+  border-radius: 2px;
+  transition: all 300ms cubic-bezier(0.165, 0.84, 0.44, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 140px;
+  text-transform: lowercase;
+  letter-spacing: 0.01em;
+}
+
+.hero strong .button,
+.hero .button.primary {
   background-color: #E31837;
   color: #FFFFFF;
-  font-family: 'Söhne Breit', 'Arial Black', sans-serif;
-  font-weight: 600;
-  font-size: 16px;
-  text-transform: lowercase;
-  letter-spacing: 0.02em;
-  padding: 16px 32px;
-  border: none;
-  border-radius: 2px;
-  text-decoration: none;
-  transition: all 0.2s ease-out;
-  box-shadow: 0 4px 12px rgba(227, 24, 55, 0.3);
+  border: 2px solid #E31837;
 }
 
-.hero .button-container .button:hover,
-.hero .button-container .button:focus {
-  background-color: #C41530;
+.hero strong .button:hover,
+.hero .button.primary:hover {
+  background-color: #B91429;
+  border-color: #B91429;
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(227, 24, 55, 0.4);
+  box-shadow: 0 4px 20px rgba(227, 24, 55, 0.3);
+}
+
+.hero .button:not(.primary) {
+  background-color: transparent;
+  color: #FFFFFF;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+}
+
+.hero .button:not(.primary):hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: #FFFFFF;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2);
 }
 
 .hero picture {
@@ -80,60 +115,70 @@
   box-sizing: border-box;
 }
 
-.hero picture::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(26, 26, 26, 0.4) 0%, rgba(26, 26, 26, 0.2) 100%);
-  z-index: 1;
-}
-
 .hero img {
   object-fit: cover;
   width: 100%;
   height: 100%;
+  transition: transform 8s ease-out;
+}
+
+.hero img:hover {
+  transform: scale(1.02);
 }
 
 @media (width >= 600px) {
   .hero {
-    padding: 80px 32px;
-    min-height: 65vh;
+    padding: clamp(100px, 15vw, 180px) 32px clamp(120px, 18vw, 220px);
   }
 
-  .hero h1 {
-    font-size: 56px;
+  .hero .button-container {
+    gap: clamp(20px, 3vw, 32px);
   }
 
-  .hero .hero-subtitle {
-    font-size: 24px;
-  }
-
-  .hero .button-container .button {
-    font-size: 18px;
-    padding: 18px 40px;
+  .hero .button {
+    padding: clamp(16px, 2.5vw, 20px) clamp(32px, 5vw, 48px);
+    min-width: 160px;
   }
 }
 
 @media (width >= 900px) {
   .hero {
-    padding: 120px 32px;
-    min-height: 70vh;
+    padding: clamp(120px, 20vw, 200px) 40px clamp(140px, 22vw, 240px);
+    min-height: clamp(700px, 85vh, 900px);
   }
 
   .hero h1 {
-    font-size: 72px;
     max-width: 1000px;
+    font-size: clamp(56px, 8vw, 80px);
   }
 
-  .hero .hero-subtitle {
-    font-size: 26px;
+  .hero p {
+    font-size: clamp(20px, 2.5vw, 24px);
     max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
   }
 
-  .hero .button-container .button {
-    font-size: 20px;
-    padding: 20px 48px;
+  .hero .button {
+    font-size: clamp(17px, 2vw, 19px);
+    padding: clamp(18px, 2.5vw, 22px) clamp(36px, 5vw, 52px);
+    min-width: 180px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero img {
+    transition: none;
+  }
+
+  .hero img:hover {
+    transform: none;
+  }
+
+  .hero .button {
+    transition: color 200ms ease, background-color 200ms ease, border-color 200ms ease;
+  }
+
+  .hero .button:hover {
+    transform: none;
+    box-shadow: none;
   }
 }

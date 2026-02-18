@@ -1,49 +1,68 @@
 .tabs .tabs-list {
   display: flex;
-  gap: 1px;
+  gap: 2px;
   max-width: 100%;
-  font-size: var(--body-font-size-xs);
+  font-family: 'Söhne Breit', 'Arial Black', sans-serif;
+  font-weight: 600;
+  font-size: clamp(14px, 2.5vw, 16px);
+  text-transform: lowercase;
+  letter-spacing: 0.02em;
   overflow-x: auto;
+  border-bottom: 2px solid #E8E8E6;
 }
 
 @media (width >= 600px) {
   .tabs .tabs-list {
-    font-size: var(--body-font-size-s);
+    font-size: clamp(16px, 2.2vw, 18px);
+    gap: 4px;
   }
 }
 
 @media (width >= 900px) {
   .tabs .tabs-list {
-    font-size: var(--body-font-size-m);
+    font-size: clamp(18px, 1.8vw, 20px);
+    gap: 6px;
   }
 }
 
 .tabs .tabs-list button {
   flex: 0 0 max-content;
   margin: 0;
-  border: 2px solid #E8E6E0;
-  border-bottom: 2px solid #1A1A1A;
+  border: none;
   border-radius: 0;
-  padding: 16px 24px;
-  background-color: #F5F5F3;
-  color: #4A4A4A;
-  font-family: var(--body-font-family);
-  font-weight: 400;
-  font-size: 15px;
-  letter-spacing: 0.5px;
-  line-height: 1.4;
+  padding: clamp(12px, 2vw, 16px) clamp(20px, 3vw, 28px);
+  background-color: transparent;
+  color: #6B6B68;
+  font-family: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+  text-transform: inherit;
+  letter-spacing: inherit;
+  line-height: 1.2;
   text-align: center;
-  text-transform: lowercase;
   text-overflow: unset;
   overflow: unset;
   white-space: nowrap;
   cursor: pointer;
-  transition: all 0.25s ease;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.tabs .tabs-list button::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #E31837;
+  transform: scaleX(0);
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .tabs .tabs-list button:hover {
-  background-color: #FFFFFF;
-  color: #1A1A1A;
+  color: #2A2A28;
+  background-color: color-mix(in oklch, #F5F5F3 80%, transparent);
 }
 
 .tabs .tabs-list button p {
@@ -51,32 +70,37 @@
 }
 
 .tabs .tabs-list button[aria-selected='true'] {
-  border: 2px solid #1A1A1A;
-  border-bottom: 2px solid #FFFFFF;
-  background-color: #FFFFFF;
-  color: #1A1A1A;
-  font-weight: 500;
+  color: #2A2A28;
+  background-color: #F5F5F3;
   cursor: default;
 }
 
+.tabs .tabs-list button[aria-selected='true']::after {
+  transform: scaleX(1);
+}
+
 .tabs .tabs-panel {
-  margin-top: -2px;
-  padding: 32px;
-  border: 2px solid #1A1A1A;
-  border-top: none;
-  background-color: #FFFFFF;
+  margin-top: 0;
+  padding: clamp(24px, 4vw, 40px);
+  border: none;
+  border-top: 2px solid #E8E8E6;
+  background-color: #F5F5F3;
   overflow: auto;
+  font-family: 'Plantin MT Pro', 'Times New Roman', serif;
+  font-size: clamp(16px, 2.2vw, 18px);
+  line-height: 1.6;
+  color: #2A2A28;
 }
 
 @media (width >= 600px) {
   .tabs .tabs-panel {
-    padding: 40px;
+    padding: clamp(32px, 4vw, 48px);
   }
 }
 
 @media (width >= 900px) {
   .tabs .tabs-panel {
-    padding: 48px;
+    padding: clamp(40px, 4vw, 56px);
   }
 }
 

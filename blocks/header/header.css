@@ -1,10 +1,10 @@
 /* header and nav layout */
 header .nav-wrapper {
-  background-color: #ffffff;
+  background-color: #f5f5f3;
   width: 100%;
   z-index: 2;
   position: fixed;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 0 #e8e6e1;
 }
 
 header nav {
@@ -19,8 +19,7 @@ header nav {
   max-width: 1248px;
   height: 72px;
   padding: 0 24px;
-  font-family: 'Söhne', -webkit-system, system-ui, sans-serif;
-  color: #1A1A1A;
+  font-family: 'Söhne', -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
 }
 
 header nav[aria-expanded='true'] {
@@ -30,6 +29,7 @@ header nav[aria-expanded='true'] {
     'tools tools' 72px / auto 1fr;
   overflow-y: auto;
   min-height: 100dvh;
+  background-color: #f5f5f3;
 }
 
 @media (width >= 900px) {
@@ -43,12 +43,13 @@ header nav[aria-expanded='true'] {
     gap: 0 48px;
     max-width: 1264px;
     padding: 0 32px;
-    height: 80px;
+    height: 88px;
   }
 
   header nav[aria-expanded='true'] {
     min-height: 0;
     overflow: visible;
+    background-color: transparent;
   }
 }
 
@@ -58,13 +59,13 @@ header nav p {
 }
 
 header nav a:any-link {
-  color: currentcolor;
+  color: #2a2a28;
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: color 0.25s ease-out;
 }
 
 header nav a:hover {
-  color: #E31837;
+  color: #e31837;
 }
 
 /* hamburger */
@@ -80,13 +81,18 @@ header nav .nav-hamburger button {
   margin: 0;
   border: 0;
   border-radius: 0;
-  padding: 0;
+  padding: 8px;
   background-color: transparent;
-  color: inherit;
+  color: #2a2a28;
   overflow: initial;
   text-overflow: initial;
   white-space: initial;
   cursor: pointer;
+  transition: color 0.2s ease-out;
+}
+
+header nav .nav-hamburger button:hover {
+  color: #e31837;
 }
 
 header nav .nav-hamburger-icon,
@@ -96,7 +102,7 @@ header nav .nav-hamburger-icon::after {
   display: block;
   position: relative;
   width: 20px;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease-out;
 }
 
 header nav .nav-hamburger-icon::before,
@@ -165,6 +171,10 @@ header nav .nav-brand img {
 }
 
 @media (width >= 900px) {
+  header .nav-brand {
+    flex-basis: 144px;
+  }
+
   header nav .nav-brand img {
     width: 144px;
   }
@@ -176,13 +186,13 @@ header nav .nav-sections {
   flex: 1 1 auto;
   display: none;
   visibility: hidden;
+  margin-top: 24px;
 }
 
 header nav[aria-expanded='true'] .nav-sections {
   display: block;
   visibility: visible;
   align-self: start;
-  padding-top: 32px;
 }
 
 header nav .nav-sections ul {
@@ -194,19 +204,36 @@ header nav .nav-sections ul {
 
 header nav .nav-sections ul > li {
   font-weight: 500;
-  padding: 16px 0;
-  border-bottom: 1px solid #F5F5F3;
+  margin-bottom: 24px;
+}
+
+header nav .nav-sections ul > li > a {
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: lowercase;
+  padding: 12px 0;
+  display: block;
+  border-bottom: 1px solid #e8e6e1;
 }
 
 header nav .nav-sections ul > li > ul {
-  margin-top: 16px;
+  margin-top: 12px;
+  margin-left: 16px;
 }
 
 header nav .nav-sections ul > li > ul > li {
   font-weight: 400;
+  margin-bottom: 12px;
+}
+
+header nav .nav-sections ul > li > ul > li > a {
+  font-size: 15px;
+  font-weight: 400;
+  text-transform: none;
   padding: 8px 0;
-  border-bottom: none;
-  color: #4A4A4A;
+  border: none;
+  color: #4a4a4a;
 }
 
 @media (width >= 900px) {
@@ -214,11 +241,11 @@ header nav .nav-sections ul > li > ul > li {
     display: block;
     visibility: visible;
     white-space: nowrap;
+    margin-top: 0;
   }
 
   header nav[aria-expanded='true'] .nav-sections {
     align-self: unset;
-    padding-top: 0;
   }
 
   header nav .nav-sections .nav-drop {
@@ -239,7 +266,7 @@ header nav .nav-sections ul > li > ul > li {
     border: 2px solid currentcolor;
     border-radius: 0 1px 0 0;
     border-width: 2px 2px 0 0;
-    transition: transform 0.2s ease;
+    transition: transform 0.2s ease-out;
   }
 
   header nav .nav-sections .nav-drop[aria-expanded='true']::after {
@@ -252,21 +279,30 @@ header nav .nav-sections ul > li > ul > li {
     display: flex;
     gap: 32px;
     margin: 0;
-    font-size: 16px;
+  }
+
+  header nav .nav-sections ul > li {
+    margin-bottom: 0;
+  }
+
+  header nav .nav-sections ul > li > a {
+    font-size: 15px;
     font-weight: 500;
+    letter-spacing: 0.025em;
+    text-transform: lowercase;
+    padding: 0;
+    border: none;
+    display: inline;
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li {
     flex: 0 1 auto;
     position: relative;
-    padding: 0;
-    border-bottom: none;
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li > ul {
     display: none;
     position: relative;
-    margin-top: 0;
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'] > ul {
@@ -278,8 +314,9 @@ header nav .nav-sections ul > li > ul > li {
     padding: 24px;
     background-color: #ffffff;
     white-space: initial;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-    border-radius: 4px;
+    border-radius: 2px;
+    box-shadow: 0 8px 32px rgba(26, 26, 26, 0.12);
+    border: 1px solid #e8e6e1;
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li > ul::before {
@@ -295,14 +332,24 @@ header nav .nav-sections ul > li > ul > li {
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li > ul > li {
-    padding: 12px 0;
-    font-weight: 400;
-    color: #4A4A4A;
-    font-size: 15px;
+    padding: 8px 0;
+    margin-bottom: 8px;
   }
 
-  header nav .nav-sections .default-content-wrapper > ul > li > ul > li:hover {
-    color: #E31837;
+  header nav .nav-sections .default-content-wrapper > ul > li > ul > li:last-child {
+    margin-bottom: 0;
+  }
+
+  header nav .nav-sections .default-content-wrapper > ul > li > ul > li > a {
+    font-size: 14px;
+    font-weight: 400;
+    color: #4a4a4a;
+    text-transform: none;
+    letter-spacing: normal;
+  }
+
+  header nav .nav-sections .default-content-wrapper > ul > li > ul > li > a:hover {
+    color: #e31837;
   }
 }
 
@@ -311,27 +358,30 @@ header nav .nav-tools {
   grid-area: tools;
 }
 
-header nav .nav-tools a {
-  display: inline-block;
-  padding: 12px 24px;
-  background-color: #E31837;
+header nav .nav-tools .button {
+  background-color: #e31837;
   color: #ffffff;
-  font-weight: 600;
+  border: 2px solid #e31837;
+  border-radius: 2px;
+  padding: 12px 24px;
   font-size: 14px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  border-radius: 4px;
-  transition: all 0.2s ease;
+  font-weight: 600;
+  text-transform: lowercase;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.25s ease-out;
+  font-family: 'Söhne', -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
 }
 
-header nav .nav-tools a:hover {
-  background-color: #C01427;
+header nav .nav-tools .button:hover {
+  background-color: #ffffff;
+  color: #e31837;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(227, 24, 55, 0.3);
 }
 
 @media (width >= 900px) {
-  header nav .nav-tools a {
+  header nav .nav-tools .button {
     padding: 14px 28px;
     font-size: 15px;
   }
