@@ -1,32 +1,33 @@
 .embed {
   width: unset;
   text-align: center;
-  max-width: clamp(320px, 90vw, 1000px);
-  margin: clamp(40px, 8vw, 80px) auto;
+  max-width: clamp(320px, 90vw, 800px);
+  margin: clamp(2rem, 4vw, 3rem) auto;
+  border-radius: 2px;
+  background: #FEFEFE;
+  box-shadow: 0 1px 3px oklch(0.2 0 0 / 0.08), 0 2px 8px oklch(0.2 0 0 / 0.04);
 }
 
 .embed > div {
   display: flex;
   justify-content: center;
+  border-radius: 2px;
+  overflow: hidden;
 }
 
 .embed.embed-twitter .twitter-tweet-rendered {
   margin-left: auto;
   margin-right: auto;
+  border-radius: 2px;
 }
 
 .embed .embed-placeholder {
   width: 100%;
   aspect-ratio: 16 / 9;
   position: relative;
+  background: linear-gradient(135deg, #F8F7F5 0%, #F0EDE8 100%);
   border-radius: 2px;
   overflow: hidden;
-  background: #F5F5F3;
-  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.embed .embed-placeholder:hover {
-  transform: translateY(-1px);
 }
 
 .embed .embed-placeholder > * {
@@ -41,38 +42,37 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .embed .embed-placeholder:hover picture img {
-  opacity: 0.92;
+  transform: scale(1.02);
 }
 
 .embed .embed-placeholder-play button {
   box-sizing: border-box;
   position: relative;
   display: block;
-  transform: scale(2.5);
-  width: 24px;
-  height: 24px;
-  border: 2px solid #F5F5F3;
+  transform: scale(3);
+  width: 22px;
+  height: 22px;
+  border: 2px solid #1D1D1B;
   border-radius: 50%;
   padding: 0;
-  background: rgba(26, 26, 26, 0.85);
+  background: rgba(254, 254, 254, 0.95);
   backdrop-filter: blur(8px);
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   cursor: pointer;
 }
 
 .embed .embed-placeholder-play button:hover {
-  transform: scale(2.8);
-  background: rgba(227, 24, 55, 0.95);
-  border-color: #F5F5F3;
+  border-color: #C8102E;
+  background: #C8102E;
+  transform: scale(3.2);
 }
 
-.embed .embed-placeholder-play button:focus {
-  outline: 2px solid #E31837;
-  outline-offset: 4px;
+.embed .embed-placeholder-play button:active {
+  transform: scale(2.9);
 }
 
 .embed .embed-placeholder-play button::before {
@@ -84,61 +84,37 @@
   height: 10px;
   border-top: 5px solid transparent;
   border-bottom: 5px solid transparent;
-  border-left: 7px solid #F5F5F3;
-  top: 50%;
-  left: 50%;
-  transform: translate(-35%, -50%);
-  transition: border-left-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  border-left: 6px solid #1D1D1B;
+  top: 4px;
+  left: 7px;
+  transition: border-left-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.embed .embed-placeholder-play button:hover::before {
+  border-left-color: #FEFEFE;
 }
 
 @media (width >= 600px) {
   .embed {
-    margin: clamp(56px, 10vw, 96px) auto;
-  }
-  
-  .embed .embed-placeholder {
-    border-radius: 4px;
-  }
-  
-  .embed .embed-placeholder-play button {
-    transform: scale(3);
-    width: 28px;
-    height: 28px;
-  }
-  
-  .embed .embed-placeholder-play button:hover {
-    transform: scale(3.4);
-  }
-  
-  .embed .embed-placeholder-play button::before {
-    border-left: 8px solid #F5F5F3;
+    margin: clamp(3rem, 5vw, 4rem) auto;
   }
 }
 
 @media (width >= 900px) {
   .embed {
-    max-width: 1200px;
-    margin: clamp(72px, 12vw, 120px) auto;
-  }
-  
-  .embed .embed-placeholder {
-    border-radius: 6px;
+    margin: clamp(4rem, 6vw, 5rem) auto;
+    max-width: 900px;
   }
   
   .embed .embed-placeholder-play button {
     transform: scale(3.5);
-    width: 32px;
-    height: 32px;
   }
   
   .embed .embed-placeholder-play button:hover {
-    transform: scale(4);
+    transform: scale(3.8);
   }
   
-  .embed .embed-placeholder-play button::before {
-    height: 12px;
-    border-top: 6px solid transparent;
-    border-bottom: 6px solid transparent;
-    border-left: 9px solid #F5F5F3;
+  .embed .embed-placeholder-play button:active {
+    transform: scale(3.3);
   }
 }

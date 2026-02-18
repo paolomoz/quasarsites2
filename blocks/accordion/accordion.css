@@ -1,51 +1,49 @@
 .accordion details {
-  border: 1px solid #E8E6E0;
-  border-radius: 0;
-  background-color: #FFFFFF;
+  border: 1px solid #E8E6E3;
+  border-radius: 2px;
 }
 
 /* stylelint-disable-next-line no-descending-specificity */
 .accordion details + details {
-  margin-top: 0;
-  border-top: none;
+  margin-top: clamp(16px, 3vw, 24px);
 }
 
 .accordion details p {
-  margin-bottom: 1.2em;
-  font-family: "Plantin MT Pro", "Lyon Text", Georgia, serif;
-  font-size: 17px;
+  margin-bottom: 0.8em;
+  color: #4A4A48;
+  font-family: 'Sentinel', Georgia, serif;
+  font-size: clamp(15px, 2.5vw, 17px);
   line-height: 1.6;
-  color: #2A2A2A;
+  font-weight: 400;
 }
 
 .accordion details summary {
   position: relative;
-  padding: 24px 32px;
-  padding-right: 72px;
+  padding: clamp(18px, 4vw, 24px) clamp(16px, 3vw, 20px);
+  padding-right: clamp(50px, 8vw, 60px);
   cursor: pointer;
   list-style: none;
   overflow: auto;
-  transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  font-family: "Söhne Breit", "Söhne Halbfett", -apple-system, BlinkMacSystemFont, sans-serif;
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 1.4;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  font-family: 'Atlas Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(16px, 3vw, 18px);
+  font-weight: 500;
   letter-spacing: 0.01em;
-  text-transform: lowercase;
-  color: #1A1A1A;
-  background-color: #FFFFFF;
+  color: #1D1D1B;
+  background-color: #FEFEFE;
   border-bottom: 1px solid transparent;
 }
 
 .accordion details[open] summary {
-  background-color: #F9F8F5;
-  border-bottom-color: #E8E6E0;
+  background-color: #F8F7F5;
+  border-bottom: 1px solid #E8E6E3;
 }
 
 .accordion details summary:focus,
 .accordion details summary:hover {
-  background-color: #F9F8F5;
-  color: #E31837;
+  background-color: #F8F7F5;
+  outline: 2px solid #C8102E;
+  outline-offset: -2px;
 }
 
 .accordion details summary::-webkit-details-marker {
@@ -56,74 +54,72 @@
   content: '';
   position: absolute;
   top: 50%;
-  right: 32px;
-  transform: translateY(-50%) rotate(45deg);
-  width: 10px;
-  height: 10px;
-  border: 2px solid #1A1A1A;
-  border-width: 0 2px 2px 0;
-  transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  opacity: 0.7;
-}
-
-.accordion details summary:hover::after {
-  border-color: #E31837;
-  opacity: 1;
+  right: clamp(18px, 4vw, 24px);
+  transform: translateY(-50%) rotate(135deg);
+  width: 7px;
+  height: 7px;
+  border: 2px solid #1D1D1B;
+  border-width: 2px 2px 0 0;
+  transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .accordion details[open] summary::after {
-  transform: translateY(-50%) rotate(-135deg);
+  transform: translateY(-50%) rotate(-45deg);
+  border-color: #C8102E;
 }
 
 .accordion details .accordion-item-body {
-  padding: 0 32px 32px 32px;
+  padding: 0 clamp(16px, 3vw, 20px);
+  padding-bottom: clamp(18px, 4vw, 24px);
 }
 
 .accordion details[open] .accordion-item-body {
   border-top: none;
-  background-color: #F9F8F5;
+  background-color: #FEFEFE;
+  animation: accordion-slide-down 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@keyframes accordion-slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (width >= 600px) {
   .accordion details summary {
-    padding: 28px 40px;
-    padding-right: 80px;
-    font-size: 22px;
-  }
-
-  .accordion details summary::after {
-    right: 40px;
-    width: 12px;
-    height: 12px;
+    padding: clamp(20px, 4vw, 28px) clamp(20px, 4vw, 24px);
+    padding-right: clamp(60px, 8vw, 70px);
   }
 
   .accordion details .accordion-item-body {
-    padding: 0 40px 40px 40px;
-  }
-
-  .accordion details p {
-    font-size: 18px;
-    line-height: 1.65;
+    padding: 0 clamp(20px, 4vw, 24px);
+    padding-bottom: clamp(20px, 4vw, 28px);
   }
 }
 
 @media (width >= 900px) {
+  .accordion details {
+    border-radius: 3px;
+  }
+
   .accordion details summary {
-    padding: 32px 48px;
-    padding-right: 88px;
-    font-size: 24px;
+    font-size: 18px;
+    padding: 28px 24px;
+    padding-right: 70px;
   }
 
   .accordion details summary::after {
-    right: 48px;
+    right: 24px;
+    width: 8px;
+    height: 8px;
   }
 
   .accordion details .accordion-item-body {
-    padding: 0 48px 48px 48px;
-  }
-
-  .accordion details p {
-    font-size: 19px;
-    max-width: 65ch;
+    padding: 0 24px 28px;
   }
 }

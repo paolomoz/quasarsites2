@@ -1,242 +1,178 @@
+/* Fragment block styles */
 .fragment {
   margin: 0;
   padding: 0;
-  border: none;
-  background: transparent;
 }
 
 .fragment > * {
-  margin-block-start: 0;
-  margin-block-end: clamp(1.5rem, 4vw, 3rem);
+  margin: 0;
+  padding: 0;
 }
 
-.fragment > *:last-child {
-  margin-block-end: 0;
-}
-
+/* Preserve semantic structure while applying brand typography */
 .fragment h1,
 .fragment h2,
 .fragment h3,
 .fragment h4,
 .fragment h5,
 .fragment h6 {
-  font-family: 'Söhne Breit', 'Arial Black', sans-serif;
+  font-family: 'Sentinel', Georgia, serif;
   font-weight: 600;
-  text-transform: lowercase;
-  letter-spacing: 0.02em;
-  color: #1A1A1A;
-  line-height: 1.1;
+  color: #1D1D1B;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  margin: 0 0 clamp(1rem, 2.5vw, 1.5rem) 0;
 }
 
 .fragment h1 {
-  font-size: clamp(2rem, 5vw, 5rem);
+  font-size: clamp(2rem, 4vw, 3.5rem);
   font-weight: 700;
-  letter-spacing: 0.025em;
-  margin-block-end: clamp(1.5rem, 4vw, 3rem);
 }
 
 .fragment h2 {
-  font-size: clamp(1.75rem, 4vw, 3rem);
-  font-weight: 650;
-  letter-spacing: 0.02em;
-  margin-block-end: clamp(1.25rem, 3.5vw, 2.5rem);
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
 }
 
 .fragment h3 {
-  font-size: clamp(1.5rem, 3vw, 2.25rem);
-  font-weight: 600;
-  margin-block-end: clamp(1rem, 3vw, 2rem);
+  font-size: clamp(1.5rem, 3vw, 2rem);
 }
 
-.fragment h4 {
-  font-size: clamp(1.375rem, 2.75vw, 1.875rem);
-  font-weight: 600;
-  margin-block-end: clamp(0.875rem, 2.5vw, 1.75rem);
-}
-
-.fragment h5 {
-  font-size: clamp(1.25rem, 2.25vw, 1.5rem);
-  font-weight: 550;
-  margin-block-end: clamp(0.75rem, 2vw, 1.5rem);
-}
-
+.fragment h4,
+.fragment h5,
 .fragment h6 {
-  font-size: clamp(1.125rem, 2vw, 1.25rem);
-  font-weight: 500;
-  margin-block-end: clamp(0.625rem, 1.5vw, 1.25rem);
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
 }
 
-.fragment p,
-.fragment li {
-  font-family: 'Plantin MT Pro', 'Times New Roman', serif;
-  font-size: clamp(1.0625rem, 2vw, 1.1875rem);
+.fragment p {
+  font-family: 'Atlas Grotesk', system-ui, sans-serif;
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  font-weight: 400;
+  color: #2A2926;
   line-height: 1.6;
-  color: #2A2A2A;
-  margin-block-end: 1.5rem;
+  letter-spacing: 0.01em;
+  margin: 0 0 clamp(1rem, 2vw, 1.25rem) 0;
 }
 
-.fragment p:last-child,
-.fragment li:last-child {
-  margin-block-end: 0;
+.fragment p:last-child {
+  margin-bottom: 0;
 }
 
 .fragment a {
-  color: #E31837;
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.125em;
+  color: #C8102E;
+  text-decoration: none;
+  font-weight: 500;
   transition: color 0.2s ease-out;
 }
 
 .fragment a:hover {
-  color: #B01329;
-  text-decoration-thickness: 2px;
-}
-
-.fragment strong {
-  font-weight: 600;
-  color: #1A1A1A;
-}
-
-.fragment em {
-  font-style: italic;
-  font-family: 'Plantin MT Pro', 'Times New Roman', serif;
-}
-
-.fragment blockquote {
-  font-family: 'Plantin MT Pro', 'Times New Roman', serif;
-  font-style: italic;
-  font-size: clamp(1.375rem, 3vw, 1.75rem);
-  line-height: 1.4;
-  color: #1A1A1A;
-  margin: clamp(2rem, 5vw, 4rem) 0;
-  padding-left: clamp(1.5rem, 4vw, 3rem);
-  border-left: 3px solid #E31837;
-}
-
-.fragment blockquote p {
-  font-size: inherit;
-  font-style: inherit;
-  color: inherit;
-  margin-block-end: 1rem;
+  color: #A00D25;
+  text-decoration: underline;
 }
 
 .fragment ul,
 .fragment ol {
-  margin-block-end: 2rem;
+  font-family: 'Atlas Grotesk', system-ui, sans-serif;
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  color: #2A2926;
+  line-height: 1.6;
+  margin: 0 0 clamp(1rem, 2vw, 1.25rem) 0;
   padding-left: 1.5rem;
 }
 
 .fragment li {
-  margin-block-end: 0.75rem;
+  margin-bottom: 0.5rem;
 }
 
 .fragment li:last-child {
-  margin-block-end: 0;
+  margin-bottom: 0;
 }
 
-.fragment code {
-  font-family: 'Söhne Mono', 'Courier New', monospace;
-  font-size: 0.9em;
-  color: #4A4A4A;
-  background: #F5F5F3;
-  padding: 0.125em 0.375em;
-  border-radius: 2px;
-}
-
-.fragment pre {
-  font-family: 'Söhne Mono', 'Courier New', monospace;
-  font-size: 0.875rem;
-  color: #4A4A4A;
-  background: #F5F5F3;
-  padding: 1.5rem;
-  border-radius: 4px;
-  overflow-x: auto;
-  margin-block-end: 2rem;
-}
-
-.fragment pre code {
-  background: transparent;
-  padding: 0;
-  border-radius: 0;
-}
-
-.fragment .button-container {
-  margin-block-end: clamp(2rem, 4vw, 3rem);
-}
-
-.fragment .button {
-  display: inline-block;
-  font-family: 'Söhne Breit', 'Arial Black', sans-serif;
-  font-weight: 600;
-  font-size: 1rem;
-  text-transform: lowercase;
-  letter-spacing: 0.02em;
-  text-decoration: none;
-  padding: 0.75rem 2rem;
-  border: 2px solid #1A1A1A;
-  background: transparent;
-  color: #1A1A1A;
-  transition: all 0.25s ease-out;
-  cursor: pointer;
-}
-
-.fragment .button:hover {
-  background: #1A1A1A;
-  color: #F5F5F3;
-}
-
-.fragment strong .button {
-  background: #E31837;
-  border-color: #E31837;
-  color: #F5F5F3;
-}
-
-.fragment strong .button:hover {
-  background: #B01329;
-  border-color: #B01329;
-}
-
-.fragment hr {
-  border: none;
-  height: 1px;
-  background: #D4D4D2;
-  margin: clamp(2rem, 5vw, 4rem) 0;
+.fragment blockquote {
+  font-family: 'Sentinel', Georgia, serif;
+  font-size: clamp(1.125rem, 2.5vw, 1.375rem);
+  font-weight: 500;
+  color: #1D1D1B;
+  font-style: italic;
+  margin: clamp(1.5rem, 3vw, 2rem) 0;
+  padding-left: 2rem;
+  border-left: 3px solid #D4A84B;
+  line-height: 1.4;
 }
 
 .fragment img {
   max-width: 100%;
   height: auto;
-  border-radius: 4px;
+  display: block;
+  margin: clamp(1rem, 2vw, 1.5rem) 0;
 }
 
-.fragment picture {
-  display: block;
-  margin-block-end: 2rem;
+.fragment .button-container {
+  margin: clamp(1.5rem, 3vw, 2rem) 0 0 0;
+}
+
+.fragment .button {
+  font-family: 'Atlas Grotesk', system-ui, sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.025em;
+  text-decoration: none;
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid #1D1D1B;
+  color: #1D1D1B;
+  background: transparent;
+  transition: all 0.25s ease-out;
+  cursor: pointer;
+  border-radius: 0;
+}
+
+.fragment .button:hover {
+  background: #1D1D1B;
+  color: #FFFFFF;
+  transform: translateY(-1px);
+}
+
+.fragment strong .button {
+  background: #C8102E;
+  border-color: #C8102E;
+  color: #FFFFFF;
+}
+
+.fragment strong .button:hover {
+  background: #A00D25;
+  border-color: #A00D25;
+  color: #FFFFFF;
+}
+
+/* Fragment content spacing and rhythm */
+.fragment > * + * {
+  margin-top: clamp(1rem, 2.5vw, 1.5rem);
+}
+
+.fragment > h1 + *,
+.fragment > h2 + *,
+.fragment > h3 + * {
+  margin-top: clamp(0.75rem, 2vw, 1rem);
+}
+
+.fragment > * + h1,
+.fragment > * + h2,
+.fragment > * + h3 {
+  margin-top: clamp(2rem, 4vw, 3rem);
 }
 
 @media (width >= 600px) {
-  .fragment > * {
-    margin-block-end: clamp(2rem, 4vw, 3.5rem);
-  }
-
-  .fragment blockquote {
-    padding-left: clamp(2rem, 5vw, 4rem);
-  }
-
-  .fragment ul,
-  .fragment ol {
-    padding-left: 2rem;
+  .fragment {
+    padding: 0;
   }
 }
 
 @media (width >= 900px) {
-  .fragment > * {
-    margin-block-end: clamp(2.5rem, 5vw, 4rem);
+  .fragment {
+    padding: 0;
   }
-
-  .fragment .button {
-    font-size: 1.0625rem;
-    padding: 0.875rem 2.5rem;
+  
+  .fragment p {
+    max-width: 65ch;
   }
 }

@@ -1,78 +1,79 @@
 :root {
   /* colors */
-  --background-color: #F5F5F3;
-  --light-color: #FEFEFE;
-  --dark-color: #2A2A2A;
-  --text-color: #1A1A1A;
-  --link-color: #E31837;
-  --link-hover-color: #C51530;
-
-  /* brand colors */
-  --accent-color: #E31837;
-  --neutral-dark: #1A1A1A;
-  --neutral-medium: #4A4A4A;
-  --neutral-light: #F5F5F3;
-  --surface-white: #FEFEFE;
+  --background-color: #FDFCF8;
+  --light-color: #F5F3EE;
+  --dark-color: #2C2B29;
+  --text-color: #1D1D1B;
+  --link-color: #C8102E;
+  --link-hover-color: #8B0C20;
+  --accent-color: #C8102E;
+  --heritage-gold: #D4A84B;
+  --warm-white: #FDFCF8;
+  --charcoal: #2C2B29;
+  --subtle-gray: #E8E5DE;
 
   /* fonts */
-  --body-font-family: "Plantin MT Pro", "Lyon Text", "Times New Roman", serif;
-  --heading-font-family: "Söhne Breit", "Söhne Halbfett", -apple-system, BlinkMacSystemFont, sans-serif;
-  --mono-font-family: "Söhne Mono", "SF Mono", Consolas, monospace;
+  --body-font-family: 'Atlas Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --heading-font-family: 'Sentinel', Georgia, 'Times New Roman', serif;
 
-  /* body sizes - fluid scale */
-  --body-font-size-m: clamp(17px, 2.5vw, 19px);
-  --body-font-size-s: clamp(15px, 2.2vw, 17px);
-  --body-font-size-xs: clamp(13px, 2vw, 15px);
+  /* body sizes */
+  --body-font-size-m: clamp(18px, 2.5vw, 22px);
+  --body-font-size-s: clamp(16px, 2.2vw, 19px);
+  --body-font-size-xs: clamp(15px, 2vw, 17px);
 
-  /* heading sizes - fluid scale */
-  --heading-font-size-xxl: clamp(44px, 8vw, 80px);
-  --heading-font-size-xl: clamp(32px, 6vw, 56px);
-  --heading-font-size-l: clamp(28px, 5vw, 48px);
-  --heading-font-size-m: clamp(24px, 4vw, 36px);
+  /* heading sizes */
+  --heading-font-size-xxl: clamp(44px, 8vw, 72px);
+  --heading-font-size-xl: clamp(36px, 6vw, 56px);
+  --heading-font-size-l: clamp(28px, 5vw, 44px);
+  --heading-font-size-m: clamp(24px, 4vw, 32px);
   --heading-font-size-s: clamp(20px, 3.5vw, 28px);
   --heading-font-size-xs: clamp(18px, 3vw, 24px);
 
-  /* hierarchical spacing scale */
-  --spacing-xs: clamp(8px, 1vw, 12px);
-  --spacing-s: clamp(16px, 2vw, 24px);
-  --spacing-m: clamp(24px, 3vw, 40px);
-  --spacing-l: clamp(40px, 5vw, 64px);
-  --spacing-xl: clamp(64px, 8vw, 96px);
-  --spacing-xxl: clamp(96px, 12vw, 160px);
+  /* spacing scale */
+  --space-xs: clamp(8px, 1vw, 12px);
+  --space-s: clamp(16px, 2vw, 24px);
+  --space-m: clamp(24px, 3vw, 40px);
+  --space-l: clamp(40px, 5vw, 64px);
+  --space-xl: clamp(64px, 8vw, 96px);
+
+  /* section spacing hierarchy */
+  --section-padding-hero: clamp(80px, 12vw, 160px) 0;
+  --section-padding-large: clamp(64px, 10vw, 128px) 0;
+  --section-padding-standard: clamp(48px, 8vw, 96px) 0;
+  --section-padding-compact: clamp(32px, 6vw, 64px) 0;
+  --section-padding-minimal: clamp(24px, 4vw, 48px) 0;
 
   /* nav height */
-  --nav-height: 72px;
+  --nav-height: 80px;
 }
 
 /* fallback fonts */
 @font-face {
-  font-family: sohne-breit-fallback;
-  size-adjust: 95%;
-  src: local('Helvetica Neue'), local('Arial');
+  font-family: 'Sentinel-fallback';
+  size-adjust: 94%;
+  src: local('Georgia'), local('Times New Roman');
 }
 
 @font-face {
-  font-family: plantin-fallback;
-  size-adjust: 103%;
-  src: local('Times New Roman'), local('Georgia');
+  font-family: 'Atlas Grotesk-fallback';
+  size-adjust: 98%;
+  src: local('system-ui'), local('-apple-system');
 }
 
 @media (width >= 900px) {
   :root {
     /* body sizes */
-    --body-font-size-m: 18px;
-    --body-font-size-s: 16px;
-    --body-font-size-xs: 14px;
+    --body-font-size-m: 20px;
+    --body-font-size-s: 18px;
+    --body-font-size-xs: 16px;
 
     /* heading sizes */
-    --heading-font-size-xxl: 72px;
-    --heading-font-size-xl: 56px;
-    --heading-font-size-l: 44px;
-    --heading-font-size-m: 32px;
-    --heading-font-size-s: 26px;
-    --heading-font-size-xs: 22px;
-
-    --nav-height: 80px;
+    --heading-font-size-xxl: 64px;
+    --heading-font-size-xl: 48px;
+    --heading-font-size-l: 36px;
+    --heading-font-size-m: 28px;
+    --heading-font-size-s: 24px;
+    --heading-font-size-xs: 20px;
   }
 }
 
@@ -83,38 +84,28 @@ body {
   color: var(--text-color);
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-m);
-  line-height: 1.6;
-  letter-spacing: -0.01em;
-  transition: opacity 0.4s ease-out;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  transition: opacity 0.3s ease-out;
 }
 
 body.appear {
   display: block;
-  animation: fadeIn 0.6s ease-out;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: translateY(0); }
 }
 
 header {
   height: var(--nav-height);
-  background-color: var(--surface-white);
-  border-bottom: 1px solid color-mix(in oklch, var(--neutral-light) 60%, transparent);
 }
 
 header .header,
 footer .footer {
   visibility: hidden;
-  opacity: 0;
-  transition: opacity 0.3s ease-out;
 }
 
 header .header[data-block-status="loaded"],
 footer .footer[data-block-status="loaded"] {
   visibility: visible;
-  opacity: 1;
 }
 
 h1,
@@ -123,47 +114,46 @@ h3,
 h4,
 h5,
 h6 {
-  margin-top: 1em;
-  margin-bottom: 0.4em;
+  margin-top: 0;
+  margin-bottom: var(--space-s);
   font-family: var(--heading-font-family);
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1.15;
-  scroll-margin: var(--spacing-l);
-  text-transform: lowercase;
-  letter-spacing: 0.025em;
-  color: var(--neutral-dark);
+  letter-spacing: -0.02em;
+  color: var(--text-color);
+  scroll-margin: calc(var(--nav-height) + 24px);
 }
 
 h1 { 
   font-size: var(--heading-font-size-xxl);
-  margin-top: 0;
-  margin-bottom: 0.6em;
   font-weight: 700;
+  margin-bottom: var(--space-m);
 }
 
 h2 { 
   font-size: var(--heading-font-size-xl);
-  margin-top: 1.2em;
+  font-weight: 600;
+  margin-bottom: var(--space-m);
 }
 
 h3 { 
   font-size: var(--heading-font-size-l);
+  font-weight: 600;
 }
 
 h4 { 
   font-size: var(--heading-font-size-m);
+  font-weight: 500;
 }
 
 h5 { 
   font-size: var(--heading-font-size-s);
+  font-weight: 500;
 }
 
 h6 { 
   font-size: var(--heading-font-size-xs);
   font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--neutral-medium);
 }
 
 p,
@@ -172,42 +162,30 @@ ol,
 ul,
 pre,
 blockquote {
-  margin-top: 1em;
-  margin-bottom: 0.5em;
+  margin-top: 0;
+  margin-bottom: var(--space-s);
 }
 
-p {
-  color: color-mix(in oklch, var(--neutral-dark) 90%, var(--neutral-medium));
-  line-height: 1.65;
-}
-
-blockquote {
-  font-style: italic;
-  font-size: clamp(20px, 3vw, 26px);
-  color: var(--neutral-medium);
-  border-left: 3px solid var(--accent-color);
-  padding-left: var(--spacing-m);
-  margin-left: 0;
+p + p {
+  margin-top: var(--space-s);
 }
 
 code,
 pre {
   font-size: var(--body-font-size-s);
-  font-family: var(--mono-font-family);
-  color: var(--neutral-medium);
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
 }
 
 pre {
-  padding: var(--spacing-s);
+  padding: var(--space-s);
   border-radius: 4px;
-  background-color: color-mix(in oklch, var(--neutral-light) 40%, transparent);
+  background-color: var(--light-color);
   overflow-x: auto;
   white-space: pre;
-  border: 1px solid color-mix(in oklch, var(--neutral-light) 60%, transparent);
 }
 
 main > div {
-  margin: var(--spacing-l) var(--spacing-s);
+  margin: var(--space-l) var(--space-s);
 }
 
 input,
@@ -219,19 +197,15 @@ button {
 
 /* links */
 a:any-link {
-  color: var(--text-color);
-  text-decoration: underline;
-  text-decoration-color: color-mix(in oklch, var(--accent-color) 40%, transparent);
-  text-underline-offset: 0.15em;
-  text-decoration-thickness: 1px;
+  color: var(--link-color);
+  text-decoration: none;
   overflow-wrap: break-word;
-  transition: all 0.2s ease-out;
+  transition: color 0.2s ease-out;
 }
 
 a:hover {
-  color: var(--accent-color);
-  text-decoration-color: var(--accent-color);
-  text-decoration-thickness: 2px;
+  color: var(--link-hover-color);
+  text-decoration: underline;
 }
 
 /* buttons */
@@ -240,35 +214,41 @@ button {
   box-sizing: border-box;
   display: inline-block;
   max-width: 100%;
-  margin: var(--spacing-s) 0;
+  margin: var(--space-s) 0;
   border: 2px solid transparent;
-  border-radius: 2px;
-  padding: 0.75em 2em;
-  font-family: var(--heading-font-family);
+  border-radius: 4px;
+  padding: 14px 32px;
+  font-family: var(--body-font-family);
   font-style: normal;
-  font-weight: 600;
-  font-size: 15px;
+  font-weight: 500;
+  font-size: 16px;
   line-height: 1.2;
+  letter-spacing: 0.02em;
   text-align: center;
   text-decoration: none;
-  text-transform: lowercase;
-  letter-spacing: 0.02em;
-  background-color: var(--neutral-dark);
-  color: var(--surface-white);
+  text-transform: none;
+  background-color: var(--text-color);
+  color: var(--background-color);
   cursor: pointer;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  transition: all 0.25s ease-out;
-  position: relative;
+  transition: all 0.2s ease-out;
 }
 
-/* Primary button (within strong tags) */
+a.button:hover,
+a.button:focus,
+button:hover,
+button:focus {
+  background-color: var(--dark-color);
+  transform: translateY(-1px);
+}
+
 strong a.button:any-link,
 strong button {
   background-color: var(--accent-color);
-  color: var(--surface-white);
-  border-color: var(--accent-color);
+  color: var(--background-color);
+  font-weight: 600;
 }
 
 strong a.button:hover,
@@ -276,50 +256,36 @@ strong a.button:focus,
 strong button:hover,
 strong button:focus {
   background-color: var(--link-hover-color);
-  border-color: var(--link-hover-color);
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px color-mix(in oklch, var(--accent-color) 25%, transparent);
-}
-
-/* Secondary/default buttons */
-a.button:hover,
-a.button:focus,
-button:hover,
-button:focus {
-  background-color: var(--neutral-medium);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px color-mix(in oklch, var(--neutral-dark) 15%, transparent);
 }
 
 button:disabled,
 button:disabled:hover {
-  background-color: color-mix(in oklch, var(--neutral-light) 60%, transparent);
-  color: var(--neutral-medium);
+  background-color: var(--subtle-gray);
+  color: var(--dark-color);
   cursor: not-allowed;
   transform: none;
-  box-shadow: none;
 }
 
 a.button.secondary,
 button.secondary {
   background-color: transparent;
-  border: 2px solid var(--neutral-dark);
-  color: var(--neutral-dark);
+  border: 2px solid var(--text-color);
+  color: var(--text-color);
 }
 
 a.button.secondary:hover,
 a.button.secondary:focus,
 button.secondary:hover,
 button.secondary:focus {
-  background-color: var(--neutral-dark);
-  color: var(--surface-white);
+  background-color: var(--text-color);
+  color: var(--background-color);
 }
 
 main img {
   max-width: 100%;
   width: auto;
   height: auto;
-  border-radius: 2px;
 }
 
 .icon {
@@ -333,67 +299,83 @@ main img {
   width: 100%;
 }
 
-/* sections with hierarchical spacing */
+/* sections */
 main > .section {
-  margin: var(--spacing-xl) 0;
+  margin: var(--space-xl) 0;
+  padding: var(--section-padding-standard);
 }
 
 main > .section > div {
   max-width: 1200px;
   margin: auto;
-  padding: 0 var(--spacing-s);
+  padding: 0 var(--space-s);
 }
 
 main > .section:first-of-type {
   margin-top: 0;
+  padding: var(--section-padding-hero);
 }
 
-/* Hero sections get premium spacing */
-main > .section.hero-container,
-main > .section:first-child {
-  margin-top: 0;
-  margin-bottom: var(--spacing-xxl);
+main > .section.hero {
+  padding: var(--section-padding-hero);
 }
 
-/* Content sections get balanced rhythm */
-main > .section:nth-child(odd):not(.hero-container) {
-  margin-top: var(--spacing-xl);
-  margin-bottom: var(--spacing-l);
+main > .section.compact {
+  padding: var(--section-padding-compact);
 }
 
-main > .section:nth-child(even):not(.hero-container) {
-  margin-top: var(--spacing-l);
-  margin-bottom: var(--spacing-xl);
+main > .section.minimal {
+  padding: var(--section-padding-minimal);
 }
 
-/* Cards and smaller content get tighter spacing */
-main > .section.cards-container {
-  margin-top: var(--spacing-l);
-  margin-bottom: var(--spacing-l);
+main > .section.large {
+  padding: var(--section-padding-large);
 }
 
 @media (width >= 600px) {
   main > .section > div {
-    padding: 0 var(--spacing-m);
+    padding: 0 var(--space-m);
+  }
+  
+  main > div {
+    margin: var(--space-xl) var(--space-m);
   }
 }
 
 @media (width >= 900px) {
   main > .section > div {
-    padding: 0 var(--spacing-l);
+    padding: 0 var(--space-l);
+  }
+  
+  main > div {
+    margin: var(--space-xl) var(--space-l);
   }
 }
 
 /* section metadata */
 main .section.light,
 main .section.highlight {
-  background-color: var(--surface-white);
+  background-color: var(--light-color);
   margin: 0;
-  padding: var(--spacing-l) 0;
-  border-top: 1px solid color-mix(in oklch, var(--neutral-light) 50%, transparent);
-  border-bottom: 1px solid color-mix(in oklch, var(--neutral-light) 50%, transparent);
+  padding: var(--section-padding-standard);
 }
 
-main .section.light {
-  background-color: color-mix(in oklch, var(--neutral-light) 30%, transparent);
+main .section.light.hero,
+main .section.highlight.hero {
+  padding: var(--section-padding-hero);
+}
+
+main .section.light.compact,
+main .section.highlight.compact {
+  padding: var(--section-padding-compact);
+}
+
+main .section.light.minimal,
+main .section.highlight.minimal {
+  padding: var(--section-padding-minimal);
+}
+
+main .section.light.large,
+main .section.highlight.large {
+  padding: var(--section-padding-large);
 }

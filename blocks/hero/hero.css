@@ -5,111 +5,114 @@
 
 .hero {
   position: relative;
-  padding: clamp(80px, 12vw, 160px) 24px clamp(100px, 15vw, 200px);
-  min-height: clamp(600px, 80vh, 800px);
+  padding: clamp(64px, 8vw, 120px) clamp(24px, 5vw, 48px);
+  min-height: clamp(500px, 80vh, 800px);
+  background: linear-gradient(135deg, #1D1D1B 0%, #2A2A28 100%);
+  color: #FFFFFF;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
-  text-align: center;
+  align-items: flex-start;
 }
 
 .hero::before {
   content: '';
   position: absolute;
+  z-index: 1;
   inset: 0;
   background: linear-gradient(
-    180deg,
-    rgba(26, 26, 26, 0.15) 0%,
-    rgba(26, 26, 26, 0.4) 100%
+    135deg,
+    rgba(29, 29, 27, 0.85) 0%,
+    rgba(29, 29, 27, 0.65) 40%,
+    rgba(29, 29, 27, 0.45) 70%,
+    rgba(29, 29, 27, 0.25) 100%
   );
-  z-index: 1;
-}
-
-.hero > * {
-  position: relative;
-  z-index: 2;
+  pointer-events: none;
 }
 
 .hero h1 {
-  max-width: 900px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: clamp(24px, 4vw, 48px);
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto 24px auto;
   color: #FFFFFF;
-  font-family: -apple-system, BlinkMacSystemFont, 'Söhne Breit', 'Inter', system-ui, sans-serif;
-  font-weight: 700;
-  font-size: clamp(40px, 7vw, 72px);
+  font-family: 'Sentinel', 'Georgia', serif;
+  font-size: clamp(44px, 6vw, 72px);
+  font-weight: 600;
   line-height: 1.1;
   letter-spacing: -0.02em;
-  text-transform: lowercase;
-  text-shadow: 0 2px 12px rgba(26, 26, 26, 0.3);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .hero p {
+  position: relative;
+  z-index: 2;
   max-width: 600px;
-  margin: 0 auto clamp(32px, 5vw, 48px);
-  color: #F5F5F3;
-  font-family: Georgia, 'Plantin MT Pro', 'Times New Roman', serif;
-  font-size: clamp(18px, 2.5vw, 22px);
-  line-height: 1.6;
+  margin: 0 auto 40px auto;
+  color: #F8F8F6;
+  font-family: 'Atlas Grotesk', 'Helvetica Neue', sans-serif;
+  font-size: clamp(18px, 2.5vw, 24px);
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
   opacity: 0.95;
 }
 
 .hero .button-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
-  gap: clamp(16px, 3vw, 24px);
-  justify-content: center;
+  gap: 16px;
   flex-wrap: wrap;
-  margin-top: clamp(24px, 4vw, 40px);
 }
 
 .hero .button {
-  padding: clamp(14px, 2vw, 18px) clamp(28px, 4vw, 40px);
-  font-family: -apple-system, BlinkMacSystemFont, 'Söhne Breit', 'Inter', system-ui, sans-serif;
-  font-weight: 600;
-  font-size: clamp(16px, 2vw, 18px);
+  font-family: 'Atlas Grotesk', 'Helvetica Neue', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
   text-decoration: none;
+  padding: 14px 32px;
   border-radius: 2px;
-  transition: all 300ms cubic-bezier(0.165, 0.84, 0.44, 1);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 140px;
-  text-transform: lowercase;
-  letter-spacing: 0.01em;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  border: 2px solid transparent;
+  text-align: center;
+  min-width: 160px;
+  cursor: pointer;
 }
 
-.hero strong .button,
-.hero .button.primary {
-  background-color: #E31837;
+.hero strong .button {
+  background: #C8102E;
   color: #FFFFFF;
-  border: 2px solid #E31837;
+  border-color: #C8102E;
+  box-shadow: 0 4px 16px rgba(200, 16, 46, 0.25);
 }
 
-.hero strong .button:hover,
-.hero .button.primary:hover {
-  background-color: #B91429;
-  border-color: #B91429;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 20px rgba(227, 24, 55, 0.3);
+.hero strong .button:hover {
+  background: #A50D25;
+  border-color: #A50D25;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(200, 16, 46, 0.35);
 }
 
-.hero .button:not(.primary) {
-  background-color: transparent;
+.hero .button:not(strong .button) {
+  background: transparent;
   color: #FFFFFF;
-  border: 2px solid rgba(255, 255, 255, 0.8);
+  border-color: rgba(255, 255, 255, 0.6);
 }
 
-.hero .button:not(.primary):hover {
-  background-color: rgba(255, 255, 255, 0.1);
+.hero .button:not(strong .button):hover {
+  background: rgba(255, 255, 255, 0.1);
   border-color: #FFFFFF;
   transform: translateY(-1px);
-  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2);
 }
 
 .hero picture {
   position: absolute;
-  z-index: -1;
+  z-index: 0;
   inset: 0;
   object-fit: cover;
   box-sizing: border-box;
@@ -119,66 +122,39 @@
   object-fit: cover;
   width: 100%;
   height: 100%;
-  transition: transform 8s ease-out;
+  transition: transform 0.6s ease-out;
 }
 
-.hero img:hover {
+.hero:hover img {
   transform: scale(1.02);
 }
 
 @media (width >= 600px) {
   .hero {
-    padding: clamp(100px, 15vw, 180px) 32px clamp(120px, 18vw, 220px);
+    padding: clamp(80px, 10vw, 140px) clamp(32px, 6vw, 64px);
+    align-items: center;
+    text-align: center;
   }
 
   .hero .button-container {
-    gap: clamp(20px, 3vw, 32px);
-  }
-
-  .hero .button {
-    padding: clamp(16px, 2.5vw, 20px) clamp(32px, 5vw, 48px);
-    min-width: 160px;
+    justify-content: center;
   }
 }
 
 @media (width >= 900px) {
   .hero {
-    padding: clamp(120px, 20vw, 200px) 40px clamp(140px, 22vw, 240px);
-    min-height: clamp(700px, 85vh, 900px);
+    padding: clamp(100px, 12vw, 160px) clamp(48px, 8vw, 96px);
   }
 
   .hero h1 {
-    max-width: 1000px;
-    font-size: clamp(56px, 8vw, 80px);
+    margin-bottom: 32px;
   }
 
   .hero p {
-    font-size: clamp(20px, 2.5vw, 24px);
-    max-width: 700px;
+    margin-bottom: 48px;
   }
 
-  .hero .button {
-    font-size: clamp(17px, 2vw, 19px);
-    padding: clamp(18px, 2.5vw, 22px) clamp(36px, 5vw, 52px);
-    min-width: 180px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero img {
-    transition: none;
-  }
-
-  .hero img:hover {
-    transform: none;
-  }
-
-  .hero .button {
-    transition: color 200ms ease, background-color 200ms ease, border-color 200ms ease;
-  }
-
-  .hero .button:hover {
-    transform: none;
-    box-shadow: none;
+  .hero .button-container {
+    gap: 24px;
   }
 }

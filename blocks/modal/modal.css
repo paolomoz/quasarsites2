@@ -3,35 +3,22 @@ body.modal-open {
 }
 
 .modal dialog::backdrop {
-  background-color: oklch(0.15 0.02 260 / 0.85);
-  backdrop-filter: blur(2px);
+  background-color: rgb(29 29 27 / 85%);
+  backdrop-filter: blur(4px);
 }
 
 .modal dialog {
   overscroll-behavior: none;
   overflow-y: hidden;
-  width: calc(100vw - 32px);
-  max-width: 720px;
+  width: calc(100vw - 48px);
+  max-width: 900px;
   max-height: calc(100dvh - (2 * var(--header-height)));
   padding: 0;
   border: none;
-  border-radius: 2px;
-  background-color: #F9F9F7;
-  box-shadow: 0 24px 48px oklch(0.15 0.02 260 / 0.15),
-              0 8px 24px oklch(0.15 0.02 260 / 0.08);
-  font-family: 'Plantin MT Pro', 'Lyon Text', Georgia, serif;
-  animation: modalEnter 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-@keyframes modalEnter {
-  from {
-    opacity: 0;
-    transform: translateY(32px) scale(0.96);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+  border-radius: 0;
+  background-color: #FFFFFF;
+  box-shadow: 0 20px 40px rgb(29 29 27 / 20%);
+  font-family: 'Atlas Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 .modal dialog .modal-content {
@@ -39,31 +26,25 @@ body.modal-open {
   overflow-y: auto;
   overscroll-behavior: none;
   width: 100%;
-  max-height: calc(100dvh - (2 * var(--header-height)) - 32px);
-  padding: clamp(20px, 4vw, 32px);
+  max-height: calc(100dvh - (2 * var(--header-height)) - 48px);
+  padding: clamp(24px, 5vw, 32px);
   padding-top: 0;
-  margin-top: 44px;
-  color: #1A1A1A;
-  line-height: 1.6;
-}
-
-@media (width >= 600px) {
-  .modal dialog {
-    width: calc(100vw - 48px);
-    max-width: 800px;
-  }
+  margin-top: 56px;
+  color: #1D1D1B;
+  line-height: 1.5;
 }
 
 @media (width >= 900px) {
   .modal dialog {
     width: calc(100vw - 64px);
-    max-width: 900px;
+    max-width: 800px;
   }
   
   .modal dialog .modal-content {
     max-height: calc(100dvh - (2 * var(--header-height)) - 64px);
-    padding: clamp(32px, 5vw, 48px);
+    padding: clamp(32px, 6vw, 48px);
     padding-top: 0;
+    margin-top: 64px;
   }
 }
 
@@ -71,35 +52,32 @@ body.modal-open {
   position: absolute;
   top: 0;
   right: 0;
-  width: 44px;
-  height: 44px;
+  width: 56px;
+  height: 56px;
   margin: 0;
   border: none;
   border-radius: 0;
   padding: 0;
   background-color: transparent;
-  color: #4A4A4A;
+  color: #1D1D1B;
   line-height: 0;
   cursor: pointer;
-  transition: color 0.2s cubic-bezier(0.16, 1, 0.3, 1),
-              background-color 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: background-color 0.2s ease-out, color 0.2s ease-out;
 }
 
 .modal .close-button:hover {
-  color: #1A1A1A;
-  background-color: oklch(0.92 0.005 90 / 0.6);
+  background-color: #F5F5F4;
 }
 
-.modal .close-button:active {
-  color: #1A1A1A;
-  background-color: oklch(0.88 0.01 90 / 0.8);
-  transform: scale(0.98);
+.modal .close-button:focus-visible {
+  outline: 2px solid #C8102E;
+  outline-offset: -2px;
 }
 
 .modal .close-button .icon.icon-close {
   content: '';
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   position: relative;
 }
 
@@ -116,7 +94,7 @@ body.modal-open {
   height: 2px;
   border-radius: 1px;
   background-color: currentcolor;
-  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.2s ease-out;
 }
 
 .modal .close-button .icon.icon-close::after {
@@ -133,85 +111,71 @@ body.modal-open {
 
 .modal dialog .section {
   padding: 0;
+  margin-bottom: clamp(24px, 4vw, 32px);
 }
 
 .modal dialog h1,
 .modal dialog h2,
-.modal dialog h3,
-.modal dialog h4,
-.modal dialog h5,
-.modal dialog h6 {
-  font-family: 'Söhne Breit', 'Söhne Halbfett', -apple-system, BlinkMacSystemFont, sans-serif;
+.modal dialog h3 {
+  font-family: 'Sentinel', Georgia, serif;
   font-weight: 600;
-  text-transform: lowercase;
-  letter-spacing: 0.02em;
-  color: #1A1A1A;
+  color: #1D1D1B;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
   margin-top: 0;
   margin-bottom: clamp(16px, 3vw, 24px);
 }
 
 .modal dialog h1 {
   font-size: clamp(28px, 5vw, 40px);
-  line-height: 1.1;
-  margin-bottom: clamp(20px, 4vw, 32px);
 }
 
 .modal dialog h2 {
   font-size: clamp(24px, 4vw, 32px);
-  line-height: 1.15;
 }
 
 .modal dialog h3 {
-  font-size: clamp(20px, 3.5vw, 24px);
-  line-height: 1.2;
+  font-size: clamp(20px, 3vw, 24px);
 }
 
 .modal dialog p {
-  margin-bottom: clamp(16px, 3vw, 20px);
-  font-size: 17px;
-  line-height: 1.6;
-  color: #1A1A1A;
-}
-
-.modal dialog p:last-child {
-  margin-bottom: 0;
+  margin-bottom: 16px;
+  color: #2A2A28;
 }
 
 .modal dialog .button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 14px 28px;
-  font-family: 'Söhne Breit', 'Söhne Halbfett', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-weight: 600;
-  font-size: 14px;
-  text-transform: lowercase;
+  display: inline-block;
+  font-family: 'Atlas Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
   letter-spacing: 0.025em;
   text-decoration: none;
-  border: 2px solid #D4D4D0;
-  border-radius: 2px;
+  text-transform: uppercase;
+  padding: 14px 24px;
+  border: 2px solid #1D1D1B;
   background-color: transparent;
-  color: #1A1A1A;
+  color: #1D1D1B;
+  transition: all 0.25s ease-out;
   cursor: pointer;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.modal dialog .button:hover {
-  border-color: #B8B8B4;
-  background-color: oklch(0.92 0.005 90 / 0.4);
-  transform: translateY(-1px);
-}
-
-.modal dialog strong .button,
-.modal dialog .button-primary {
-  background-color: #E31837;
-  border-color: #E31837;
+.modal dialog strong .button {
+  background-color: #C8102E;
+  border-color: #C8102E;
   color: #FFFFFF;
 }
 
-.modal dialog strong .button:hover,
-.modal dialog .button-primary:hover {
-  background-color: #C41530;
-  border-color: #C41530;
-  box-shadow: 0 4px 12px oklch(0.45 0.15 15 / 0.25);
+.modal dialog .button:hover {
+  background-color: #1D1D1B;
+  color: #FFFFFF;
+}
+
+.modal dialog strong .button:hover {
+  background-color: #A50D26;
+  border-color: #A50D26;
+}
+
+.modal dialog .button:focus-visible {
+  outline: 2px solid #D4A84B;
+  outline-offset: 2px;
 }
