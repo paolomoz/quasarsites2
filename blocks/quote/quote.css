@@ -2,111 +2,84 @@
   margin: 0 auto;
   padding: clamp(32px, 4vw, 48px) clamp(24px, 3vw, 32px);
   max-width: 900px;
-  background: linear-gradient(135deg, #FAFAF8 0%, #F7F7F5 100%);
-  border-left: 3px solid #C8102E;
   position: relative;
+  background: linear-gradient(135deg, #FEFEFE 0%, #F8F8F6 100%);
+  border-left: 3px solid #D4A84B;
+  border-radius: 2px;
 }
 
 @media (width >= 900px) {
   .quote blockquote {
     padding: clamp(48px, 5vw, 64px) clamp(32px, 4vw, 48px);
-    border-left: 4px solid #C8102E;
   }
 }
 
-.quote blockquote::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, #C8102E 0%, transparent 100%);
-}
-
 .quote blockquote .quote-quotation {
-  font-family: 'Sentinel', 'Georgia', serif;
-  font-size: clamp(24px, 3.5vw, 32px);
-  font-weight: 400;
-  line-height: 1.35;
-  color: #2A2A28;
-  margin-bottom: clamp(24px, 3vw, 32px);
-  letter-spacing: -0.015em;
+  font-family: 'Sentinel', 'Times New Roman', serif;
+  font-size: clamp(20px, 3.2vw, 28px);
+  font-weight: 500;
+  line-height: 1.4;
+  color: #1D1D1B;
+  letter-spacing: -0.02em;
+  margin-bottom: clamp(20px, 3vw, 32px);
+  position: relative;
 }
 
 .quote blockquote .quote-quotation > :first-child {
-  text-indent: -0.75ch;
-  margin-top: 0;
+  text-indent: -0.8ch;
+  margin-bottom: 0.8em;
 }
 
 .quote blockquote .quote-quotation > :first-child::before,
 .quote blockquote .quote-quotation > :last-child::after {
   line-height: 0;
-  font-size: 1.4em;
-  color: #C8102E;
+  font-family: 'Sentinel', 'Times New Roman', serif;
+  font-size: 1.5em;
+  color: #D4A84B;
   font-weight: 600;
-  position: relative;
-  top: 0.1em;
 }
 
 .quote blockquote .quote-quotation > :first-child::before {
   content: """;
+  position: relative;
+  top: 0.1em;
 }
 
 .quote blockquote .quote-quotation > :last-child::after {
   content: """;
+  position: relative;
+  top: 0.1em;
 }
 
 .quote blockquote .quote-attribution {
   text-align: right;
-  position: relative;
-}
-
-.quote blockquote .quote-attribution > :first-child {
-  font-family: 'Atlas Grotesk', 'Helvetica Neue', sans-serif;
+  font-family: 'Atlas Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: clamp(14px, 2vw, 16px);
   font-weight: 500;
-  color: #6B6B68;
-  letter-spacing: 0.025em;
+  color: #5A5A56;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
-  margin: 0;
-  padding-top: 16px;
+  position: relative;
 }
 
 .quote blockquote .quote-attribution > :first-child::before {
   content: "—";
-  padding-right: 0.75ch;
+  padding-right: 0.5ch;
   color: #D4A84B;
-  font-weight: 400;
-  letter-spacing: 0;
+  font-weight: 600;
+}
+
+.quote blockquote .quote-attribution > :first-child {
+  margin: 0;
+  font-style: normal;
 }
 
 @media (width >= 600px) {
   .quote blockquote .quote-quotation {
-    font-size: clamp(28px, 4vw, 36px);
+    font-size: clamp(22px, 3.5vw, 30px);
   }
   
-  .quote blockquote .quote-attribution > :first-child {
-    font-size: clamp(15px, 2.2vw, 18px);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .quote blockquote {
-    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  }
-  
-  .quote blockquote:hover {
-    transform: translateY(-2px);
-  }
-  
-  .quote blockquote .quote-quotation > :first-child::before,
-  .quote blockquote .quote-quotation > :last-child::after {
-    transition: color 0.2s ease-out;
-  }
-  
-  .quote blockquote:hover .quote-quotation > :first-child::before,
-  .quote blockquote:hover .quote-quotation > :last-child::after {
-    color: #D4A84B;
+  .quote blockquote .quote-attribution {
+    font-size: clamp(15px, 2.2vw, 17px);
   }
 }

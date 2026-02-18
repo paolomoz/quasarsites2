@@ -9,29 +9,30 @@
   box-sizing: border-box;
   display: block;
   max-width: 100%;
-  font-family: 'Atlas Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-weight: 400;
-  letter-spacing: 0.01em;
+  font: inherit;
 }
 
 .form input,
 .form textarea,
 .form select {
-  scroll-margin: 1.5rem;
+  scroll-margin: clamp(1rem, 2.5vw, 2rem);
   width: 100%;
-  border: 1px solid #8B7355;
+  border: 1px solid #8B8B85;
   border-radius: 2px;
-  padding: 0.875rem 1rem;
+  padding: clamp(0.75rem, 1.5vw, 1rem) clamp(1rem, 2vw, 1.25rem);
   background-color: #FDFCFA;
   color: #1D1D1B;
-  font-size: 16px;
+  font-family: 'Atlas Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(0.9rem, 1.8vw, 1rem);
+  font-weight: 400;
   line-height: 1.4;
-  transition: all 0.15s ease-out;
+  letter-spacing: 0.01em;
+  transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .form textarea {
   resize: vertical;
-  min-height: 120px;
+  min-height: clamp(5rem, 10vw, 8rem);
 }
 
 .form fieldset {
@@ -47,6 +48,7 @@
 .form select:hover,
 .form button:hover {
   border-color: #1D1D1B;
+  background-color: #FFFFFF;
 }
 
 .form input:focus,
@@ -56,6 +58,7 @@
   outline: 2px solid #C8102E;
   outline-offset: 2px;
   border-color: #1D1D1B;
+  background-color: #FFFFFF;
 }
 
 .form input:disabled,
@@ -70,9 +73,9 @@
 .form input[readonly],
 .form textarea[readonly],
 .form select[readonly] {
-  border-color: #C5B8A5;
-  background-color: #F5F2ED;
-  color: #8B7355;
+  border-color: #C9C7C2;
+  background-color: #F5F4F0;
+  color: #8B8B85;
   cursor: not-allowed;
 }
 
@@ -84,21 +87,18 @@
 
 .form input[type='checkbox'],
 .form input[type='radio'] {
-  width: 18px;
-  height: 18px;
-  accent-color: #C8102E;
+  width: unset;
 }
 
 .form label,
 .form legend {
   display: block;
   font-family: 'Atlas Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(0.875rem, 1.6vw, 0.95rem);
   font-weight: 500;
-  font-size: 15px;
   color: #1D1D1B;
-  line-height: 1.3;
+  letter-spacing: 0.02em;
   margin-bottom: 0.5rem;
-  letter-spacing: 0.015em;
 }
 
 .form label[data-required]::after,
@@ -111,20 +111,20 @@
 
 .form .form-field > label:first-child,
 .form .form-field > legend {
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .form .form-field + .form-field {
-  margin-top: 1.5rem;
+  margin-top: clamp(1.25rem, 2.5vw, 1.75rem);
 }
 
 .form .form-field.checkbox-field label,
 .form .form-field.radio-field label {
   position: relative;
-  padding-left: calc(24px + 0.75rem);
-  font-size: 15px;
+  padding-left: calc(1.25rem + 1ch);
+  font-size: clamp(0.9rem, 1.8vw, 1rem);
   font-weight: 400;
-  line-height: 1.4;
+  line-height: 1.5;
   min-height: 44px;
   display: flex;
   align-items: center;
@@ -140,14 +140,16 @@
   left: 0;
   transform: translateY(-50%);
   margin: 0;
-  width: 18px;
-  height: 18px;
+  width: 1.125rem;
+  height: 1.125rem;
   cursor: pointer;
+  accent-color: #C8102E;
 }
 
 .form .form-field.checkbox-field label input:disabled,
 .form .form-field.radio-field label input:disabled {
-  cursor: not-allowed;
+  cursor: default;
+  accent-color: #8B8B85;
 }
 
 @media (width >= 600px) {
@@ -155,7 +157,7 @@
   .form .form-field.radio-field {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem 1.5rem;
+    gap: 0.75rem 1.5rem;
   }
 }
 
@@ -164,123 +166,125 @@
   display: grid;
   grid-template-columns: auto 1fr;
   align-items: center;
-  gap: 0.75rem;
+  gap: 1rem;
   min-height: 44px;
   font-weight: 400;
   margin-bottom: 0;
 }
 
 .form .form-field.toggle-field label input {
-  width: 48px;
+  width: 2.5rem;
   opacity: 0;
-  border-radius: 24px;
+  border-radius: 50%;
 }
 
 .form .form-field.toggle-field label span {
   position: relative;
-  width: 48px;
-  height: 24px;
-  border-radius: 24px;
-  border: 1px solid #8B7355;
-  background-color: #F5F2ED;
-  transition: all 0.2s ease-out;
+  width: 2.5rem;
+  height: 1.375rem;
+  border-radius: 1rem;
+  border: 1px solid #8B8B85;
+  background-color: #F5F4F0;
+  transition: all 0.25s cubic-bezier(0.23, 1, 0.32, 1);
   cursor: pointer;
 }
 
 .form .form-field.toggle-field label span::after {
   content: '';
   position: absolute;
-  top: 50%;
+  top: 2px;
   left: 2px;
-  transform: translateY(-50%);
-  width: 20px;
-  height: 20px;
+  width: calc(1.375rem - 4px);
+  height: calc(1.375rem - 4px);
   border-radius: 50%;
-  background-color: #FDFCFA;
-  box-shadow: 0 1px 2px rgba(29, 29, 27, 0.15);
-  transition: all 0.2s ease-out;
+  background-color: #FFFFFF;
+  box-shadow: 0 1px 3px rgba(29, 29, 27, 0.2);
+  transition: all 0.25s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .form .form-field.toggle-field label input:checked + span {
-  background-color: #C8102E;
   border-color: #C8102E;
+  background-color: #C8102E;
 }
 
 .form .form-field.toggle-field label input:checked + span::after {
-  left: calc(100% - 22px);
-  background-color: #FDFCFA;
+  left: calc(100% - 1.375rem + 2px);
 }
 
 .form .form-field.toggle-field label input:disabled + span {
-  border-color: #C5B8A5;
-  background-color: #F5F2ED;
-  cursor: not-allowed;
+  border-color: #C9C7C2;
+  background-color: #F5F4F0;
+  cursor: default;
 }
 
 .form .form-field.toggle-field label input:disabled + span::after {
-  background-color: #E8E3DB;
+  background-color: #E8E6E1;
 }
 
 .form .field-help-text {
   margin-top: 0.375rem;
-  color: #8B7355;
-  font-size: 14px;
-  line-height: 1.4;
+  color: #8B8B85;
   font-family: 'Atlas Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(0.8rem, 1.5vw, 0.875rem);
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
 }
 
 .form .button-wrapper {
-  margin-top: 2rem;
+  margin-top: clamp(1.5rem, 3vw, 2.5rem);
 }
 
 .form .button-wrapper button {
   width: 100%;
   font-family: 'Atlas Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(0.9rem, 1.8vw, 1rem);
   font-weight: 500;
-  font-size: 16px;
   letter-spacing: 0.02em;
-  padding: 0.875rem 2rem;
+  text-transform: uppercase;
+  padding: clamp(0.875rem, 1.5vw, 1.125rem) clamp(1.5rem, 3vw, 2rem);
   border-radius: 2px;
-  border: 1px solid #C8102E;
-  background-color: #C8102E;
+  border: 1px solid #1D1D1B;
+  background-color: #1D1D1B;
   color: #FDFCFA;
   cursor: pointer;
-  transition: all 0.15s ease-out;
-  text-transform: none;
+  transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .form .button-wrapper button:hover {
-  background-color: #A50D26;
-  border-color: #A50D26;
+  background-color: #C8102E;
+  border-color: #C8102E;
+  transform: translateY(-1px);
 }
 
 .form .button-wrapper button.button:disabled,
 .form .button-wrapper button.button:hover:disabled {
-  border-color: #8B7355;
-  background-color: #8B7355;
+  border-color: #8B8B85;
+  background-color: #8B8B85;
   color: #FDFCFA;
   cursor: progress;
-  opacity: 0.7;
+  transform: none;
 }
 
 .form .button-wrapper button.button.secondary {
   background-color: transparent;
-  color: #C8102E;
-  border-color: #C8102E;
+  color: #1D1D1B;
+  border-color: #1D1D1B;
 }
 
 .form .button-wrapper button.button.secondary:hover {
-  background-color: #C8102E;
+  background-color: #1D1D1B;
   color: #FDFCFA;
+  border-color: #1D1D1B;
+  transform: translateY(-1px);
 }
 
 .form .button-wrapper button.button.secondary:disabled,
 .form .button-wrapper button.button.secondary:hover:disabled {
-  border-color: #8B7355;
-  background-color: #F5F2ED;
-  color: #8B7355;
-  cursor: progress;
-  opacity: 0.7;
+  border-color: #8B8B85;
+  background-color: transparent;
+  color: #8B8B85;
+  transform: none;
 }
 
 @media (width >= 600px) {
@@ -292,6 +296,6 @@
 
   .form .button-wrapper button {
     width: max-content;
-    min-width: 140px;
+    min-width: clamp(8rem, 15vw, 12rem);
   }
 }

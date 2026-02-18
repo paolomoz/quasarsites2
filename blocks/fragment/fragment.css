@@ -1,15 +1,15 @@
-/* Fragment block styles */
+/* fragment block - reusable content fragment container */
 .fragment {
-  margin: 0;
-  padding: 0;
+  width: 100%;
+  max-width: none;
 }
 
-.fragment > * {
-  margin: 0;
-  padding: 0;
+.fragment > div {
+  padding: clamp(2rem, 5vw, 3rem);
+  margin: 0 auto;
+  max-width: 1200px;
 }
 
-/* Preserve semantic structure while applying brand typography */
 .fragment h1,
 .fragment h2,
 .fragment h3,
@@ -17,162 +17,159 @@
 .fragment h5,
 .fragment h6 {
   font-family: 'Sentinel', Georgia, serif;
-  font-weight: 600;
-  color: #1D1D1B;
+  font-weight: 700;
   line-height: 1.15;
-  letter-spacing: -0.015em;
-  margin: 0 0 clamp(1rem, 2.5vw, 1.5rem) 0;
+  letter-spacing: -0.02em;
+  color: #1D1D1B;
+  margin-top: 0;
+  margin-bottom: clamp(1rem, 3vw, 1.5rem);
 }
 
 .fragment h1 {
-  font-size: clamp(2rem, 4vw, 3.5rem);
-  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 3.5rem);
 }
 
 .fragment h2 {
-  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
 }
 
 .fragment h3 {
-  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-size: clamp(1.5rem, 3.5vw, 2.25rem);
 }
 
-.fragment h4,
-.fragment h5,
-.fragment h6 {
-  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+.fragment h4 {
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
 }
 
 .fragment p {
-  font-family: 'Atlas Grotesk', system-ui, sans-serif;
-  font-size: clamp(1rem, 2vw, 1.125rem);
+  font-family: 'Atlas Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(1rem, 2.5vw, 1.125rem);
   font-weight: 400;
-  color: #2A2926;
   line-height: 1.6;
+  color: #2A2A28;
+  margin-bottom: clamp(1rem, 2.5vw, 1.25rem);
   letter-spacing: 0.01em;
-  margin: 0 0 clamp(1rem, 2vw, 1.25rem) 0;
 }
 
-.fragment p:last-child {
-  margin-bottom: 0;
+.fragment strong {
+  font-weight: 500;
+  color: #1D1D1B;
+}
+
+.fragment em {
+  font-style: italic;
+  color: #C8102E;
 }
 
 .fragment a {
   color: #C8102E;
   text-decoration: none;
-  font-weight: 500;
-  transition: color 0.2s ease-out;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease-out;
 }
 
 .fragment a:hover {
-  color: #A00D25;
-  text-decoration: underline;
+  border-bottom-color: #C8102E;
 }
 
 .fragment ul,
 .fragment ol {
-  font-family: 'Atlas Grotesk', system-ui, sans-serif;
-  font-size: clamp(1rem, 2vw, 1.125rem);
-  color: #2A2926;
+  font-family: 'Atlas Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(1rem, 2.5vw, 1.125rem);
   line-height: 1.6;
-  margin: 0 0 clamp(1rem, 2vw, 1.25rem) 0;
+  color: #2A2A28;
   padding-left: 1.5rem;
+  margin-bottom: clamp(1rem, 2.5vw, 1.25rem);
 }
 
 .fragment li {
   margin-bottom: 0.5rem;
 }
 
-.fragment li:last-child {
-  margin-bottom: 0;
-}
-
 .fragment blockquote {
   font-family: 'Sentinel', Georgia, serif;
-  font-size: clamp(1.125rem, 2.5vw, 1.375rem);
+  font-size: clamp(1.25rem, 3vw, 1.5rem);
   font-weight: 500;
-  color: #1D1D1B;
-  font-style: italic;
-  margin: clamp(1.5rem, 3vw, 2rem) 0;
-  padding-left: 2rem;
-  border-left: 3px solid #D4A84B;
   line-height: 1.4;
-}
-
-.fragment img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: clamp(1rem, 2vw, 1.5rem) 0;
+  color: #1D1D1B;
+  margin: clamp(2rem, 4vw, 3rem) 0;
+  padding-left: clamp(1.5rem, 3vw, 2rem);
+  border-left: 3px solid #D4A84B;
+  font-style: italic;
 }
 
 .fragment .button-container {
-  margin: clamp(1.5rem, 3vw, 2rem) 0 0 0;
+  margin-top: clamp(2rem, 4vw, 2.5rem);
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .fragment .button {
-  font-family: 'Atlas Grotesk', system-ui, sans-serif;
-  font-size: 1rem;
+  font-family: 'Atlas Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.875rem;
   font-weight: 500;
-  letter-spacing: 0.025em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.875rem 1.5rem;
+  border: 2px solid #1D1D1B;
+  background: transparent;
+  color: #1D1D1B;
   text-decoration: none;
   display: inline-block;
-  padding: 0.75rem 1.5rem;
-  border: 2px solid #1D1D1B;
-  color: #1D1D1B;
-  background: transparent;
-  transition: all 0.25s ease-out;
+  transition: all 0.25s cubic-bezier(0.19, 1, 0.22, 1);
   cursor: pointer;
-  border-radius: 0;
 }
 
 .fragment .button:hover {
   background: #1D1D1B;
-  color: #FFFFFF;
+  color: #FEFDF8;
   transform: translateY(-1px);
 }
 
 .fragment strong .button {
   background: #C8102E;
   border-color: #C8102E;
-  color: #FFFFFF;
+  color: #FEFDF8;
 }
 
 .fragment strong .button:hover {
-  background: #A00D25;
-  border-color: #A00D25;
-  color: #FFFFFF;
-}
-
-/* Fragment content spacing and rhythm */
-.fragment > * + * {
-  margin-top: clamp(1rem, 2.5vw, 1.5rem);
-}
-
-.fragment > h1 + *,
-.fragment > h2 + *,
-.fragment > h3 + * {
-  margin-top: clamp(0.75rem, 2vw, 1rem);
-}
-
-.fragment > * + h1,
-.fragment > * + h2,
-.fragment > * + h3 {
-  margin-top: clamp(2rem, 4vw, 3rem);
+  background: #A00D26;
+  border-color: #A00D26;
+  transform: translateY(-1px);
 }
 
 @media (width >= 600px) {
-  .fragment {
-    padding: 0;
+  .fragment > div {
+    padding: clamp(3rem, 6vw, 4rem);
+  }
+  
+  .fragment .button-container {
+    flex-direction: row;
+    align-items: center;
   }
 }
 
 @media (width >= 900px) {
-  .fragment {
-    padding: 0;
+  .fragment > div {
+    padding: clamp(4rem, 7vw, 5rem);
+  }
+  
+  .fragment h1,
+  .fragment h2,
+  .fragment h3,
+  .fragment h4,
+  .fragment h5,
+  .fragment h6 {
+    margin-bottom: 2rem;
   }
   
   .fragment p {
-    max-width: 65ch;
+    margin-bottom: 1.5rem;
+  }
+  
+  .fragment blockquote {
+    margin: 3rem 0;
+    padding-left: 2.5rem;
   }
 }
