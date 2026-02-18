@@ -1,33 +1,54 @@
+/* Footer — warm surface, border-top separator, serif brand, editorial columns */
 footer {
-  background-color: var(--background-color);
+  background-color: var(--light-color);
   font-size: var(--body-font-size-xs);
-  font-family: var(--body-font-family);
-  color: var(--muted-color);
   border-top: 1px solid var(--border-color);
 }
 
 footer .footer > div {
   margin: auto;
   max-width: 1200px;
-  padding: 40px 24px 24px;
+  padding: 64px 24px 32px;
 }
 
 footer .footer p {
   margin: 0;
-  line-height: 1.8;
+  color: var(--muted-color);
+  line-height: 1.7;
 }
 
 footer .footer a:any-link {
   color: var(--muted-color);
-  transition: color 0.3s ease;
+  transition: color var(--transition);
 }
 
 footer .footer a:hover {
-  color: var(--accent-secondary);
+  color: var(--accent-color);
+}
+
+footer .footer h2,
+footer .footer h3,
+footer .footer h4,
+footer .footer h5 {
+  font-family: var(--body-font-family);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: var(--body-font-size-xs);
+  color: var(--text-color);
+}
+
+footer .footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+footer .footer ul li {
+  padding: 6px 0;
 }
 
 @media (width >= 900px) {
   footer .footer > div {
-    padding: 40px 32px 24px;
+    padding: 80px 32px 40px;
   }
 }
