@@ -1,13 +1,14 @@
 .video {
   text-align: center;
-  max-width: 900px;
-  margin: clamp(32px, 8vw, 64px) auto;
-  position: relative;
+  max-width: 1200px;
+  margin: clamp(32px, 5vw, 80px) auto;
+  padding: 0 clamp(16px, 3vw, 32px);
 }
 
 .video[data-embed-loaded='false']:not(.placeholder) {
   aspect-ratio: 16 / 9;
-  background-color: #F8F6F3;
+  background-color: #F5F5F0;
+  border-radius: 8px;
 }
 
 .video > div {
@@ -15,22 +16,22 @@
   justify-content: center;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 4px 24px rgba(29, 29, 27, 0.08);
+  box-shadow: 0 4px 24px oklch(0.15 0 0 / 0.08), 0 2px 12px oklch(0.15 0 0 / 0.12);
 }
 
 .video video {
   max-width: 100%;
-  border-radius: 8px;
-  background-color: #1D1D1B;
+  height: auto;
+  transition: opacity 300ms ease-out;
 }
 
 .video .video-placeholder {
   width: 100%;
   aspect-ratio: 16 / 9;
   position: relative;
+  background-color: #F5F5F0;
   border-radius: 8px;
   overflow: hidden;
-  background-color: #1D1D1B;
 }
 
 .video .video-placeholder > * {
@@ -52,7 +53,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease-out;
+  transition: transform 300ms ease-out;
 }
 
 .video .video-placeholder:hover picture img {
@@ -62,17 +63,28 @@
 .video .video-placeholder-play button {
   position: relative;
   display: block;
-  width: 64px;
-  height: 64px;
+  width: 72px;
+  height: 72px;
   border-radius: 50%;
   outline: none;
-  border: 2px solid #FFFFFF;
+  border: 3px solid #FFFFFF;
   padding: 0;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: oklch(0.98 0 0 / 0.9);
   backdrop-filter: blur(8px);
   cursor: pointer;
-  transition: all 0.24s ease-out;
-  box-shadow: 0 4px 16px rgba(29, 29, 27, 0.12);
+  transition: all 200ms ease-out;
+  box-shadow: 0 2px 12px oklch(0.15 0 0 / 0.2);
+}
+
+.video .video-placeholder-play button:hover {
+  background-color: #C8102E;
+  border-color: #C8102E;
+  transform: scale(1.05);
+  box-shadow: 0 4px 20px oklch(0.15 0 0 / 0.3);
+}
+
+.video .video-placeholder-play button:active {
+  transform: scale(0.98);
 }
 
 .video .video-placeholder-play button::before {
@@ -81,21 +93,14 @@
   box-sizing: border-box;
   position: absolute;
   width: 0;
-  height: 20px;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  border-left: 16px solid #C8102E;
+  height: 24px;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  border-left: 18px solid #1D1D1B;
   top: 50%;
   left: calc(50% + 2px);
   transform: translate(-50%, -50%);
-  transition: border-left-color 0.24s ease-out;
-}
-
-.video .video-placeholder-play button:hover {
-  background-color: #C8102E;
-  border-color: #C8102E;
-  transform: scale(1.08);
-  box-shadow: 0 6px 24px rgba(200, 16, 46, 0.24);
+  transition: border-left-color 200ms ease-out;
 }
 
 .video .video-placeholder-play button:hover::before {
@@ -104,10 +109,9 @@
 
 .video .video-placeholder-play button:focus,
 .video .video-placeholder-play button:focus-visible {
-  outline: 2px solid #C8102E;
+  outline: 3px solid #C8102E;
   outline-offset: 4px;
   background-color: #C8102E;
-  border-color: #C8102E;
 }
 
 .video .video-placeholder-play button:focus::before,
@@ -115,43 +119,52 @@
   border-left-color: #FFFFFF;
 }
 
-.video .video-placeholder-play button:active {
-  transform: scale(1.02);
-  transition-duration: 0.12s;
-}
-
 @media (width >= 600px) {
   .video {
-    margin: clamp(48px, 10vw, 80px) auto;
+    margin: clamp(48px, 6vw, 96px) auto;
+    padding: 0 clamp(24px, 4vw, 48px);
   }
 
   .video .video-placeholder-play button {
-    width: 72px;
-    height: 72px;
+    width: 88px;
+    height: 88px;
   }
 
   .video .video-placeholder-play button::before {
-    height: 24px;
-    border-top-width: 12px;
-    border-bottom-width: 12px;
-    border-left-width: 18px;
+    height: 30px;
+    border-top-width: 15px;
+    border-bottom-width: 15px;
+    border-left-width: 22px;
   }
 }
 
 @media (width >= 900px) {
   .video {
-    margin: clamp(64px, 12vw, 120px) auto;
+    margin: clamp(64px, 8vw, 120px) auto;
   }
 
   .video .video-placeholder-play button {
-    width: 80px;
-    height: 80px;
+    width: 96px;
+    height: 96px;
   }
 
   .video .video-placeholder-play button::before {
-    height: 28px;
-    border-top-width: 14px;
-    border-bottom-width: 14px;
-    border-left-width: 20px;
+    height: 32px;
+    border-top-width: 16px;
+    border-bottom-width: 16px;
+    border-left-width: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .video .video-placeholder picture img,
+  .video .video-placeholder-play button,
+  .video .video-placeholder-play button::before,
+  .video video {
+    transition: none;
+  }
+
+  .video .video-placeholder:hover picture img {
+    transform: none;
   }
 }

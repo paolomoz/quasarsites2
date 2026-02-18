@@ -1,21 +1,24 @@
 .tabs .tabs-list {
   display: flex;
-  gap: 0;
+  gap: 1ch;
   max-width: 100%;
   font-size: var(--body-font-size-xs);
   overflow-x: auto;
-  border-bottom: 1px solid #E5E5E5;
+  margin-bottom: 0;
+  border-bottom: 2px solid #F5F5F0;
 }
 
 @media (width >= 600px) {
   .tabs .tabs-list {
     font-size: var(--body-font-size-s);
+    gap: 1.5ch;
   }
 }
 
 @media (width >= 900px) {
   .tabs .tabs-list {
     font-size: var(--body-font-size-m);
+    gap: 2ch;
   }
 }
 
@@ -24,75 +27,62 @@
   margin: 0;
   border: none;
   border-radius: 0;
-  padding: 1rem 1.5rem;
+  border-bottom: 3px solid transparent;
+  padding: 1em 1.5em 0.75em;
   background-color: transparent;
-  color: #666666;
-  font-family: 'Atlas Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-weight: 500;
-  font-size: inherit;
-  letter-spacing: 0.025em;
-  line-height: 1.4;
+  color: #1D1D1B;
+  font-weight: 600;
+  font-family: inherit;
+  line-height: 1.2;
   text-align: center;
-  text-transform: none;
   text-overflow: unset;
   overflow: unset;
   white-space: nowrap;
+  transition: all 0.3s ease-out;
   cursor: pointer;
   position: relative;
-  transition: all 0.25s ease-out;
-}
-
-.tabs .tabs-list button::after {
-  content: '';
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background-color: #C8102E;
-  transform: scaleX(0);
-  transform-origin: center;
-  transition: transform 0.25s ease-out;
 }
 
 .tabs .tabs-list button:hover {
-  color: #1D1D1B;
-  background-color: #FAFAFA;
+  color: #C8102E;
+  background-color: rgba(200, 16, 46, 0.05);
 }
 
 .tabs .tabs-list button p {
   margin: 0;
+  font-weight: inherit;
 }
 
 .tabs .tabs-list button[aria-selected='true'] {
-  border-bottom: none;
+  border-bottom: 3px solid #C8102E;
   background-color: transparent;
-  color: #1D1D1B;
-  cursor: initial;
-  font-weight: 600;
+  color: #C8102E;
+  cursor: default;
+  font-weight: 700;
 }
 
-.tabs .tabs-list button[aria-selected='true']::after {
-  transform: scaleX(1);
+.tabs .tabs-list button[aria-selected='true']:hover {
+  background-color: transparent;
 }
 
 .tabs .tabs-panel {
   margin-top: 0;
-  padding: 2rem 0;
+  padding: 2rem;
   border: none;
-  border-top: 1px solid #E5E5E5;
+  border-top: 2px solid #F5F5F0;
+  background-color: #FFFFFF;
   overflow: auto;
 }
 
 @media (width >= 600px) {
   .tabs .tabs-panel {
-    padding: 2.5rem 0;
+    padding: 2.5rem;
   }
 }
 
 @media (width >= 900px) {
   .tabs .tabs-panel {
-    padding: 3rem 0;
+    padding: 3rem;
   }
 }
 

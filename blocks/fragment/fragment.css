@@ -1,13 +1,30 @@
-/* fragment block - reusable content fragment container */
 .fragment {
-  width: 100%;
-  max-width: none;
+  --fragment-background: #FFFFFF;
+  --fragment-text-color: #1D1D1B;
+  --fragment-border-color: #F5F5F0;
+  --fragment-accent-color: #C8102E;
+  --fragment-spacing: 2rem;
+  --fragment-border-radius: 0.5rem;
+  
+  background-color: var(--fragment-background);
+  border: 1px solid var(--fragment-border-color);
+  border-radius: var(--fragment-border-radius);
+  color: var(--fragment-text-color);
+  padding: var(--fragment-spacing);
+  margin-block: 1.5rem;
+  transition: border-color 0.2s ease-out;
 }
 
-.fragment > div {
-  padding: clamp(2rem, 5vw, 3rem);
-  margin: 0 auto;
-  max-width: 1200px;
+.fragment:hover {
+  border-color: color-mix(in srgb, var(--fragment-accent-color) 30%, var(--fragment-border-color));
+}
+
+.fragment > *:first-child {
+  margin-block-start: 0;
+}
+
+.fragment > *:last-child {
+  margin-block-end: 0;
 }
 
 .fragment h1,
@@ -16,160 +33,121 @@
 .fragment h4,
 .fragment h5,
 .fragment h6 {
-  font-family: 'Sentinel', Georgia, serif;
-  font-weight: 700;
-  line-height: 1.15;
+  color: var(--fragment-text-color);
+  font-family: 'Proxima Nova', system-ui, -apple-system, sans-serif;
+  font-weight: 600;
   letter-spacing: -0.02em;
-  color: #1D1D1B;
-  margin-top: 0;
-  margin-bottom: clamp(1rem, 3vw, 1.5rem);
+  line-height: 1.2;
+  margin-block: 0 1rem;
 }
 
 .fragment h1 {
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
 }
 
 .fragment h2 {
-  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
 }
 
 .fragment h3 {
-  font-size: clamp(1.5rem, 3.5vw, 2.25rem);
-}
-
-.fragment h4 {
-  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
 }
 
 .fragment p {
-  font-family: 'Atlas Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: clamp(1rem, 2.5vw, 1.125rem);
-  font-weight: 400;
+  font-family: 'Proxima Nova', system-ui, -apple-system, sans-serif;
+  font-size: 1rem;
   line-height: 1.6;
-  color: #2A2A28;
-  margin-bottom: clamp(1rem, 2.5vw, 1.25rem);
-  letter-spacing: 0.01em;
-}
-
-.fragment strong {
-  font-weight: 500;
-  color: #1D1D1B;
-}
-
-.fragment em {
-  font-style: italic;
-  color: #C8102E;
-}
-
-.fragment a {
-  color: #C8102E;
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.2s ease-out;
-}
-
-.fragment a:hover {
-  border-bottom-color: #C8102E;
+  margin-block: 0 1rem;
 }
 
 .fragment ul,
 .fragment ol {
-  font-family: 'Atlas Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: clamp(1rem, 2.5vw, 1.125rem);
-  line-height: 1.6;
-  color: #2A2A28;
-  padding-left: 1.5rem;
-  margin-bottom: clamp(1rem, 2.5vw, 1.25rem);
+  padding-inline-start: 1.5rem;
+  margin-block: 0 1rem;
 }
 
 .fragment li {
-  margin-bottom: 0.5rem;
+  font-family: 'Proxima Nova', system-ui, -apple-system, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-block-end: 0.5rem;
 }
 
-.fragment blockquote {
-  font-family: 'Sentinel', Georgia, serif;
-  font-size: clamp(1.25rem, 3vw, 1.5rem);
-  font-weight: 500;
-  line-height: 1.4;
-  color: #1D1D1B;
-  margin: clamp(2rem, 4vw, 3rem) 0;
-  padding-left: clamp(1.5rem, 3vw, 2rem);
-  border-left: 3px solid #D4A84B;
-  font-style: italic;
+.fragment a {
+  color: var(--fragment-accent-color);
+  text-decoration: underline;
+  text-decoration-thickness: 0.125em;
+  text-underline-offset: 0.25em;
+  transition: color 0.2s ease-out;
+}
+
+.fragment a:hover {
+  color: color-mix(in srgb, var(--fragment-accent-color) 80%, #1D1D1B);
+  text-decoration-thickness: 0.1875em;
 }
 
 .fragment .button-container {
-  margin-top: clamp(2rem, 4vw, 2.5rem);
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
+  margin-block: 1.5rem;
 }
 
 .fragment .button {
-  font-family: 'Atlas Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 0.875rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  padding: 0.875rem 1.5rem;
-  border: 2px solid #1D1D1B;
-  background: transparent;
-  color: #1D1D1B;
-  text-decoration: none;
-  display: inline-block;
-  transition: all 0.25s cubic-bezier(0.19, 1, 0.22, 1);
+  background-color: transparent;
+  border: 2px solid var(--fragment-accent-color);
+  border-radius: var(--fragment-border-radius);
+  color: var(--fragment-accent-color);
   cursor: pointer;
+  display: inline-block;
+  font-family: 'Proxima Nova', system-ui, -apple-system, sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  line-height: 1.4;
+  padding: 0.75rem 1.5rem;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.2s ease-out;
 }
 
 .fragment .button:hover {
-  background: #1D1D1B;
-  color: #FEFDF8;
-  transform: translateY(-1px);
+  background-color: var(--fragment-accent-color);
+  color: #FFFFFF;
+  transform: translateY(-0.0625rem);
 }
 
 .fragment strong .button {
-  background: #C8102E;
-  border-color: #C8102E;
-  color: #FEFDF8;
+  background-color: var(--fragment-accent-color);
+  color: #FFFFFF;
 }
 
 .fragment strong .button:hover {
-  background: #A00D26;
-  border-color: #A00D26;
-  transform: translateY(-1px);
+  background-color: color-mix(in srgb, var(--fragment-accent-color) 90%, #1D1D1B);
+  transform: translateY(-0.0625rem);
 }
 
 @media (width >= 600px) {
-  .fragment > div {
-    padding: clamp(3rem, 6vw, 4rem);
+  .fragment {
+    --fragment-spacing: 2.5rem;
+    margin-block: 2rem;
   }
   
-  .fragment .button-container {
-    flex-direction: row;
-    align-items: center;
+  .fragment p {
+    font-size: 1.125rem;
+  }
+  
+  .fragment li {
+    font-size: 1.125rem;
   }
 }
 
 @media (width >= 900px) {
-  .fragment > div {
-    padding: clamp(4rem, 7vw, 5rem);
+  .fragment {
+    --fragment-spacing: 3rem;
+    margin-block: 2.5rem;
   }
   
-  .fragment h1,
-  .fragment h2,
-  .fragment h3,
-  .fragment h4,
-  .fragment h5,
-  .fragment h6 {
-    margin-bottom: 2rem;
-  }
-  
-  .fragment p {
-    margin-bottom: 1.5rem;
-  }
-  
-  .fragment blockquote {
-    margin: 3rem 0;
-    padding-left: 2.5rem;
+  .fragment .button {
+    font-size: 1.125rem;
+    padding: 1rem 2rem;
   }
 }
