@@ -1,3 +1,4 @@
+/* Columns — generous gap, rounded images, comfortable reading */
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -5,10 +6,16 @@
 
 .columns img {
   width: 100%;
+  border-radius: var(--card-radius, 16px);
 }
 
 .columns > div > div {
   order: 1;
+}
+
+.columns > div > div p {
+  line-height: 1.7;
+  color: var(--text-color);
 }
 
 .columns > div > .columns-img-col {
@@ -23,7 +30,7 @@
   .columns > div {
     align-items: center;
     flex-direction: unset;
-    gap: 24px;
+    gap: 48px;
   }
 
   .columns > div > div {

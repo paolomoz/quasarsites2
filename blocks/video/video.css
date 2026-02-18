@@ -1,3 +1,4 @@
+/* Video — rounded container, glass play button */
 .video {
   text-align: center;
   max-width: 900px;
@@ -5,7 +6,6 @@
 }
 
 .video[data-embed-loaded='false']:not(.placeholder) {
-  /* reserve an approximate space to avoid extensive layout shifts */
   aspect-ratio: 16 / 9;
 }
 
@@ -16,12 +16,15 @@
 
 .video video {
   max-width: 100%;
+  border-radius: var(--card-radius, 16px);
 }
 
 .video .video-placeholder {
   width: 100%;
   aspect-ratio: 16 / 9;
   position: relative;
+  border-radius: var(--card-radius, 16px);
+  overflow: hidden;
 }
 
 .video .video-placeholder > * {
@@ -48,11 +51,22 @@
 .video .video-placeholder-play button {
   position: relative;
   display: block;
-  width: 44px;
-  height: 44px;
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
-  outline: 2px solid;
+  border: none;
   padding: 0;
+  background-color: rgba(255, 255, 255, 0.72);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  color: var(--text-color);
+  outline: none;
+  transition: background-color var(--transition), transform var(--transition);
+}
+
+.video .video-placeholder-play button:hover {
+  background-color: rgba(255, 255, 255, 0.95);
+  transform: scale(1.08);
 }
 
 .video .video-placeholder-play button::before {
@@ -64,7 +78,7 @@
   height: 24px;
   border-top: 12px solid transparent;
   border-bottom: 12px solid transparent;
-  border-left: 18px solid;
+  border-left: 18px solid currentcolor;
   top: 50%;
   left: calc(50% + 2px);
   transform: translate(-50%, -50%);
@@ -72,7 +86,6 @@
 
 .video .video-placeholder-play button:focus,
 .video .video-placeholder-play button:focus-visible {
-  outline: 2px solid black;
+  outline: 2px solid var(--text-color);
   outline-offset: 2px;
-  background-color: black;
 }
