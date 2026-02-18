@@ -1,3 +1,4 @@
+/* Cards — dark surfaces, accent hover border, scale image on hover */
 .cards > ul {
   list-style: none;
   margin: 0;
@@ -8,58 +9,53 @@
 }
 
 .cards > ul > li {
+  border: 1px solid var(--border-color);
+  border-radius: var(--card-radius, 12px);
   background-color: var(--light-color);
-  border: 2px solid var(--border-color);
-  border-radius: var(--border-radius);
-  box-shadow: var(--shadow-sm);
-  transition: all 0.2s ease;
   overflow: hidden;
+  transition: border-color var(--transition), transform var(--transition);
 }
 
 .cards > ul > li:hover {
   border-color: var(--accent-color);
-  box-shadow: var(--shadow-md);
-  transform: translate(-4px, -4px);
+  transform: translateY(-4px);
 }
 
 .cards .cards-card-body {
-  margin: 0;
   padding: 20px 24px;
 }
 
+.cards .cards-card-body > *:first-child {
+  margin-top: 0;
+}
+
+.cards .cards-card-body h1,
 .cards .cards-card-body h2,
 .cards .cards-card-body h3,
 .cards .cards-card-body h4 {
   font-family: var(--heading-font-family);
   font-weight: 700;
-  letter-spacing: -0.03em;
-  color: var(--text-color);
-  margin-top: 0;
+  letter-spacing: -0.02em;
 }
 
 .cards .cards-card-body p {
   color: var(--muted-color);
-  line-height: 1.6;
-}
-
-.cards .cards-card-body a:any-link {
-  color: var(--accent-color);
-  font-weight: 500;
-  text-decoration: none;
-  transition: color 0.15s ease;
-}
-
-.cards .cards-card-body a:hover {
-  color: var(--accent-secondary);
+  line-height: 1.5;
+  font-size: var(--body-font-size-s);
 }
 
 .cards .cards-card-image {
   line-height: 0;
-  border-bottom: 3px solid var(--accent-color);
+  overflow: hidden;
 }
 
 .cards > ul > li img {
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.cards > ul > li:hover img {
+  transform: scale(1.05);
 }

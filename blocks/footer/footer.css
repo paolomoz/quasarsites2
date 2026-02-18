@@ -1,57 +1,53 @@
+/* Footer — dark, accent top border, column layout */
 footer {
-  background-color: var(--light-color);
+  background-color: var(--background-color);
   font-size: var(--body-font-size-xs);
-  color: var(--muted-color);
-  border-top: 3px solid var(--accent-color);
+  border-top: 2px solid var(--accent-color);
 }
 
 footer .footer > div {
   margin: auto;
-  max-width: 1200px;
-  padding: 40px 24px 24px;
+  max-width: 1440px;
+  padding: 48px 24px 32px;
 }
 
 footer .footer p {
   margin: 0;
+  color: var(--muted-color);
+  line-height: 1.6;
 }
 
 footer .footer a:any-link {
-  color: var(--accent-color);
-  font-weight: 500;
-  transition: color 0.15s ease;
+  color: var(--muted-color);
+  transition: color var(--transition);
 }
 
 footer .footer a:hover {
-  color: var(--accent-secondary);
+  color: var(--accent-color);
 }
 
-footer .footer hr {
-  border: none;
-  border-top: 2px solid var(--border-color);
-  margin: 24px 0;
+footer .footer h2,
+footer .footer h3,
+footer .footer h4,
+footer .footer h5 {
+  color: var(--text-color);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: var(--body-font-size-xs);
 }
 
 footer .footer ul {
   list-style: none;
   padding: 0;
-  margin: 0;
 }
 
 footer .footer ul li {
   padding: 4px 0;
 }
 
-footer .footer h2,
-footer .footer h3,
-footer .footer h4 {
-  font-family: var(--heading-font-family);
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  color: var(--text-color);
-}
-
 @media (width >= 900px) {
   footer .footer > div {
-    padding: 40px 32px 24px;
+    padding: 64px 32px 40px;
   }
 }

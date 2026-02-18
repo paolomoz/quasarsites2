@@ -1,3 +1,4 @@
+/* Table — minimal lines, accent header border, dark surfaces */
 .table {
   width: 100%;
   overflow-x: auto;
@@ -23,12 +24,26 @@
 }
 
 .table table thead tr {
-  border-top: 2px solid #dadada;
-  border-bottom: 2px solid #dadada;
+  border-top: none;
+  border-bottom: 2px solid var(--accent-color);
+}
+
+.table table thead th {
+  font-family: var(--heading-font-family);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: var(--body-font-size-xs);
+  color: var(--text-color);
 }
 
 .table table tbody tr {
-  border-bottom: 1px solid #dadada;
+  border-bottom: 1px solid var(--border-color);
+  transition: background-color var(--transition);
+}
+
+.table table tbody tr:hover {
+  background-color: var(--light-color);
 }
 
 .table table th {
@@ -37,8 +52,12 @@
 
 .table table th,
 .table table td {
-  padding: 0.5em;
+  padding: 0.75em 0.5em;
   text-align: left;
+}
+
+.table table td {
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .table table th p,
@@ -52,7 +71,7 @@
 
 /* no header variant */
 .table.no-header table tbody tr {
-  border-top: 1px solid #dadada;
+  border-top: 1px solid var(--border-color);
 }
 
 /* striped variant */
@@ -63,5 +82,5 @@
 /* bordered variant */
 .table.bordered table th,
 .table.bordered table td {
-  border: 1px solid #dadada;
+  border: 1px solid var(--border-color);
 }
