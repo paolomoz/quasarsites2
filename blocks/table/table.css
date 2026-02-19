@@ -1,68 +1,70 @@
 .table {
   width: 100%;
   overflow-x: auto;
-  border-radius: 8px;
-  box-shadow: 0 2px 12px color-mix(in oklch, #1D1D1B 8%, transparent);
 }
 
 .table table {
   width: 100%;
   max-width: 100%;
   border-collapse: collapse;
-  font-size: clamp(14px, 0.9rem, 16px);
-  font-family: 'Proxima Nova', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-  line-height: 1.5;
-  background: #FFFFFF;
-  border-radius: 8px;
-  overflow: hidden;
+  font-size: var(--body-font-size-xs);
+  color: var(--text-color);
+  font-family: var(--body-font-family);
 }
 
 @media (width >= 600px) {
   .table table {
-    font-size: clamp(15px, 1rem, 17px);
+    font-size: var(--body-font-size-s);
   }
 }
 
 @media (width >= 900px) {
   .table table {
-    font-size: clamp(16px, 1.1rem, 18px);
+    font-size: var(--body-font-size-m);
   }
 }
 
 .table table thead tr {
   border-top: 3px solid #C8102E;
-  border-bottom: 2px solid color-mix(in oklch, #1D1D1B 15%, #F5F5F0);
-  background: linear-gradient(135deg, #F5F5F0 0%, color-mix(in oklch, #F5F5F0 95%, #C8102E) 100%);
+  border-bottom: 2px solid #1D1D1B;
+  background-color: #F5F5F0;
 }
 
 .table table tbody tr {
-  border-bottom: 1px solid color-mix(in oklch, #1D1D1B 10%, #F5F5F0);
-  transition: background-color 200ms ease-out;
+  border-bottom: 1px solid #E5E5E0;
+  transition: background-color 150ms ease-out;
 }
 
 .table table tbody tr:hover {
-  background: color-mix(in oklch, #F5F5F0 50%, transparent);
+  background-color: #FAFAF8;
 }
 
 .table table th {
-  font-weight: 600;
+  font-weight: 700;
   color: #1D1D1B;
-  text-transform: uppercase;
+  font-size: 0.875em;
   letter-spacing: 0.025em;
-  font-size: 0.85em;
+  text-transform: uppercase;
 }
 
 .table table th,
 .table table td {
-  padding: clamp(12px, 1rem, 16px) clamp(16px, 1.25rem, 20px);
+  padding: 1em 0.75em;
   text-align: left;
   vertical-align: top;
+}
+
+@media (width >= 600px) {
+  .table table th,
+  .table table td {
+    padding: 1.25em 1em;
+  }
 }
 
 .table table th p,
 .table table td p {
   margin: 0;
-  color: #1D1D1B;
+  line-height: 1.5;
 }
 
 .table table td p + p {
@@ -71,7 +73,7 @@
 
 /* no header variant */
 .table.no-header table tbody tr {
-  border-top: 2px solid color-mix(in oklch, #1D1D1B 15%, #F5F5F0);
+  border-top: 1px solid #E5E5E0;
 }
 
 .table.no-header table tbody tr:first-child {
@@ -80,34 +82,29 @@
 
 /* striped variant */
 .table.striped tbody tr:nth-child(odd) {
-  background: color-mix(in oklch, #F5F5F0 30%, transparent);
+  background-color: #FAFAF8;
 }
 
 .table.striped tbody tr:nth-child(odd):hover {
-  background: color-mix(in oklch, #F5F5F0 60%, transparent);
+  background-color: #F5F5F0;
 }
 
 /* bordered variant */
 .table.bordered table th,
 .table.bordered table td {
-  border: 1px solid color-mix(in oklch, #1D1D1B 12%, #F5F5F0);
+  border: 1px solid #E5E5E0;
 }
 
 .table.bordered table th {
-  border-bottom: 2px solid color-mix(in oklch, #C8102E 80%, #1D1D1B);
+  border-color: #1D1D1B;
+  border-width: 1px 1px 2px 1px;
 }
 
-.table.bordered table tbody tr:hover {
-  background: color-mix(in oklch, #F5F5F0 40%, transparent);
+.table.bordered table thead tr {
+  border-top: 3px solid #C8102E;
+  border-bottom: none;
 }
 
-@media (width >= 900px) {
-  .table table th,
-  .table table td {
-    padding: clamp(16px, 1.25rem, 20px) clamp(20px, 1.5rem, 24px);
-  }
-  
-  .table table td p + p {
-    margin-top: 0.75em;
-  }
+.table.bordered table tbody tr {
+  border-bottom: none;
 }

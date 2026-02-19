@@ -1,36 +1,38 @@
 .video {
   text-align: center;
-  max-width: 1200px;
-  margin: clamp(32px, 5vw, 80px) auto;
-  padding: 0 clamp(16px, 3vw, 32px);
+  max-width: 900px;
+  margin: clamp(1.5rem, 4vw, 3rem) auto;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px color-mix(in oklch, #1D1D1B 20%, transparent);
 }
 
 .video[data-embed-loaded='false']:not(.placeholder) {
   aspect-ratio: 16 / 9;
-  background-color: #F5F5F0;
-  border-radius: 8px;
+  background: linear-gradient(135deg, #F5F5F0 0%, color-mix(in oklch, #F5F5F0 95%, #1D1D1B) 100%);
 }
 
 .video > div {
   display: flex;
   justify-content: center;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 24px oklch(0.15 0 0 / 0.08), 0 2px 12px oklch(0.15 0 0 / 0.12);
+  position: relative;
 }
 
 .video video {
   max-width: 100%;
-  height: auto;
-  transition: opacity 300ms ease-out;
+  border-radius: inherit;
+  transition: transform 200ms ease-out;
+}
+
+.video video:hover {
+  transform: scale(1.02);
 }
 
 .video .video-placeholder {
   width: 100%;
   aspect-ratio: 16 / 9;
   position: relative;
-  background-color: #F5F5F0;
-  border-radius: 8px;
+  background: linear-gradient(135deg, #F5F5F0 0%, color-mix(in oklch, #F5F5F0 90%, #1D1D1B) 100%);
   overflow: hidden;
 }
 
@@ -53,38 +55,34 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 300ms ease-out;
+  transition: transform 400ms ease-out, opacity 300ms ease-out;
 }
 
 .video .video-placeholder:hover picture img {
-  transform: scale(1.02);
+  transform: scale(1.05);
 }
 
 .video .video-placeholder-play button {
   position: relative;
   display: block;
-  width: 72px;
-  height: 72px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   outline: none;
   border: 3px solid #FFFFFF;
   padding: 0;
-  background-color: oklch(0.98 0 0 / 0.9);
+  background: color-mix(in oklch, #C8102E 95%, #1D1D1B);
   backdrop-filter: blur(8px);
   cursor: pointer;
-  transition: all 200ms ease-out;
-  box-shadow: 0 2px 12px oklch(0.15 0 0 / 0.2);
+  transition: all 300ms ease-out;
+  box-shadow: 0 8px 32px color-mix(in oklch, #C8102E 40%, transparent);
 }
 
 .video .video-placeholder-play button:hover {
-  background-color: #C8102E;
-  border-color: #C8102E;
-  transform: scale(1.05);
-  box-shadow: 0 4px 20px oklch(0.15 0 0 / 0.3);
-}
-
-.video .video-placeholder-play button:active {
-  transform: scale(0.98);
+  transform: scale(1.1);
+  background: #C8102E;
+  border-color: #FFFFFF;
+  box-shadow: 0 12px 48px color-mix(in oklch, #C8102E 60%, transparent);
 }
 
 .video .video-placeholder-play button::before {
@@ -93,25 +91,22 @@
   box-sizing: border-box;
   position: absolute;
   width: 0;
-  height: 24px;
-  border-top: 12px solid transparent;
-  border-bottom: 12px solid transparent;
-  border-left: 18px solid #1D1D1B;
+  height: 32px;
+  border-top: 16px solid transparent;
+  border-bottom: 16px solid transparent;
+  border-left: 24px solid #FFFFFF;
   top: 50%;
-  left: calc(50% + 2px);
+  left: calc(50% + 3px);
   transform: translate(-50%, -50%);
-  transition: border-left-color 200ms ease-out;
-}
-
-.video .video-placeholder-play button:hover::before {
-  border-left-color: #FFFFFF;
+  transition: border-left-color 300ms ease-out;
 }
 
 .video .video-placeholder-play button:focus,
 .video .video-placeholder-play button:focus-visible {
   outline: 3px solid #C8102E;
   outline-offset: 4px;
-  background-color: #C8102E;
+  background: #1D1D1B;
+  border-color: #FFFFFF;
 }
 
 .video .video-placeholder-play button:focus::before,
@@ -119,52 +114,50 @@
   border-left-color: #FFFFFF;
 }
 
+.video .video-placeholder-play button:active {
+  transform: scale(0.95);
+}
+
 @media (width >= 600px) {
   .video {
-    margin: clamp(48px, 6vw, 96px) auto;
-    padding: 0 clamp(24px, 4vw, 48px);
+    margin: clamp(2rem, 5vw, 4rem) auto;
   }
-
+  
   .video .video-placeholder-play button {
-    width: 88px;
-    height: 88px;
+    width: 96px;
+    height: 96px;
   }
-
+  
   .video .video-placeholder-play button::before {
-    height: 30px;
-    border-top-width: 15px;
-    border-bottom-width: 15px;
-    border-left-width: 22px;
+    height: 40px;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-left: 28px solid #FFFFFF;
   }
 }
 
 @media (width >= 900px) {
   .video {
-    margin: clamp(64px, 8vw, 120px) auto;
-  }
-
-  .video .video-placeholder-play button {
-    width: 96px;
-    height: 96px;
-  }
-
-  .video .video-placeholder-play button::before {
-    height: 32px;
-    border-top-width: 16px;
-    border-bottom-width: 16px;
-    border-left-width: 24px;
+    margin: clamp(3rem, 6vw, 5rem) auto;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .video video,
   .video .video-placeholder picture img,
-  .video .video-placeholder-play button,
-  .video .video-placeholder-play button::before,
-  .video video {
+  .video .video-placeholder-play button {
     transition: none;
   }
-
+  
+  .video video:hover {
+    transform: none;
+  }
+  
   .video .video-placeholder:hover picture img {
+    transform: none;
+  }
+  
+  .video .video-placeholder-play button:hover {
     transform: none;
   }
 }

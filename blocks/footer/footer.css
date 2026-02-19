@@ -1,26 +1,106 @@
 footer {
-  background-color: #1D1D1B;
+  background-color: var(--secondary-color, #1D1D1B);
   font-size: 14px;
-  color: #F5F5F0;
-  border-top: 3px solid #C8102E;
+  color: var(--background-color, #FFFFFF);
+  border-top: 2px solid var(--primary-color, #C8102E);
 }
 
 footer .footer > div {
   margin: auto;
   max-width: 1200px;
-  padding: clamp(32px, 4vw, 48px) 24px clamp(24px, 3vw, 32px);
+  padding: clamp(48px, 5vw, 80px) clamp(24px, 4vw, 40px) clamp(32px, 3vw, 48px);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(32px, 4vw, 48px);
 }
 
 footer .footer p {
   margin: 0;
   line-height: 1.6;
-  color: rgba(245, 245, 240, 0.85);
   font-weight: 400;
   letter-spacing: 0.01em;
 }
 
+footer .footer a {
+  color: var(--background-color, #FFFFFF);
+  text-decoration: none;
+  transition: color 300ms ease-out;
+}
+
+footer .footer a:hover {
+  color: var(--primary-color, #C8102E);
+}
+
+footer .footer a:focus {
+  outline: 2px solid var(--primary-color, #C8102E);
+  outline-offset: 2px;
+}
+
+footer .footer .footer-brand {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--background-color, #FFFFFF);
+  letter-spacing: -0.02em;
+}
+
+footer .footer .footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(16px, 3vw, 32px);
+  font-size: 14px;
+}
+
+footer .footer .footer-copyright {
+  font-size: 12px;
+  opacity: 0.8;
+  padding-top: clamp(24px, 3vw, 32px);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+@media (width >= 600px) {
+  footer .footer > div {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  footer .footer .footer-links {
+    gap: clamp(24px, 3vw, 40px);
+  }
+}
+
 @media (width >= 900px) {
   footer .footer > div {
-    padding: clamp(40px, 5vw, 64px) 32px clamp(32px, 4vw, 40px);
+    padding: clamp(64px, 6vw, 96px) clamp(32px, 4vw, 48px) clamp(40px, 4vw, 64px);
+    align-items: center;
+  }
+  
+  footer .footer {
+    font-size: 15px;
+  }
+  
+  footer .footer .footer-brand {
+    font-size: 20px;
+  }
+  
+  footer .footer .footer-links {
+    font-size: 15px;
+  }
+  
+  footer .footer .footer-copyright {
+    position: absolute;
+    bottom: clamp(24px, 2vw, 32px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    text-align: center;
+    border-top: none;
+    padding-top: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  footer .footer a {
+    transition: none;
   }
 }

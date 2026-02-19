@@ -1,28 +1,31 @@
 .quote blockquote {
   margin: 0 auto;
-  padding: clamp(32px, 5vw, 48px) 24px;
+  padding: 0 24px;
   max-width: 900px;
+  background: #F5F5F0;
+  border-left: 4px solid #C8102E;
+  border-radius: 0 8px 8px 0;
   position: relative;
 }
 
 @media (width >= 900px) {
   .quote blockquote {
-    padding: clamp(48px, 8vw, 80px) 32px;
+    padding: 0 48px;
   }
 }
 
 .quote blockquote .quote-quotation {
-  font-size: clamp(24px, 4vw, 32px);
-  font-weight: 500;
-  line-height: 1.4;
+  font-size: clamp(1.125rem, 2.5vw, 1.375rem);
+  font-family: 'Proxima Nova', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
   color: #1D1D1B;
-  font-family: 'Proxima Nova', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-  letter-spacing: -0.02em;
-  margin-bottom: 24px;
+  padding: 32px 0;
+  margin: 0;
 }
 
 .quote blockquote .quote-quotation > :first-child {
-  text-indent: -0.8ch;
+  text-indent: -0.5ch;
   margin-top: 0;
 }
 
@@ -33,27 +36,37 @@
 .quote blockquote .quote-quotation > :first-child::before,
 .quote blockquote .quote-quotation > :last-child::after {
   line-height: 0;
-  font-size: 1.2em;
+  font-size: 2em;
+  font-weight: 600;
   color: #C8102E;
-  font-weight: 700;
+  font-family: Georgia, serif;
 }
 
 .quote blockquote .quote-quotation > :first-child::before {
   content: """;
+  position: relative;
+  top: 0.15em;
+  margin-right: 0.1em;
 }
 
 .quote blockquote .quote-quotation > :last-child::after {
   content: """;
+  position: relative;
+  top: 0.15em;
+  margin-left: 0.1em;
 }
 
 .quote blockquote .quote-attribution {
   text-align: right;
-  font-size: 16px;
-  color: #4A7C2E;
+  padding: 0 0 24px 0;
+  margin-top: 16px;
+  border-top: 1px solid rgba(29, 29, 27, 0.1);
+  font-family: 'Proxima Nova', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 0.875rem;
   font-weight: 600;
-  font-family: 'Proxima Nova', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-  letter-spacing: 0.02em;
-  position: relative;
+  color: #4A7C2E;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .quote blockquote .quote-attribution > :first-child {
@@ -65,14 +78,4 @@
   padding-right: 0.5ch;
   color: #C8102E;
   font-weight: 400;
-}
-
-@media (width >= 600px) {
-  .quote blockquote .quote-quotation {
-    font-size: clamp(28px, 4.5vw, 36px);
-  }
-  
-  .quote blockquote .quote-attribution {
-    font-size: 18px;
-  }
 }

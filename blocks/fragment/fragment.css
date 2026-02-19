@@ -1,30 +1,10 @@
 .fragment {
-  --fragment-background: #FFFFFF;
-  --fragment-text-color: #1D1D1B;
-  --fragment-border-color: #F5F5F0;
-  --fragment-accent-color: #C8102E;
-  --fragment-spacing: 2rem;
-  --fragment-border-radius: 0.5rem;
-  
-  background-color: var(--fragment-background);
-  border: 1px solid var(--fragment-border-color);
-  border-radius: var(--fragment-border-radius);
-  color: var(--fragment-text-color);
-  padding: var(--fragment-spacing);
-  margin-block: 1.5rem;
-  transition: border-color 0.2s ease-out;
+  /* Fragment blocks are transparent containers by default */
+  display: block;
 }
 
-.fragment:hover {
-  border-color: color-mix(in srgb, var(--fragment-accent-color) 30%, var(--fragment-border-color));
-}
-
-.fragment > *:first-child {
-  margin-block-start: 0;
-}
-
-.fragment > *:last-child {
-  margin-block-end: 0;
+.fragment > * {
+  margin: 0;
 }
 
 .fragment h1,
@@ -33,16 +13,16 @@
 .fragment h4,
 .fragment h5,
 .fragment h6 {
-  color: var(--fragment-text-color);
-  font-family: 'Proxima Nova', system-ui, -apple-system, sans-serif;
+  font-family: 'Proxima Nova', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
   font-weight: 600;
-  letter-spacing: -0.02em;
+  color: #1D1D1B;
   line-height: 1.2;
-  margin-block: 0 1rem;
+  margin: 0 0 1rem 0;
+  letter-spacing: -0.02em;
 }
 
 .fragment h1 {
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(2rem, 4vw, 3.5rem);
   font-weight: 700;
 }
 
@@ -54,100 +34,132 @@
   font-size: clamp(1.25rem, 2.5vw, 1.75rem);
 }
 
+.fragment h4,
+.fragment h5,
+.fragment h6 {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+}
+
 .fragment p {
-  font-family: 'Proxima Nova', system-ui, -apple-system, sans-serif;
-  font-size: 1rem;
+  font-family: 'Proxima Nova', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  font-weight: 400;
   line-height: 1.6;
-  margin-block: 0 1rem;
-}
-
-.fragment ul,
-.fragment ol {
-  padding-inline-start: 1.5rem;
-  margin-block: 0 1rem;
-}
-
-.fragment li {
-  font-family: 'Proxima Nova', system-ui, -apple-system, sans-serif;
-  font-size: 1rem;
-  line-height: 1.6;
-  margin-block-end: 0.5rem;
+  color: #1D1D1B;
+  margin: 0 0 1.5rem 0;
 }
 
 .fragment a {
-  color: var(--fragment-accent-color);
-  text-decoration: underline;
-  text-decoration-thickness: 0.125em;
-  text-underline-offset: 0.25em;
+  color: #C8102E;
+  text-decoration: none;
+  font-weight: 500;
   transition: color 0.2s ease-out;
 }
 
 .fragment a:hover {
-  color: color-mix(in srgb, var(--fragment-accent-color) 80%, #1D1D1B);
-  text-decoration-thickness: 0.1875em;
+  color: #4A7C2E;
+  text-decoration: underline;
+}
+
+.fragment ul,
+.fragment ol {
+  margin: 0 0 1.5rem 0;
+  padding-left: 1.5rem;
+  font-family: 'Proxima Nova', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  line-height: 1.6;
+  color: #1D1D1B;
+}
+
+.fragment li {
+  margin-bottom: 0.5rem;
+}
+
+.fragment blockquote {
+  border-left: 4px solid #C8102E;
+  padding-left: 1.5rem;
+  margin: 2rem 0;
+  font-style: italic;
+  font-size: clamp(1.125rem, 2vw, 1.25rem);
+  color: #4A7C2E;
 }
 
 .fragment .button-container {
-  margin-block: 1.5rem;
+  margin: 2rem 0;
 }
 
 .fragment .button {
-  background-color: transparent;
-  border: 2px solid var(--fragment-accent-color);
-  border-radius: var(--fragment-border-radius);
-  color: var(--fragment-accent-color);
-  cursor: pointer;
   display: inline-block;
-  font-family: 'Proxima Nova', system-ui, -apple-system, sans-serif;
+  padding: 0.75rem 2rem;
+  font-family: 'Proxima Nova', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
   font-size: 1rem;
   font-weight: 600;
-  letter-spacing: 0.025em;
-  line-height: 1.4;
-  padding: 0.75rem 1.5rem;
-  text-align: center;
   text-decoration: none;
-  transition: all 0.2s ease-out;
-}
-
-.fragment .button:hover {
-  background-color: var(--fragment-accent-color);
-  color: #FFFFFF;
-  transform: translateY(-0.0625rem);
+  border-radius: 4px;
+  transition: all 0.25s ease-out;
+  cursor: pointer;
+  border: 2px solid transparent;
+  text-align: center;
+  letter-spacing: 0.02em;
 }
 
 .fragment strong .button {
-  background-color: var(--fragment-accent-color);
+  background-color: #C8102E;
   color: #FFFFFF;
+  border-color: #C8102E;
 }
 
 .fragment strong .button:hover {
-  background-color: color-mix(in srgb, var(--fragment-accent-color) 90%, #1D1D1B);
-  transform: translateY(-0.0625rem);
+  background-color: #4A7C2E;
+  border-color: #4A7C2E;
+  transform: translateY(-1px);
+}
+
+.fragment .button:not(strong .button) {
+  background-color: transparent;
+  color: #C8102E;
+  border-color: #C8102E;
+}
+
+.fragment .button:not(strong .button):hover {
+  background-color: #C8102E;
+  color: #FFFFFF;
 }
 
 @media (width >= 600px) {
-  .fragment {
-    --fragment-spacing: 2.5rem;
-    margin-block: 2rem;
+  .fragment h1 {
+    margin-bottom: 1.5rem;
+  }
+  
+  .fragment h2 {
+    margin-bottom: 1.25rem;
   }
   
   .fragment p {
-    font-size: 1.125rem;
+    margin-bottom: 2rem;
   }
   
-  .fragment li {
-    font-size: 1.125rem;
+  .fragment .button-container {
+    margin: 2.5rem 0;
   }
 }
 
 @media (width >= 900px) {
   .fragment {
-    --fragment-spacing: 3rem;
-    margin-block: 2.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
   }
   
-  .fragment .button {
-    font-size: 1.125rem;
-    padding: 1rem 2rem;
+  .fragment p {
+    max-width: 65ch;
+  }
+  
+  .fragment blockquote {
+    margin: 3rem 0;
+    padding-left: 2rem;
+  }
+  
+  .fragment .button-container {
+    margin: 3rem 0;
   }
 }

@@ -1,15 +1,13 @@
 .columns > div {
   display: flex;
   flex-direction: column;
-  gap: clamp(2rem, 4vw, 3rem);
-  padding: clamp(3rem, 6vw, 5rem) 0;
+  gap: clamp(32px, 5vw, 64px);
 }
 
 .columns img {
   width: 100%;
   height: auto;
-  border-radius: 4px;
-  transition: transform 200ms ease-out;
+  transition: transform 300ms ease-out;
 }
 
 .columns img:hover {
@@ -20,94 +18,93 @@
   order: 1;
 }
 
-.columns > div > div h1,
-.columns > div > div h2,
-.columns > div > div h3 {
-  color: #1D1D1B;
-  font-weight: 600;
-  line-height: 1.2;
-  margin-bottom: clamp(1rem, 2vw, 1.5rem);
-}
-
-.columns > div > div h1 {
-  font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-}
-
-.columns > div > div h2 {
-  font-size: clamp(1.5rem, 4vw, 2rem);
-}
-
-.columns > div > div h3 {
-  font-size: clamp(1.25rem, 3vw, 1.5rem);
-  font-weight: 500;
-}
-
-.columns > div > div p {
-  color: #1D1D1B;
-  font-size: clamp(1rem, 2.5vw, 1.125rem);
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
-}
-
-.columns > div > div .button-container {
-  margin-top: clamp(1.5rem, 3vw, 2rem);
-}
-
-.columns > div > div strong .button {
-  background: #C8102E;
-  color: #FFFFFF;
-  border: 2px solid #C8102E;
-  padding: 0.875rem 2rem;
-  font-weight: 600;
-  font-size: 1rem;
-  text-decoration: none;
-  border-radius: 4px;
-  display: inline-block;
-  transition: all 200ms ease-out;
-}
-
-.columns > div > div strong .button:hover {
-  background: #A00E26;
-  border-color: #A00E26;
-  transform: translateY(-1px);
-}
-
-.columns > div > div .button:not(strong .button) {
-  background: transparent;
-  color: #C8102E;
-  border: 2px solid #C8102E;
-  padding: 0.875rem 2rem;
-  font-weight: 600;
-  font-size: 1rem;
-  text-decoration: none;
-  border-radius: 4px;
-  display: inline-block;
-  transition: all 200ms ease-out;
-}
-
-.columns > div > div .button:not(strong .button):hover {
-  background: #C8102E;
-  color: #FFFFFF;
-  transform: translateY(-1px);
-}
-
 .columns > div > .columns-img-col {
   order: 0;
 }
 
 .columns > div > .columns-img-col img {
   display: block;
-  box-shadow: 0 4px 20px rgba(29, 29, 27, 0.08);
+  border-radius: 4px;
+}
+
+.columns h1,
+.columns h2,
+.columns h3,
+.columns h4,
+.columns h5,
+.columns h6 {
+  color: #1D1D1B;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: clamp(16px, 3vw, 24px);
+}
+
+.columns h2 {
+  font-size: clamp(28px, 4vw, 36px);
+  font-weight: 700;
+}
+
+.columns h3 {
+  font-size: clamp(22px, 3vw, 28px);
+  font-weight: 600;
+}
+
+.columns p {
+  color: #1D1D1B;
+  font-size: clamp(16px, 2.5vw, 18px);
+  line-height: 1.6;
+  margin-bottom: clamp(16px, 3vw, 24px);
+}
+
+.columns .button-container {
+  margin-top: clamp(24px, 4vw, 32px);
+}
+
+.columns .button {
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all 250ms ease-out;
+  border: 2px solid transparent;
+}
+
+.columns strong .button {
+  background-color: #C8102E;
+  color: #FFFFFF;
+  border-color: #C8102E;
+}
+
+.columns strong .button:hover {
+  background-color: #A00D26;
+  border-color: #A00D26;
+  transform: translateY(-1px);
+}
+
+.columns .button:not(strong .button) {
+  background-color: transparent;
+  color: #1D1D1B;
+  border-color: #1D1D1B;
+}
+
+.columns .button:not(strong .button):hover {
+  background-color: #1D1D1B;
+  color: #FFFFFF;
+}
+
+@media (width >= 600px) {
+  .columns > div {
+    gap: clamp(40px, 6vw, 80px);
+  }
 }
 
 @media (width >= 900px) {
   .columns > div {
     align-items: center;
     flex-direction: unset;
-    gap: clamp(3rem, 6vw, 5rem);
-    padding: clamp(5rem, 8vw, 7rem) 0;
+    gap: clamp(48px, 8vw, 96px);
   }
 
   .columns > div > div {
@@ -115,16 +112,19 @@
     order: unset;
   }
 
-  .columns > div > div h1 {
-    font-size: clamp(2.5rem, 4vw, 3.5rem);
+  .columns > div > .columns-img-col {
+    flex: 1;
   }
 
-  .columns > div > div h2 {
-    font-size: clamp(2rem, 3vw, 2.5rem);
+  .columns h2 {
+    font-size: clamp(32px, 4vw, 42px);
   }
 
-  .columns > div > div p {
-    font-size: 1.125rem;
-    max-width: 32rem;
+  .columns h3 {
+    font-size: clamp(24px, 3vw, 32px);
+  }
+
+  .columns p {
+    font-size: 18px;
   }
 }
