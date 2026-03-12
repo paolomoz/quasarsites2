@@ -3,7 +3,8 @@ body.modal-open {
 }
 
 .modal dialog::backdrop {
-  background-color: rgb(19 19 19 / 75%);
+  background-color: oklch(from #0A0A0F l c h / 0.85);
+  backdrop-filter: blur(8px);
 }
 
 .modal dialog {
@@ -13,7 +14,28 @@ body.modal-open {
   max-width: 900px;
   max-height: calc(100dvh - (2 * var(--header-height)));
   padding: 0;
-  border: 1px solid var(--dark-color);
+  border: 1px solid oklch(from #C9A84C l c h / 0.2);
+  background: linear-gradient(135deg, 
+    oklch(from #F7F2E8 0.98 c h / 0.95) 0%,
+    oklch(from #F7F2E8 0.96 c h / 0.92) 100%);
+  border-radius: 12px;
+  box-shadow: 
+    0 24px 48px oklch(from #0A0A0F l c h / 0.15),
+    0 12px 24px oklch(from #0A0A0F l c h / 0.1),
+    0 0 0 1px oklch(from #C9A84C l c h / 0.1);
+  backdrop-filter: blur(20px);
+  animation: modalEnter 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 .modal dialog .modal-content {
@@ -22,9 +44,32 @@ body.modal-open {
   overscroll-behavior: none;
   width: 100%;
   max-height: calc(100dvh - (2 * var(--header-height)) - 48px);
-  padding: 24px;
+  padding: clamp(20px, 4vw, 32px);
   padding-top: 0;
-  margin-top: 44px;
+  margin-top: 56px;
+  color: #1A1A23;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  scrollbar-width: thin;
+  scrollbar-color: oklch(from #C9A84C l c h / 0.3) transparent;
+}
+
+.modal dialog .modal-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modal dialog .modal-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.modal dialog .modal-content::-webkit-scrollbar-thumb {
+  background: oklch(from #C9A84C l c h / 0.3);
+  border-radius: 3px;
+}
+
+.modal dialog .modal-content::-webkit-scrollbar-thumb:hover {
+  background: oklch(from #C9A84C l c h / 0.5);
 }
 
 @media (width >= 900px) {
@@ -34,7 +79,7 @@ body.modal-open {
   
   .modal dialog .modal-content {
     max-height: calc(100dvh - (2 * var(--header-height)) - 64px);
-    padding: 32px;
+    padding: 40px;
     padding-top: 0;
   }
 }
@@ -43,15 +88,32 @@ body.modal-open {
   position: absolute;
   top: 0;
   right: 0;
-  width: 44px;
-  height: 44px;
+  width: 56px;
+  height: 56px;
   margin: 0;
   border: none;
-  border-radius: 0;
+  border-radius: 0 12px 0 8px;
   padding: 0;
-  background-color: transparent;
-  color: var(--text-color);
+  background: linear-gradient(135deg, 
+    oklch(from #0A0A0F 0.15 c h / 0.8) 0%,
+    oklch(from #0A0A0F 0.12 c h / 0.9) 100%);
+  color: #F7F2E8;
   line-height: 0;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  backdrop-filter: blur(10px);
+}
+
+.modal .close-button:hover {
+  background: linear-gradient(135deg, 
+    oklch(from #C9A84C 0.4 c h / 0.9) 0%,
+    oklch(from #C9A84C 0.35 c h / 0.95) 100%);
+  color: #0A0A0F;
+}
+
+.modal .close-button:focus-visible {
+  outline: 2px solid #C9A84C;
+  outline-offset: 2px;
 }
 
 .modal .close-button .icon.icon-close {
@@ -69,16 +131,94 @@ body.modal-open {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) rotate(45deg);
-  width: 24px;
+  width: 20px;
   height: 2px;
   border-radius: 2px;
   background-color: currentcolor;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .modal .close-button .icon.icon-close::after {
-  transform: translate(-50%, -50%) rotate(-45deg)
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.modal .close-button:hover .icon.icon-close::before,
+.modal .close-button:hover .icon.icon-close::after {
+  width: 24px;
 }
 
 .modal dialog .section {
   padding: 0;
+}
+
+.modal dialog h1,
+.modal dialog h2,
+.modal dialog h3 {
+  font-family: 'Bodoni Moda', 'Cormorant Garamond', Georgia, serif;
+  font-weight: 700;
+  color: #0A0A0F;
+  margin: 0 0 clamp(16px, 3vw, 24px);
+  letter-spacing: 0.02em;
+}
+
+.modal dialog h1 {
+  font-size: clamp(28px, 5vw, 40px);
+  line-height: 1.2;
+}
+
+.modal dialog h2 {
+  font-size: clamp(24px, 4vw, 32px);
+  line-height: 1.25;
+}
+
+.modal dialog h3 {
+  font-size: clamp(20px, 3.5vw, 24px);
+  line-height: 1.3;
+}
+
+.modal dialog p {
+  margin: 0 0 clamp(12px, 2.5vw, 20px);
+}
+
+.modal dialog .button-container {
+  margin-top: clamp(24px, 4vw, 32px);
+}
+
+.modal dialog .button {
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  border-radius: 6px;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  border: 2px solid transparent;
+  min-height: 44px;
+}
+
+.modal dialog strong .button {
+  background: linear-gradient(135deg, #C9A84C 0%, oklch(from #C9A84C 0.8 c h) 100%);
+  color: #0A0A0F;
+  border-color: transparent;
+}
+
+.modal dialog strong .button:hover {
+  background: linear-gradient(135deg, oklch(from #C9A84C 0.9 c h) 0%, #C9A84C 100%);
+  box-shadow: 0 8px 24px oklch(from #C9A84C l c h / 0.25);
+  transform: translateY(-1px);
+}
+
+.modal dialog .button:not(strong .button) {
+  background: transparent;
+  color: #0A0A0F;
+  border-color: oklch(from #0A0A0F l c h / 0.2);
+}
+
+.modal dialog .button:not(strong .button):hover {
+  background: oklch(from #0A0A0F l c h / 0.05);
+  border-color: oklch(from #0A0A0F l c h / 0.3);
 }

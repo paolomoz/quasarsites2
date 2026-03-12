@@ -1,55 +1,109 @@
 .tabs .tabs-list {
   display: flex;
-  gap: 0.5ch;
+  gap: 0;
   max-width: 100%;
   font-size: var(--body-font-size-xs);
   overflow-x: auto;
+  background: linear-gradient(135deg, rgba(12, 12, 18, 0.95), rgba(10, 10, 15, 0.98));
+  padding: 8px 0 0;
+  border-radius: 12px 12px 0 0;
 }
 
 @media (width >= 600px) {
   .tabs .tabs-list {
     font-size: var(--body-font-size-s);
+    padding: 12px 0 0;
   }
 }
 
 @media (width >= 900px) {
   .tabs .tabs-list {
     font-size: var(--body-font-size-m);
+    padding: 16px 0 0;
   }
 }
 
 .tabs .tabs-list button {
   flex: 0 0 max-content;
   margin: 0;
-  border: 1px solid var(--dark-color);
-  border-radius: 0;
-  padding: 0.5em;
-  background-color: #949494;
-  color: initial;
-  font-weight: bold;
-  line-height: unset;
-  text-align: initial;
-  text-overflow: unset;
-  overflow: unset;
-  white-space: unset;
-  transition: background-color 0.2s;
+  border: none;
+  border-radius: 8px 8px 0 0;
+  padding: clamp(12px, 2vw, 18px) clamp(20px, 4vw, 32px);
+  background: rgba(20, 20, 28, 0.8);
+  backdrop-filter: blur(12px);
+  color: rgba(247, 242, 232, 0.7);
+  font-family: Inter, sans-serif;
+  font-weight: 500;
+  font-size: inherit;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  text-align: center;
+  text-transform: uppercase;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.tabs .tabs-list button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(201, 168, 76, 0.1), rgba(138, 86, 147, 0.05));
+  opacity: 0;
+  transition: opacity 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  z-index: 0;
+}
+
+.tabs .tabs-list button:hover::before {
+  opacity: 1;
+}
+
+.tabs .tabs-list button:hover {
+  color: rgba(247, 242, 232, 0.9);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(201, 168, 76, 0.15);
 }
 
 .tabs .tabs-list button p {
   margin: 0;
+  position: relative;
+  z-index: 1;
 }
 
 .tabs .tabs-list button[aria-selected='true'] {
-  border-bottom: 1px solid var(--background-color);
-  background-color: var(--background-color);
-  cursor: initial;
+  background: linear-gradient(135deg, rgba(201, 168, 76, 0.95), rgba(201, 168, 76, 0.85));
+  color: #0a0a0f;
+  cursor: default;
+  transform: none;
+  box-shadow: 0 4px 20px rgba(201, 168, 76, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.2);
+}
+
+.tabs .tabs-list button[aria-selected='true']::before {
+  opacity: 0;
+}
+
+.tabs .tabs-list button[aria-selected='true']:hover {
+  transform: none;
+  color: #0a0a0f;
 }
 
 .tabs .tabs-panel {
-  margin-top: -1px;
-  padding: 24px;
-  border: 1px solid var(--dark-color);
+  margin-top: 0;
+  padding: clamp(24px, 5vw, 40px);
+  background: linear-gradient(135deg, rgba(12, 12, 18, 0.98), rgba(15, 15, 22, 0.95));
+  backdrop-filter: blur(20px);
+  border-radius: 0 0 12px 12px;
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  border-top: none;
   overflow: auto;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  color: rgba(247, 242, 232, 0.9);
+  font-family: Inter, sans-serif;
+  line-height: 1.6;
 }
 
 .tabs .tabs-panel[aria-hidden='true'] {

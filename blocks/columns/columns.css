@@ -1,18 +1,157 @@
 .columns > div {
   display: flex;
   flex-direction: column;
+  gap: clamp(20px, 3vw, 28px);
+  padding: clamp(32px, 4vw, 48px) clamp(20px, 3vw, 32px);
+  background: linear-gradient(145deg, #0A0A0F 0%, #1A1A26 100%);
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.columns > div::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 70% 30%, rgba(201, 168, 76, 0.08) 0%, transparent 60%);
+  pointer-events: none;
 }
 
 .columns img {
   width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.columns img:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5), 0 4px 12px rgba(201, 168, 76, 0.2);
 }
 
 .columns > div > div {
   order: 1;
+  color: #F7F2E8;
+  position: relative;
+  z-index: 2;
+}
+
+.columns > div > div h1,
+.columns > div > div h2,
+.columns > div > div h3,
+.columns > div > div h4,
+.columns > div > div h5,
+.columns > div > div h6 {
+  font-family: "Bodoni Moda", "Cormorant Garamond", serif;
+  font-weight: 700;
+  color: #C9A84C;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  line-height: 1.1;
+  margin: 0 0 clamp(12px, 1.5vw, 18px) 0;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.columns > div > div h2 {
+  font-size: clamp(32px, 4vw, 48px);
+}
+
+.columns > div > div h3 {
+  font-size: clamp(24px, 3vw, 36px);
+}
+
+.columns > div > div h4 {
+  font-size: clamp(20px, 2.5vw, 28px);
+}
+
+.columns > div > div p {
+  font-family: Inter, sans-serif;
+  font-size: clamp(16px, 1.5vw, 18px);
+  font-weight: 400;
+  line-height: 1.6;
+  color: rgba(247, 242, 232, 0.9);
+  margin: 0 0 clamp(16px, 2vw, 20px) 0;
+}
+
+.columns > div > div p:last-child {
+  margin-bottom: 0;
+}
+
+.columns > div > div strong {
+  color: #C9A84C;
+  font-weight: 600;
+}
+
+.columns > div > div em {
+  color: #9B7EE5;
+  font-style: italic;
+}
+
+.columns > div > div .button-container {
+  margin-top: clamp(20px, 2.5vw, 28px);
+}
+
+.columns > div > div a.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: 8px;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  position: relative;
+  overflow: hidden;
+  border: 2px solid transparent;
+}
+
+.columns > div > div strong a.button {
+  background: linear-gradient(135deg, #C9A84C 0%, #E5C568 100%);
+  color: #0A0A0F;
+  box-shadow: 0 4px 16px rgba(201, 168, 76, 0.3);
+}
+
+.columns > div > div strong a.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(201, 168, 76, 0.4);
+  background: linear-gradient(135deg, #E5C568 0%, #C9A84C 100%);
+}
+
+.columns > div > div a.button:not(strong a.button) {
+  background: transparent;
+  color: #C9A84C;
+  border-color: rgba(201, 168, 76, 0.4);
+}
+
+.columns > div > div a.button:not(strong a.button):hover {
+  background: rgba(201, 168, 76, 0.1);
+  border-color: #C9A84C;
+  transform: translateY(-2px);
 }
 
 .columns > div > .columns-img-col {
   order: 0;
+  position: relative;
+}
+
+.columns > div > .columns-img-col::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(45deg, rgba(155, 126, 229, 0.1) 0%, transparent 70%);
+  border-radius: 12px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.columns > div > .columns-img-col:hover::after {
+  opacity: 1;
 }
 
 .columns > div > .columns-img-col img {
@@ -21,13 +160,35 @@
 
 @media (width >= 900px) {
   .columns > div {
-    align-items: center;
+    align-items: flex-start;
     flex-direction: unset;
-    gap: 24px;
+    gap: clamp(40px, 5vw, 64px);
+    padding: clamp(48px, 6vw, 80px) clamp(40px, 5vw, 64px);
   }
 
   .columns > div > div {
     flex: 1;
     order: unset;
+  }
+
+  .columns > div > .columns-img-col {
+    flex: 1;
+    max-width: 50%;
+  }
+
+  .columns > div > div h2 {
+    font-size: clamp(48px, 5vw, 64px);
+  }
+
+  .columns > div > div h3 {
+    font-size: clamp(36px, 4vw, 48px);
+  }
+
+  .columns > div > div h4 {
+    font-size: clamp(28px, 3.5vw, 40px);
+  }
+
+  .columns > div > div p {
+    font-size: clamp(18px, 1.8vw, 20px);
   }
 }

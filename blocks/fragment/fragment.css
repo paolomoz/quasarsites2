@@ -1,1 +1,270 @@
-/* stylelint-disable no-empty-source */
+/* Fragment block styles */
+.fragment {
+  display: block;
+  width: 100%;
+}
+
+.fragment > * {
+  margin: 0;
+  padding: 0;
+}
+
+.fragment .section {
+  background-color: var(--color-obsidian, #0A0A0F);
+  color: var(--color-ivory-glow, #F7F2E8);
+  position: relative;
+  overflow: hidden;
+}
+
+.fragment .section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(201, 168, 76, 0.03) 0%,
+    rgba(138, 79, 162, 0.02) 50%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.fragment .section > div {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 4vw, 2rem);
+}
+
+.fragment h1,
+.fragment h2,
+.fragment h3,
+.fragment h4,
+.fragment h5,
+.fragment h6 {
+  font-family: 'Bodoni Moda', 'Cormorant Garamond', serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-champagne-gold, #C9A84C);
+  margin-bottom: clamp(1rem, 3vw, 1.5rem);
+  line-height: 1.1;
+}
+
+.fragment h1 {
+  font-size: clamp(2.25rem, 8vw, 4.5rem);
+  text-shadow: 0 0 20px rgba(201, 168, 76, 0.3);
+}
+
+.fragment h2 {
+  font-size: clamp(1.75rem, 6vw, 3rem);
+  text-shadow: 0 0 15px rgba(201, 168, 76, 0.25);
+}
+
+.fragment h3 {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  text-shadow: 0 0 10px rgba(201, 168, 76, 0.2);
+}
+
+.fragment h4 {
+  font-size: clamp(1.25rem, 3vw, 1.5rem);
+}
+
+.fragment p {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(1rem, 2.5vw, 1.125rem);
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--color-ivory-glow, #F7F2E8);
+  margin-bottom: clamp(1rem, 3vw, 1.5rem);
+  opacity: 0.92;
+}
+
+.fragment p:last-child {
+  margin-bottom: 0;
+}
+
+.fragment strong {
+  font-weight: 600;
+  color: var(--color-champagne-gold, #C9A84C);
+}
+
+.fragment em {
+  font-style: italic;
+  color: var(--color-violet-glow, #8A4FA2);
+}
+
+.fragment a {
+  color: var(--color-champagne-gold, #C9A84C);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+}
+
+.fragment a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--color-champagne-gold, #C9A84C), var(--color-violet-glow, #8A4FA2));
+  transition: width 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.fragment a:hover {
+  color: var(--color-violet-glow, #8A4FA2);
+  text-shadow: 0 0 8px rgba(138, 79, 162, 0.4);
+}
+
+.fragment a:hover::after {
+  width: 100%;
+}
+
+.fragment ul,
+.fragment ol {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(1rem, 2.5vw, 1.125rem);
+  line-height: 1.6;
+  margin-bottom: clamp(1rem, 3vw, 1.5rem);
+  padding-left: 1.5rem;
+}
+
+.fragment li {
+  color: var(--color-ivory-glow, #F7F2E8);
+  margin-bottom: 0.5rem;
+  opacity: 0.92;
+}
+
+.fragment li::marker {
+  color: var(--color-champagne-gold, #C9A84C);
+}
+
+.fragment blockquote {
+  background: rgba(201, 168, 76, 0.05);
+  border-left: 3px solid var(--color-champagne-gold, #C9A84C);
+  padding: clamp(1rem, 3vw, 1.5rem);
+  margin: clamp(1.5rem, 4vw, 2rem) 0;
+  font-family: 'Bodoni Moda', 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(1.125rem, 3vw, 1.25rem);
+  color: var(--color-champagne-gold, #C9A84C);
+  position: relative;
+  backdrop-filter: blur(10px);
+  border-radius: 0 8px 8px 0;
+}
+
+.fragment blockquote::before {
+  content: '"';
+  font-size: 3em;
+  color: var(--color-champagne-gold, #C9A84C);
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  opacity: 0.3;
+}
+
+.fragment .button-container {
+  margin-top: clamp(1.5rem, 4vw, 2rem);
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.fragment .button {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 12px 24px;
+  border-radius: 0;
+  border: 1px solid var(--color-champagne-gold, #C9A84C);
+  background: transparent;
+  color: var(--color-champagne-gold, #C9A84C);
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+}
+
+.fragment .button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-champagne-gold, #C9A84C), var(--color-violet-glow, #8A4FA2));
+  transition: left 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: -1;
+}
+
+.fragment .button:hover {
+  color: var(--color-obsidian, #0A0A0F);
+  border-color: var(--color-violet-glow, #8A4FA2);
+  box-shadow: 0 0 20px rgba(138, 79, 162, 0.3);
+}
+
+.fragment .button:hover::before {
+  left: 0;
+}
+
+.fragment strong .button {
+  background: linear-gradient(135deg, var(--color-champagne-gold, #C9A84C), var(--color-violet-glow, #8A4FA2));
+  color: var(--color-obsidian, #0A0A0F);
+  border: 1px solid transparent;
+  box-shadow: 0 0 15px rgba(201, 168, 76, 0.4);
+}
+
+.fragment strong .button::before {
+  background: linear-gradient(135deg, var(--color-violet-glow, #8A4FA2), var(--color-champagne-gold, #C9A84C));
+}
+
+.fragment strong .button:hover {
+  color: var(--color-obsidian, #0A0A0F);
+  box-shadow: 0 0 25px rgba(138, 79, 162, 0.6);
+}
+
+@media (width >= 600px) {
+  .fragment .section > div {
+    padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 5vw, 3rem);
+  }
+
+  .fragment .button-container {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+  }
+}
+
+@media (width >= 900px) {
+  .fragment .section > div {
+    padding: clamp(4rem, 8vw, 6rem) clamp(2rem, 6vw, 4rem);
+  }
+
+  .fragment h1 {
+    margin-bottom: 2rem;
+  }
+
+  .fragment h2 {
+    margin-bottom: 1.5rem;
+  }
+
+  .fragment p {
+    font-size: 1.125rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .fragment blockquote {
+    font-size: 1.25rem;
+    padding: 2rem;
+    margin: 2.5rem 0;
+  }
+}

@@ -1,1 +1,116 @@
-/* add global styles that can be loaded post LCP here */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+:focus-visible {
+  outline: 3px solid #C9A84C;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+body {
+  text-wrap: balance;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+button:hover,
+.button:hover {
+  transform: translateY(-2px);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+strong .button:hover {
+  box-shadow: 0 8px 24px rgba(201, 168, 76, 0.4);
+}
+
+.button:not(strong .button):hover {
+  box-shadow: 0 4px 16px rgba(201, 168, 76, 0.2);
+}
+
+a:hover {
+  transition: color 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.button-container strong .button:hover {
+  background-color: color-mix(in oklch, #C9A84C, #FFFFFF 15%);
+  border-color: color-mix(in oklch, #C9A84C, #FFFFFF 15%);
+  color: #0A0A0F;
+}
+
+.button-container .button:not(strong .button):hover {
+  background-color: rgba(201, 168, 76, 0.1);
+  border-color: #C9A84C;
+  color: #C9A84C;
+}
+
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid #C9A84C;
+  outline-offset: 2px;
+  border-color: #C9A84C;
+}
+
+@media (width >= 900px) {
+  .cards-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: clamp(24px, 3vw, 32px);
+  }
+}
+
+::selection {
+  background-color: rgba(201, 168, 76, 0.3);
+  color: #0A0A0F;
+}
+
+@print {
+  body {
+    font-family: Georgia, serif;
+    color: #000;
+    background: #fff;
+  }
+  
+  .hero,
+  .section[data-section-status="loading"],
+  nav,
+  footer {
+    display: none;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+    font-family: Georgia, serif;
+  }
+  
+  p, li {
+    page-break-inside: avoid;
+  }
+  
+  a {
+    text-decoration: underline;
+  }
+  
+  a[href^="http"]:after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+  }
+}
