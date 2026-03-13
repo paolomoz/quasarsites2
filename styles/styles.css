@@ -12,22 +12,22 @@
 
 :root {
   /* colors */
-  --background-color: #0a0a0f;
-  --light-color: #1a1a20;
-  --dark-color: #2a2a30;
+  --background-color: #1a1a24;
+  --light-color: #2a2a34;
+  --dark-color: #3a3a44;
   --text-color: #f7f2e8;
   --link-color: #c9a84c;
   --link-hover-color: #9c7ff5;
 
   /* brand color palette */
-  --obsidian: #0a0a0f;
-  --gunmetal: #1a1a20;
-  --slate: #2a2a30;
+  --obsidian: #1a1a24;
+  --gunmetal: #2a2a34;
+  --slate: #3a3a44;
   --champagne-gold: #c9a84c;
   --electric-violet: #9c7ff5;
   --ivory-glow: #f7f2e8;
   --pearl-white: #fefefe;
-  --charcoal: #3a3a40;
+  --charcoal: #4a4a54;
 
   /* fonts */
   --body-font-family: 'Inter', system-ui, -apple-system, sans-serif;
