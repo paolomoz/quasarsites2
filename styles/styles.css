@@ -1,5 +1,5 @@
 /*
- * Refined Minimal â Swiss-inspired design system
+ * Refined Minimal Ã¢ÂÂ Swiss-inspired design system
  * DM Sans + Inter, generous whitespace, pill CTAs, glass-morphism accents
  */
 
@@ -150,7 +150,7 @@ a:hover {
   text-decoration: none;
 }
 
-/* buttons â pill-shaped, elegant hover fill */
+/* buttons Ã¢ÂÂ pill-shaped, elegant hover fill */
 a.button:any-link,
 button {
   box-sizing: border-box;
@@ -230,7 +230,7 @@ main img {
   width: 100%;
 }
 
-/* sections â generous vertical rhythm */
+/* sections Ã¢ÂÂ generous vertical rhythm */
 main > .section {
   margin: 80px 0;
 }
@@ -270,9 +270,9 @@ main .section.highlight {
   }
 }
 
-/* ═══════════════════════════════════════════
-   Brand Overrides — Las Vegas Events
-   ═══════════════════════════════════════════ */
+/* âââââââââââââââââââââââââââââââââââââââââââ
+   Brand Overrides â Las Vegas Events
+   âââââââââââââââââââââââââââââââââââââââââââ */
 
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
@@ -288,4 +288,62 @@ main .section.highlight {
   --heading-font-family: 'Cormorant Garamond', serif;
   --body-font-family: 'Inter', sans-serif;
   --border-radius: 8px;
+}
+
+/* Countdown Timer Styling */
+main .countdown {
+  text-align: center;
+  padding: 60px 0;
+}
+
+main .countdown h2 {
+  font-size: var(--heading-font-size-l);
+  margin-bottom: 2rem;
+  color: var(--text-color);
+  letter-spacing: 0.05em;
+}
+
+#countdown-timer {
+  font-family: var(--heading-font-family);
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  text-shadow: 0 0 30px rgba(201, 168, 76, 0.4);
+  margin: 2rem 0;
+  letter-spacing: 0.1em;
+}
+
+#countdown-timer span {
+  display: inline-block;
+  min-width: 1.2em;
+  text-align: center;
+  background: linear-gradient(135deg, rgba(201, 168, 76, 0.1), rgba(123, 94, 167, 0.1));
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  border-radius: var(--border-radius);
+  padding: 0.3em 0.2em;
+  margin: 0 0.1em;
+  backdrop-filter: blur(10px);
+}
+
+main .countdown p {
+  font-style: italic;
+  color: var(--muted-color);
+  font-size: var(--body-font-size-s);
+  margin-top: 2rem;
+}
+
+@media (width >= 600px) {
+  #countdown-timer {
+    font-size: 5rem;
+  }
+}
+
+@media (width >= 900px) {
+  #countdown-timer {
+    font-size: 6rem;
+  }
+  
+  main .countdown h2 {
+    font-size: var(--heading-font-size-xl);
+  }
 }
