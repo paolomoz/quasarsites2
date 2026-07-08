@@ -1,5 +1,5 @@
 /*
- * Refined Minimal Ã¢ÂÂ Swiss-inspired design system
+ * Refined Minimal – Swiss-inspired design system
  * DM Sans + Inter, generous whitespace, pill CTAs, glass-morphism accents
  */
 
@@ -150,7 +150,7 @@ a:hover {
   text-decoration: none;
 }
 
-/* buttons Ã¢ÂÂ pill-shaped, elegant hover fill */
+/* buttons – pill-shaped, elegant hover fill */
 a.button:any-link,
 button {
   box-sizing: border-box;
@@ -230,7 +230,7 @@ main img {
   width: 100%;
 }
 
-/* sections Ã¢ÂÂ generous vertical rhythm */
+/* sections – generous vertical rhythm */
 main > .section {
   margin: 80px 0;
 }
@@ -263,16 +263,24 @@ main .section.highlight {
   padding: 80px 0;
 }
 
+main .section.dark {
+  background-color: #1a1a1a;
+  color: var(--background-color);
+  margin: 0;
+  padding: 80px 0;
+}
+
 @media (width >= 900px) {
   main .section.light,
-  main .section.highlight {
+  main .section.highlight,
+  main .section.dark {
     padding: 120px 0;
   }
 }
 
-/* âââââââââââââââââââââââââââââââââââââââââââ
-   Brand Overrides â Las Vegas Events
-   âââââââââââââââââââââââââââââââââââââââââââ */
+/* ══════════════════════════════════════════════════════════════════════════════════
+   Brand Overrides – Las Vegas Events
+   ══════════════════════════════════════════════════════════════════════════════════ */
 
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
@@ -290,42 +298,41 @@ main .section.highlight {
   --border-radius: 8px;
 }
 
-/* Countdown Timer Styling */
-main .countdown {
-  text-align: center;
-  padding: 60px 0;
-}
-
-main .countdown h2 {
-  font-size: var(--heading-font-size-l);
-  margin-bottom: 2rem;
-  color: var(--text-color);
-  letter-spacing: 0.05em;
-}
-
+/* Countdown Timer Styling and Animation */
 #countdown-timer {
-  font-family: var(--heading-font-family);
+  font-family: 'Courier New', monospace;
   font-size: 4rem;
   font-weight: 700;
   color: var(--accent-color);
   text-shadow: 0 0 30px rgba(201, 168, 76, 0.4);
   margin: 2rem 0;
   letter-spacing: 0.1em;
-}
-
-#countdown-timer span {
-  display: inline-block;
-  min-width: 1.2em;
   text-align: center;
   background: linear-gradient(135deg, rgba(201, 168, 76, 0.1), rgba(123, 94, 167, 0.1));
   border: 1px solid rgba(201, 168, 76, 0.3);
   border-radius: var(--border-radius);
-  padding: 0.3em 0.2em;
-  margin: 0 0.1em;
+  padding: 1rem 2rem;
   backdrop-filter: blur(10px);
+  animation: pulse-glow 2s ease-in-out infinite alternate;
 }
 
-main .countdown p {
+@keyframes pulse-glow {
+  0% {
+    text-shadow: 0 0 20px rgba(201, 168, 76, 0.3);
+    box-shadow: 0 0 20px rgba(201, 168, 76, 0.1);
+  }
+  100% {
+    text-shadow: 0 0 40px rgba(201, 168, 76, 0.6);
+    box-shadow: 0 0 40px rgba(201, 168, 76, 0.2);
+  }
+}
+
+.countdown-display {
+  margin: 2rem auto;
+  max-width: 600px;
+}
+
+.countdown-display p {
   font-style: italic;
   color: var(--muted-color);
   font-size: var(--body-font-size-s);
@@ -342,8 +349,32 @@ main .countdown p {
   #countdown-timer {
     font-size: 6rem;
   }
-  
-  main .countdown h2 {
-    font-size: var(--heading-font-size-xl);
-  }
+}
+
+/* JavaScript Countdown Timer - Inline to work in EDS */
+body.appear::after {
+  content: '';
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+
+/* This will trigger when the page loads */
+body.appear {
+  --countdown-js: '';
+}
+
+/* Keyframe for triggering JavaScript */
+@keyframes countdown-init {
+  0% { opacity: 1; }
+  100% { opacity: 1; }
+}
+
+body.appear #countdown-timer {
+  animation: countdown-init 0.1s ease-in-out;
+}
+
+/* CSS custom property to store current time - this will be updated by JS */
+#countdown-timer::before {
+  content: var(--countdown-time, "Loading...");
 }
